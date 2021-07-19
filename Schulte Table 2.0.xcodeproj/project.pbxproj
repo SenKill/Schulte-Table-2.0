@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F766792226A50DE50059B7C4 /* Schulte Table 2.0.swift in Sources */ = {isa = PBXBuildFile; fileRef = F766792126A50DE50059B7C4 /* Schulte Table 2.0.swift */; };
+		F766792E26A53CCC0059B7C4 /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = F766792B26A53CCC0059B7C4 /* correct.wav */; };
+		F766792F26A53CCC0059B7C4 /* wrong(voice).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F766792C26A53CCC0059B7C4 /* wrong(voice).mp3 */; };
+		F766793026A53CCC0059B7C4 /* wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = F766792D26A53CCC0059B7C4 /* wrong.wav */; };
 		F7981D7B26A16A69003ECEFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7981D7A26A16A69003ECEFB /* AppDelegate.swift */; };
 		F7981D7D26A16A69003ECEFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7981D7C26A16A69003ECEFB /* ViewController.swift */; };
 		F7981D8026A16A69003ECEFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7981D7E26A16A69003ECEFB /* Main.storyboard */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F766792126A50DE50059B7C4 /* Schulte Table 2.0.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Schulte Table 2.0.swift"; sourceTree = "<group>"; };
+		F766792B26A53CCC0059B7C4 /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct.wav; sourceTree = "<group>"; };
+		F766792C26A53CCC0059B7C4 /* wrong(voice).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "wrong(voice).mp3"; sourceTree = "<group>"; };
+		F766792D26A53CCC0059B7C4 /* wrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrong.wav; sourceTree = "<group>"; };
 		F7981D7726A16A69003ECEFB /* Schulte Table 2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Schulte Table 2.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7981D7A26A16A69003ECEFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7981D7C26A16A69003ECEFB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +45,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F766793126A53CD30059B7C4 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				F766792B26A53CCC0059B7C4 /* correct.wav */,
+				F766792D26A53CCC0059B7C4 /* wrong.wav */,
+				F766792C26A53CCC0059B7C4 /* wrong(voice).mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		F7981D6E26A16A69003ECEFB = {
 			isa = PBXGroup;
 			children = (
@@ -58,9 +76,11 @@
 			children = (
 				F7981D7A26A16A69003ECEFB /* AppDelegate.swift */,
 				F7981D7C26A16A69003ECEFB /* ViewController.swift */,
+				F766792126A50DE50059B7C4 /* Schulte Table 2.0.swift */,
 				F7981D7E26A16A69003ECEFB /* Main.storyboard */,
 				F7981D8426A16A6F003ECEFB /* Assets.xcassets */,
 				F7981D8626A16A6F003ECEFB /* LaunchScreen.storyboard */,
+				F766793126A53CD30059B7C4 /* Sounds */,
 				F7981D8926A16A6F003ECEFB /* Info.plist */,
 				F7981D8126A16A6A003ECEFB /* Schulte_Table_2_0.xcdatamodeld */,
 			);
@@ -125,8 +145,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F766792F26A53CCC0059B7C4 /* wrong(voice).mp3 in Resources */,
 				F7981D8826A16A6F003ECEFB /* LaunchScreen.storyboard in Resources */,
+				F766792E26A53CCC0059B7C4 /* correct.wav in Resources */,
 				F7981D8526A16A6F003ECEFB /* Assets.xcassets in Resources */,
+				F766793026A53CCC0059B7C4 /* wrong.wav in Resources */,
 				F7981D8026A16A69003ECEFB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,6 +163,7 @@
 			files = (
 				F7981D7D26A16A69003ECEFB /* ViewController.swift in Sources */,
 				F7981D8326A16A6A003ECEFB /* Schulte_Table_2_0.xcdatamodeld in Sources */,
+				F766792226A50DE50059B7C4 /* Schulte Table 2.0.swift in Sources */,
 				F7981D7B26A16A69003ECEFB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
