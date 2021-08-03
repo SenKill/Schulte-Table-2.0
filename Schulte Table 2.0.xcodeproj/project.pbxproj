@@ -7,19 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F753647F26B10EFC002F3C74 /* Result+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F753647D26B10EFC002F3C74 /* Result+CoreDataClass.swift */; };
+		F753648026B10EFC002F3C74 /* Result+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F753647E26B10EFC002F3C74 /* Result+CoreDataProperties.swift */; };
+		F75530F926AAB2180030F9E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F75530F826AAB2180030F9E7 /* Main.storyboard */; };
 		F766792226A50DE50059B7C4 /* Schulte Table 2.0.swift in Sources */ = {isa = PBXBuildFile; fileRef = F766792126A50DE50059B7C4 /* Schulte Table 2.0.swift */; };
 		F766792E26A53CCC0059B7C4 /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = F766792B26A53CCC0059B7C4 /* correct.wav */; };
 		F766792F26A53CCC0059B7C4 /* wrong(voice).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F766792C26A53CCC0059B7C4 /* wrong(voice).mp3 */; };
 		F766793026A53CCC0059B7C4 /* wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = F766792D26A53CCC0059B7C4 /* wrong.wav */; };
 		F7981D7B26A16A69003ECEFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7981D7A26A16A69003ECEFB /* AppDelegate.swift */; };
 		F7981D7D26A16A69003ECEFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7981D7C26A16A69003ECEFB /* ViewController.swift */; };
-		F7981D8026A16A69003ECEFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7981D7E26A16A69003ECEFB /* Main.storyboard */; };
 		F7981D8326A16A6A003ECEFB /* Schulte_Table_2_0.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F7981D8126A16A6A003ECEFB /* Schulte_Table_2_0.xcdatamodeld */; };
 		F7981D8526A16A6F003ECEFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7981D8426A16A6F003ECEFB /* Assets.xcassets */; };
 		F7981D8826A16A6F003ECEFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7981D8626A16A6F003ECEFB /* LaunchScreen.storyboard */; };
+		F7BE332726B5097A00CD9E04 /* thirdBackground.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F7BE332226B5097800CD9E04 /* thirdBackground.jpeg */; };
+		F7BE332826B5097A00CD9E04 /* firstBackgroundBold.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F7BE332326B5097800CD9E04 /* firstBackgroundBold.jpg */; };
+		F7BE332926B5097A00CD9E04 /* firstBackgroundTall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F7BE332426B5097900CD9E04 /* firstBackgroundTall.jpg */; };
+		F7BE332A26B5097A00CD9E04 /* secondBackground.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F7BE332526B5097900CD9E04 /* secondBackground.jpeg */; };
+		F7BE332B26B5097A00CD9E04 /* restartIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = F7BE332626B5097900CD9E04 /* restartIcon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F753647D26B10EFC002F3C74 /* Result+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F753647E26B10EFC002F3C74 /* Result+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F75530F826AAB2180030F9E7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F766792126A50DE50059B7C4 /* Schulte Table 2.0.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Schulte Table 2.0.swift"; sourceTree = "<group>"; };
 		F766792B26A53CCC0059B7C4 /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct.wav; sourceTree = "<group>"; };
 		F766792C26A53CCC0059B7C4 /* wrong(voice).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "wrong(voice).mp3"; sourceTree = "<group>"; };
@@ -27,11 +37,15 @@
 		F7981D7726A16A69003ECEFB /* Schulte Table 2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Schulte Table 2.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7981D7A26A16A69003ECEFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7981D7C26A16A69003ECEFB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F7981D7F26A16A69003ECEFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F7981D8226A16A6A003ECEFB /* Schulte_Table_2_0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Schulte_Table_2_0.xcdatamodel; sourceTree = "<group>"; };
 		F7981D8426A16A6F003ECEFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7981D8726A16A6F003ECEFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F7981D8926A16A6F003ECEFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7BE332226B5097800CD9E04 /* thirdBackground.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thirdBackground.jpeg; sourceTree = "<group>"; };
+		F7BE332326B5097800CD9E04 /* firstBackgroundBold.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = firstBackgroundBold.jpg; sourceTree = "<group>"; };
+		F7BE332426B5097900CD9E04 /* firstBackgroundTall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = firstBackgroundTall.jpg; sourceTree = "<group>"; };
+		F7BE332526B5097900CD9E04 /* secondBackground.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = secondBackground.jpeg; sourceTree = "<group>"; };
+		F7BE332626B5097900CD9E04 /* restartIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restartIcon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +59,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F753648126B10F14002F3C74 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F753647D26B10EFC002F3C74 /* Result+CoreDataClass.swift */,
+				F753647E26B10EFC002F3C74 /* Result+CoreDataProperties.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F766793126A53CD30059B7C4 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,10 +97,12 @@
 		F7981D7926A16A69003ECEFB /* Schulte Table 2.0 */ = {
 			isa = PBXGroup;
 			children = (
+				F7E1E9D126B258360098C78D /* Pictures */,
+				F753648126B10F14002F3C74 /* Model */,
+				F75530F826AAB2180030F9E7 /* Main.storyboard */,
 				F7981D7A26A16A69003ECEFB /* AppDelegate.swift */,
 				F7981D7C26A16A69003ECEFB /* ViewController.swift */,
 				F766792126A50DE50059B7C4 /* Schulte Table 2.0.swift */,
-				F7981D7E26A16A69003ECEFB /* Main.storyboard */,
 				F7981D8426A16A6F003ECEFB /* Assets.xcassets */,
 				F7981D8626A16A6F003ECEFB /* LaunchScreen.storyboard */,
 				F766793126A53CD30059B7C4 /* Sounds */,
@@ -85,6 +110,18 @@
 				F7981D8126A16A6A003ECEFB /* Schulte_Table_2_0.xcdatamodeld */,
 			);
 			path = "Schulte Table 2.0";
+			sourceTree = "<group>";
+		};
+		F7E1E9D126B258360098C78D /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				F7BE332326B5097800CD9E04 /* firstBackgroundBold.jpg */,
+				F7BE332426B5097900CD9E04 /* firstBackgroundTall.jpg */,
+				F7BE332626B5097900CD9E04 /* restartIcon.png */,
+				F7BE332526B5097900CD9E04 /* secondBackground.jpeg */,
+				F7BE332226B5097800CD9E04 /* thirdBackground.jpeg */,
+			);
+			path = Pictures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,12 +182,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F75530F926AAB2180030F9E7 /* Main.storyboard in Resources */,
+				F7BE332A26B5097A00CD9E04 /* secondBackground.jpeg in Resources */,
+				F7BE332726B5097A00CD9E04 /* thirdBackground.jpeg in Resources */,
 				F766792F26A53CCC0059B7C4 /* wrong(voice).mp3 in Resources */,
 				F7981D8826A16A6F003ECEFB /* LaunchScreen.storyboard in Resources */,
+				F7BE332926B5097A00CD9E04 /* firstBackgroundTall.jpg in Resources */,
 				F766792E26A53CCC0059B7C4 /* correct.wav in Resources */,
 				F7981D8526A16A6F003ECEFB /* Assets.xcassets in Resources */,
+				F7BE332B26B5097A00CD9E04 /* restartIcon.png in Resources */,
 				F766793026A53CCC0059B7C4 /* wrong.wav in Resources */,
-				F7981D8026A16A69003ECEFB /* Main.storyboard in Resources */,
+				F7BE332826B5097A00CD9E04 /* firstBackgroundBold.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +204,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7981D7D26A16A69003ECEFB /* ViewController.swift in Sources */,
+				F753647F26B10EFC002F3C74 /* Result+CoreDataClass.swift in Sources */,
+				F753648026B10EFC002F3C74 /* Result+CoreDataProperties.swift in Sources */,
 				F7981D8326A16A6A003ECEFB /* Schulte_Table_2_0.xcdatamodeld in Sources */,
 				F766792226A50DE50059B7C4 /* Schulte Table 2.0.swift in Sources */,
 				F7981D7B26A16A69003ECEFB /* AppDelegate.swift in Sources */,
@@ -171,14 +215,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F7981D7E26A16A69003ECEFB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F7981D7F26A16A69003ECEFB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F7981D8626A16A6F003ECEFB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
