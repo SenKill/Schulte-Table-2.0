@@ -10,8 +10,12 @@ import UIKit
 import AVFoundation
 
 struct DefaultKeys {
-    static let keyOne = "previousResult"
-    static let keyTwo = "bestResult"
+    static let keyOne = "classicPrevious"
+    static let keyTwo = "classicBest"
+    static let keyThree = "lettersPrevious"
+    static let keyFour = "lettersBest"
+    static let keyFive = "redblackPrevious"
+    static let keySix = "redblackBest"
 }
 
 class HomeViewController: UIViewController {
@@ -33,7 +37,12 @@ class HomeViewController: UIViewController {
     var timer: Timer?
     var (seconds, fractions) = (0, 0)
     var nextTarget = 1
+    lazy var targetColor: UIColor = .black
+    lazy var nextTargetRed = 12
+    lazy var isBlack = true
     var lastGameType: GameType = .classic
+    var gameResultPrevious = DefaultKeys.keyOne
+    var gameResultBest = DefaultKeys.keyTwo
     
     @IBAction func touchButton(_ sender: UIButton) {
         if let buttonNumber = buttonsCollection.firstIndex(of: sender) {
@@ -43,7 +52,7 @@ class HomeViewController: UIViewController {
     
     @IBAction func touchRestartButton(_ sender: UIBarButtonItem) {
         stopTimer()
-        startGame(withType: .classic)
+        startGame(withType: lastGameType)
     }
     
     // Side bar menu
@@ -56,6 +65,12 @@ class HomeViewController: UIViewController {
         menuViewController.modalPresentationStyle = .overCurrentContext
         menuViewController.transitioningDelegate = self
         present(menuViewController, animated: true)
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.didTapOnDimmingView(_:)))
+        transition.dimmingView.addGestureRecognizer(gesture)
+    }
+    
+    @objc func didTapOnDimmingView(_ sender:UITapGestureRecognizer) {
+        dismiss(animated: true, completion: nil)
     }
     
     func transitionToNew(_ GameType: GameType) {
@@ -66,14 +81,20 @@ class HomeViewController: UIViewController {
             case .classic:
                 lastGameType = .classic
                 startGame(withType: .classic)
+                gameResultPrevious = DefaultKeys.keyOne
+                gameResultBest = DefaultKeys.keyTwo
+            
             case .letter:
                 lastGameType = .letter
                 startGame(withType: .letter)
+                gameResultPrevious = DefaultKeys.keyThree
+                gameResultBest = DefaultKeys.keyFour
+            
             case .redBlack:
                 lastGameType = .redBlack
                 startGame(withType: .redBlack)
-            default:
-                break
+                gameResultPrevious = DefaultKeys.keyFive
+                gameResultBest = DefaultKeys.keySix
         }
     }
     
@@ -83,7 +104,7 @@ class HomeViewController: UIViewController {
     }
     
     func startGame(withType gameType: GameType) {
-        // TODO: Change design of the application
+        view.addSubview(navigationController!.navigationBar)
         
         seconds = 0
         fractions = 0
@@ -93,51 +114,97 @@ class HomeViewController: UIViewController {
         var button: UIButton
         
         switch gameType {
-        case .classic:
-            let buttonNum = range.shuffled()
+            case .classic:
+                buttonsColoring(firstButtonColor: UIColor(r: 48, g: 62, b: 48, a: 1), secondButtonColor: UIColor(r: 69, g: 80, b: 69, a: 1), withShuffle: false)
+                
+                let buttonNum = range.shuffled()
+                
+                for i in range {
+                    button = buttonsCollection[i-1]
+                    button.setTitle(String(buttonNum[i-1]), for: .normal)
+                }
+                nextTarget = 1
+                nextTargetLabel.text = String(nextTarget)
+                nextTargetLabel.textColor = .white
+
             
-            for i in range {
-                button = buttonsCollection[i-1]
-                button.setTitle(String(buttonNum[i-1]), for: .normal)
-            }
-            nextTarget = 1
-            nextTargetLabel.text = String(nextTarget)
+            case .letter:
+                buttonsColoring(firstButtonColor: UIColor(r: 48, g: 62, b: 48, a: 1), secondButtonColor: UIColor(r: 69, g: 80, b: 69, a: 1), withShuffle: false)
+                
+                let rangeOfLetterNumbers = 97...121
+                let letterNumbers = rangeOfLetterNumbers.shuffled()
+                for i in range {
+                    let letter = Unicode.Scalar(letterNumbers[i-1])!
+                    button = buttonsCollection[i-1]
+                    button.setTitle(String(letter), for: .normal)
+                }
+                nextTarget = 97
+                nextTargetLabel.text = String(Unicode.Scalar(nextTarget)!)
+                nextTargetLabel.textColor = .white
             
-        case .letter:
-            let rangeOfLetterNumbers = 97...121
-            let letterNumbers = rangeOfLetterNumbers.shuffled()
-            for i in range {
-                let letter = Unicode.Scalar(letterNumbers[i-1])!
-                button = buttonsCollection[i-1]
-                button.setTitle(String(letter), for: .normal)
-            }
-            nextTarget = 97
-            nextTargetLabel.text = String(Unicode.Scalar(nextTarget)!)
+            case .redBlack:
+                // Red-black game type
+                buttonsColoring(firstButtonColor: UIColor(r: 132,g: 51,b: 58,a: 1), secondButtonColor: .black, withShuffle: true)
             
-        case .redBlack:
-            // TODO: Make red-black game type
-            break
-        default:
-            print("Error this game type doesn't exist")
-            break
+                nextTarget = 1
+                nextTargetRed = 12
+                nextTargetLabel.text = String(nextTarget)
+                isBlack = true
+                targetColor = .black
+                nextTargetLabel.textColor = .white
+                // 1 черный, 12 красный
         }
+
+        startTimer()
+    }
+
+    func buttonsColoring(firstButtonColor: UIColor, secondButtonColor: UIColor, withShuffle isShuffle: Bool) {
+        var colors: [UIColor] = []
+        var redNumber: [Int] = []
+        var blackNumber: [Int] = []
+        var numIndexBlack = 0
+        var numIndexRed = 0
         
-        
+        if isShuffle {
+            let redNumberRange = 1...12
+            let blackNumberRange = 1...13
+            redNumber = redNumberRange.shuffled()
+            blackNumber = blackNumberRange.shuffled()
+            
+            for _ in 1...12 {
+                colors.append(firstButtonColor)
+            }
+            for _ in 1...13 {
+                colors.append(secondButtonColor)
+            }
+            colors = colors.shuffled()
+        }
         for i in 0..<buttonsCollection.count {
             buttonsCollection[i].setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-            if i%2 == 0 {
-                buttonsCollection[i].backgroundColor = UIColor(r: 107, g: 144, b: 128, a: 1)
+            if isShuffle {
+                if colors[i] == .black {
+                    buttonsCollection[i].backgroundColor = colors[i]
+                    buttonsCollection[i].setTitle(String(blackNumber[numIndexBlack]), for: .normal)
+                    numIndexBlack += 1
+                }
+                else {
+                    buttonsCollection[i].backgroundColor = colors[i]
+                    buttonsCollection[i].setTitle(String(redNumber[numIndexRed]), for: .normal)
+                    numIndexRed += 1
+                }
             }
             else {
-                buttonsCollection[i].backgroundColor = UIColor(r: 164, g: 195, b: 178, a: 1)
+                if i%2 == 0 {
+                    buttonsCollection[i].backgroundColor = firstButtonColor
+                }
+                else {
+                    buttonsCollection[i].backgroundColor = secondButtonColor
+                }
             }
         }
-        startTimer()
     }
     
     func endGame() {
-        // TODO: Turn the navigation bar on dark too
-        // TODO: Make best and previous result for other game types
         
         currentResult = convertTimeToDouble(yourSeconds: seconds, yourFractions: fractions)
         
@@ -146,15 +213,17 @@ class HomeViewController: UIViewController {
         labelsView.isHidden = true
         
         endGameView = UIView(frame: self.view.bounds.self)
-        endGameView!.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5314057707)
+        endGameView!.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5)
+        navigationController?.navigationBar.removeFromSuperview()
+        
         endGameView!.isUserInteractionEnabled = true
         
-        if currentResult! < getResult(forKey: "bestResult") {
-            setResult(yourResult: currentResult!, forKey: "bestResult")
+        if currentResult! < getResult(forKey: gameResultBest) || getResult(forKey: gameResultBest) == 0.0 {
+            setResult(yourResult: currentResult!, forKey: gameResultBest)
         }
         
-        let bestResult = String(getResult(forKey: "bestResult")) + "s"
-        let previousResult = String(getResult(forKey: "previousResult")) + "s"
+        let bestResult = String(getResult(forKey: gameResultBest)) + "s"
+        let previousResult = String(getResult(forKey: gameResultPrevious)) + "s"
         
         installLabel(withYpos: 50, withText: "Your result:", withColor: UIColor(r: 156, g: 192, b: 231, a: 1), withFontSize: 40)
         installLabel(withYpos: 0, withText: "\(currentResult!)s", withColor: UIColor(r: 156, g: 192, b: 231, a: 1), withFontSize: 40)
@@ -163,7 +232,7 @@ class HomeViewController: UIViewController {
         installLabel(withYpos: -150, withText: "Previous result:", withColor: UIColor(r: 255, g: 160, b: 122, a: 0.8), withFontSize: 30)
         installLabel(withYpos: -200, withText: previousResult, withColor: UIColor(r: 255, g: 160, b: 122, a: 0.8), withFontSize: 30)
         
-        setResult(yourResult: currentResult!, forKey: "previousResult")
+        setResult(yourResult: currentResult!, forKey: gameResultPrevious)
         
         self.view.addSubview(endGameView!)
 
@@ -175,7 +244,7 @@ class HomeViewController: UIViewController {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 50))
         label.center = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY - yPos)
         label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: fontSize)
+        label.font = UIFont(name: "CallingCode-Regular", size: fontSize)
         label.text = text
         label.textColor = color
     
@@ -217,44 +286,70 @@ class HomeViewController: UIViewController {
     }
     
     func checkButton(at index: Int) {
-        if let buttonTitle = buttonsCollection[index].currentTitle {
-            if buttonTitle == String(nextTarget) || buttonTitle == String(Unicode.Scalar(nextTarget)!) {
-                buttonsCollection[index].backgroundColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 0)
-                buttonsCollection[index].setTitleColor(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 0), for: .normal)
-                let pathToSound = Bundle.main.path(forResource: "correct", ofType: "wav")
-                let url = URL(fileURLWithPath: pathToSound!)
+        guard buttonsCollection[index].currentTitleColor != #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 0) else { return }
+        let correctSound = {
+            let pathToSound = Bundle.main.path(forResource: "correct", ofType: "wav")
+            let url = URL(fileURLWithPath: pathToSound!)
+            
+            do {
+                self.audioPlayer = try AVAudioPlayer(contentsOf: url)
+                self.audioPlayer?.play()
+            } catch {
                 
-                do {
-                    audioPlayer = try AVAudioPlayer(contentsOf: url)
-                    audioPlayer?.play()
-                } catch {
-                    
+            }
+            self.buttonsCollection[index].backgroundColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 0)
+            self.buttonsCollection[index].setTitleColor(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 0), for: .normal)
+        }
+        
+        let wrongSound = {
+            let pathToSound = Bundle.main.path(forResource: "wrong", ofType: "wav")
+            let url = URL(fileURLWithPath: pathToSound!)
+            do {
+                self.audioPlayer = try AVAudioPlayer(contentsOf: url)
+                self.audioPlayer?.play()
+            } catch {
+                
+            }
+        }
+        if lastGameType == .redBlack {
+            if ((buttonsCollection[index].currentTitle == String(nextTarget) && targetColor == .black || buttonsCollection[index].currentTitle == String(nextTargetRed) && targetColor == UIColor(r: 132, g: 51, b: 58, a: 1)) && buttonsCollection[index].backgroundColor == targetColor) {
+                    correctSound()
+                    if isBlack {
+                        targetColor = UIColor(r: 132,g: 51,b: 58,a: 1) // red
+                        nextTargetLabel.textColor = targetColor
+                        nextTargetLabel.text = String(nextTargetRed)
+                        nextTarget += 1
+                        isBlack = false
+                    }
+                    else {
+                        targetColor = .black // black
+                        nextTargetLabel.textColor = .white
+                        nextTargetLabel.text = String(nextTarget)
+                        nextTargetRed -= 1
+                        isBlack = true
+                    }
                 }
+                else {
+                    wrongSound()
+                }
+        }
+        else {
+            if buttonsCollection[index].currentTitle == String(nextTarget) || buttonsCollection[index].currentTitle == String(Unicode.Scalar(nextTarget)!) {
+                correctSound()
                 nextTarget += 1
-                if nextTarget == 26 || nextTarget == 122 {
-                    endGame()
-                }
-                else if nextTarget > 26 {
+                if lastGameType == .letter {
                     nextTargetLabel.text = String(Unicode.Scalar(nextTarget)!)
                 }
                 else {
                     nextTargetLabel.text = String(nextTarget)
                 }
             }
-            else if buttonsCollection[index].currentTitleColor == #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 0)  { }
             else {
-                let pathToSound = Bundle.main.path(forResource: "wrong", ofType: "wav")
-                let url = URL(fileURLWithPath: pathToSound!)
-                do {
-                    audioPlayer = try AVAudioPlayer(contentsOf: url)
-                    audioPlayer?.play()
-                } catch {
-                    
-                }
+                wrongSound()
             }
         }
+        if nextTarget == 26 && lastGameType != .letter || nextTarget == 14 && lastGameType != .classic || nextTarget == 122 { endGame() }
     }
-    
     @objc func keepTimer() {
         fractions += 1
         seconds += fractions / 100

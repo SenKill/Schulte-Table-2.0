@@ -2,6 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Piazzolla-Light.ttf</string>
+		<string>Piazzolla-Bold.ttf</string>
+		<string>Piazzolla-Medium.ttf</string>
+		<string>Piazzolla-Regular.ttf</string>
+		<string>Sen-Bold.ttf</string>
+		<string>Sen-ExtraBold.ttf</string>
+		<string>Sen-Regular.ttf</string>
+		<string>CallingCode-Regular.ttf</string>
+		<string>SF-Pro</string>
+		<string>Mulish-Bold.ttf</string>
+		<string>Mulish-Regular.ttf</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
