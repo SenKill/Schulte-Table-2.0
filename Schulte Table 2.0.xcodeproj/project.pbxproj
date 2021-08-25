@@ -62,7 +62,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F7175DA926BBF3530011FDD1 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		F7175DA926BBF3530011FDD1 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MenuViewController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		F719F29E26C61E46001628E1 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		F719F2A026C626AF001628E1 /* CallingCode-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CallingCode-Regular.ttf"; sourceTree = "<group>"; };
 		F719F2A426C62D95001628E1 /* Sen-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sen-Bold.ttf"; sourceTree = "<group>"; };

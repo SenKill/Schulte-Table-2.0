@@ -14,14 +14,10 @@ class SlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
     // TODO: Change side bar's menu design!
     var isPresenting = false
     let dimmingView = UIView()
-    
 
-    
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.3
+        return 0.2
     }
-    
-
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
 

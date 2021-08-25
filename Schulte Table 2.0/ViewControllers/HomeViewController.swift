@@ -49,7 +49,6 @@ class HomeViewController: UIViewController {
            checkButton(at: buttonNumber)
         }
     }
-    
     @IBAction func touchRestartButton(_ sender: UIBarButtonItem) {
         stopTimer()
         startGame(withType: lastGameType)
@@ -152,7 +151,6 @@ class HomeViewController: UIViewController {
                 isBlack = true
                 targetColor = .black
                 nextTargetLabel.textColor = .white
-                // 1 черный, 12 красный
         }
 
         startTimer()
@@ -297,6 +295,7 @@ class HomeViewController: UIViewController {
             } catch {
                 
             }
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
             self.buttonsCollection[index].backgroundColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 0)
             self.buttonsCollection[index].setTitleColor(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 0), for: .normal)
         }
