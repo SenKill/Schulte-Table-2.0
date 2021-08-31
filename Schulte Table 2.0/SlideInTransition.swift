@@ -11,7 +11,6 @@
 import UIKit
 
 class SlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
-    // TODO: Change side bar's menu design!
     var isPresenting = false
     let dimmingView = UIView()
 
@@ -26,7 +25,7 @@ class SlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
             let fromViewController = transitionContext.viewController(forKey: .from) else { return }
         
         let containerView = transitionContext.containerView
-        let finalWidth = toViewController.view.bounds.width * 0.6
+        let finalWidth = toViewController.view.bounds.width * 0.7
         let finalHeigth = toViewController.view.bounds.height
         
         if isPresenting {

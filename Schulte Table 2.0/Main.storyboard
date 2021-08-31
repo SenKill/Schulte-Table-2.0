@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mdq-bH-znb">
-    <device id="retina6_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mdq-bH-znb">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -79,7 +78,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="923-ht-IQ0">
+                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="923-ht-IQ0">
                                 <rect key="frame" x="0.0" y="482" width="82" height="82"/>
                                 <color key="backgroundColor" white="0.18155379260000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -93,7 +92,7 @@
                                     <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s10-uL-krq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6T8-jf-dof">
+                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6T8-jf-dof">
                                 <rect key="frame" x="83" y="482" width="82" height="82"/>
                                 <color key="backgroundColor" white="0.18155379262235422" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -107,7 +106,7 @@
                                     <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cvI-kk-VbS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K3v-wd-056">
+                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K3v-wd-056">
                                 <rect key="frame" x="166" y="482" width="82" height="82"/>
                                 <color key="backgroundColor" white="0.18155379262235422" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -121,7 +120,7 @@
                                     <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3qB-Q2-lkw"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scW-jD-8II">
+                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scW-jD-8II">
                                 <rect key="frame" x="249" y="482" width="82" height="82"/>
                                 <color key="backgroundColor" white="0.18155379262235422" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -135,7 +134,7 @@
                                     <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K1B-U0-5Ht"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8b-TC-Pc0">
+                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8b-TC-Pc0">
                                 <rect key="frame" x="332" y="482" width="82" height="82"/>
                                 <color key="backgroundColor" white="0.18155379262235422" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -149,7 +148,7 @@
                                     <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nav-aX-j8B"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XoC-Cf-hMa">
+                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XoC-Cf-hMa">
                                 <rect key="frame" x="0.0" y="565" width="82" height="82"/>
                                 <color key="backgroundColor" white="0.18155379260000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -163,7 +162,7 @@
                                     <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eim-Fs-5qI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ykt-FY-SZo">
+                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ykt-FY-SZo">
                                 <rect key="frame" x="83" y="565" width="82" height="82"/>
                                 <color key="backgroundColor" white="0.18155379260000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -177,7 +176,7 @@
                                     <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pjR-lD-fEW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="df8-na-Xos">
+                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="df8-na-Xos">
                                 <rect key="frame" x="166" y="565" width="82" height="82"/>
                                 <color key="backgroundColor" white="0.18155379260000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -191,7 +190,7 @@
                                     <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xBZ-bs-6W1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7G4-pD-PuO">
+                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7G4-pD-PuO">
                                 <rect key="frame" x="249" y="565" width="82" height="82"/>
                                 <color key="backgroundColor" white="0.18155379260000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -205,7 +204,7 @@
                                     <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dTl-ff-h2s"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCz-iR-xqO">
+                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCz-iR-xqO">
                                 <rect key="frame" x="332" y="565" width="82" height="82"/>
                                 <color key="backgroundColor" white="0.18155379260000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -219,7 +218,7 @@
                                     <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aZL-iQ-bkI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6B-Dy-2RA">
+                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6B-Dy-2RA">
                                 <rect key="frame" x="0.0" y="648" width="82" height="82"/>
                                 <color key="backgroundColor" white="0.18155379260000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -233,7 +232,7 @@
                                     <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fes-TE-tb1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbd-iH-fot">
+                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbd-iH-fot">
                                 <rect key="frame" x="83" y="648" width="82" height="82"/>
                                 <color key="backgroundColor" white="0.18155379260000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -247,7 +246,7 @@
                                     <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WNh-5g-CFk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEP-1o-csW">
+                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEP-1o-csW">
                                 <rect key="frame" x="166" y="648" width="82" height="82"/>
                                 <color key="backgroundColor" white="0.18155379260000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -261,7 +260,7 @@
                                     <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AFb-fY-at5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WDA-vR-Nff">
+                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WDA-vR-Nff">
                                 <rect key="frame" x="249" y="648" width="82" height="82"/>
                                 <color key="backgroundColor" white="0.18155379260000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -275,7 +274,7 @@
                                     <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CHD-IF-ueH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNl-NW-olq">
+                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNl-NW-olq">
                                 <rect key="frame" x="332" y="648" width="82" height="82"/>
                                 <color key="backgroundColor" white="0.18155379260000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -289,7 +288,7 @@
                                     <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oAq-DG-4Pf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQn-PV-0QS">
+                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQn-PV-0QS">
                                 <rect key="frame" x="0.0" y="731" width="82" height="82"/>
                                 <color key="backgroundColor" white="0.18155379260000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -303,7 +302,7 @@
                                     <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b6b-c4-cfM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zEk-h8-AlI">
+                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zEk-h8-AlI">
                                 <rect key="frame" x="83" y="731" width="82" height="82"/>
                                 <color key="backgroundColor" white="0.18155379260000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -317,7 +316,7 @@
                                     <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q3X-Wz-QIL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oy9-jc-P4a">
+                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oy9-jc-P4a">
                                 <rect key="frame" x="166" y="731" width="82" height="82"/>
                                 <color key="backgroundColor" white="0.18155379260000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -331,7 +330,7 @@
                                     <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y9Y-Ut-HB6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEd-N1-vgK">
+                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEd-N1-vgK">
                                 <rect key="frame" x="249" y="731" width="82" height="82"/>
                                 <color key="backgroundColor" white="0.18155379260000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -345,7 +344,7 @@
                                     <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WyD-YT-355"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iov-WJ-tEV">
+                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iov-WJ-tEV">
                                 <rect key="frame" x="332" y="731" width="82" height="82"/>
                                 <color key="backgroundColor" white="0.18155379260000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -359,7 +358,7 @@
                                     <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nns-2g-hox"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yZ-Yf-5De">
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yZ-Yf-5De">
                                 <rect key="frame" x="0.0" y="814" width="82" height="82"/>
                                 <color key="backgroundColor" white="0.18155379260000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -373,7 +372,7 @@
                                     <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cEf-jM-f89"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQf-2p-VDE">
+                            <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQf-2p-VDE">
                                 <rect key="frame" x="83" y="814" width="82" height="82"/>
                                 <color key="backgroundColor" white="0.18155379260000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -387,7 +386,7 @@
                                     <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7be-Nv-tUt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5QK-Aw-uh9">
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5QK-Aw-uh9">
                                 <rect key="frame" x="166" y="814" width="82" height="82"/>
                                 <color key="backgroundColor" white="0.18155379260000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -401,7 +400,7 @@
                                     <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VEY-9r-cmZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Z5-lp-HLo">
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Z5-lp-HLo">
                                 <rect key="frame" x="249" y="814" width="82" height="82"/>
                                 <color key="backgroundColor" white="0.18155379260000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -415,7 +414,7 @@
                                     <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jsm-52-tBr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PG3-vI-Hhv">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PG3-vI-Hhv">
                                 <rect key="frame" x="332" y="814" width="82" height="82"/>
                                 <color key="backgroundColor" white="0.18155379260000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -430,6 +429,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="dwK-2B-wya"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="oy9-jc-P4a" firstAttribute="height" secondItem="aQn-PV-0QS" secondAttribute="height" id="0R1-1D-S0M"/>
@@ -524,15 +524,16 @@
                             <constraint firstItem="df8-na-Xos" firstAttribute="leading" secondItem="ykt-FY-SZo" secondAttribute="trailing" constant="1" id="y3h-3y-PO7"/>
                             <constraint firstItem="qEd-N1-vgK" firstAttribute="top" secondItem="WDA-vR-Nff" secondAttribute="bottom" constant="1" id="z6u-CX-v14"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="dwK-2B-wya"/>
                     </view>
                     <navigationItem key="navigationItem" title="Classic" id="CDU-9W-6po">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="listIcon" landscapeImage="listIcon" id="8JF-dw-3ZJ">
+                            <color key="tintColor" systemColor="systemBlueColor"/>
                             <connections>
                                 <action selector="didTapMenu:" destination="BYZ-38-t0r" id="UiH-GX-4Ca"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="restartButton" image="restartIcon" style="plain" id="iSX-5c-Bci">
+                            <color key="tintColor" systemColor="systemBlueColor"/>
                             <connections>
                                 <action selector="touchRestartButton:" destination="BYZ-38-t0r" id="WlP-f9-BeX"/>
                             </connections>
@@ -581,12 +582,12 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ycL-la-hMO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection headerTitle="Game mode" id="vbk-QJ-OVn">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="94" id="eeD-M8-rxy">
-                                        <rect key="frame" x="0.0" y="55.333333333333343" width="414" height="94"/>
+                                        <rect key="frame" x="0.0" y="55.333332061767578" width="414" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eeD-M8-rxy" id="aHm-TL-Eah">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="94"/>
@@ -594,7 +595,7 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0kP-WP-HoA">
                                                     <rect key="frame" x="18" y="92" width="396" height="2"/>
-                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                    <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="2" id="vXF-Nv-oRV"/>
                                                     </constraints>
@@ -622,7 +623,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="94" id="NuF-G6-p88">
-                                        <rect key="frame" x="0.0" y="149.33333333333334" width="414" height="94"/>
+                                        <rect key="frame" x="0.0" y="149.33333206176758" width="414" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NuF-G6-p88" id="BQd-kG-hVS">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="94"/>
@@ -630,7 +631,7 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aES-H3-1dc">
                                                     <rect key="frame" x="18" y="92" width="396" height="2"/>
-                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                    <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="2" id="3el-zJ-uN4"/>
                                                     </constraints>
@@ -653,7 +654,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="94" id="x8m-QM-LUQ">
-                                        <rect key="frame" x="0.0" y="243.33333333333337" width="414" height="94"/>
+                                        <rect key="frame" x="0.0" y="243.33333206176758" width="414" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x8m-QM-LUQ" id="BLL-Ag-9lh">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="94"/>
@@ -667,7 +668,7 @@
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUS-el-jfm">
                                                     <rect key="frame" x="18" y="92" width="396" height="2"/>
-                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                    <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="2" id="k9i-x2-vzu"/>
                                                     </constraints>
@@ -688,7 +689,7 @@
                             <tableViewSection headerTitle="Other options" id="Gj8-wc-SaR">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="94" id="VVr-5e-vvn">
-                                        <rect key="frame" x="0.0" y="393.33333333333337" width="414" height="94"/>
+                                        <rect key="frame" x="0.0" y="393.33333206176758" width="414" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VVr-5e-vvn" id="dI3-qS-FcC">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="94"/>
@@ -696,7 +697,7 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Evr-Ii-QPm">
                                                     <rect key="frame" x="18" y="92" width="396" height="2"/>
-                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                    <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="2" id="CAm-Ay-Tg8"/>
                                                     </constraints>
@@ -742,10 +743,9 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Mdq-bH-znb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" alpha="0.0" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="ZDs-wJ-ppT">
+                    <navigationBar key="navigationBar" alpha="0.0" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ZDs-wJ-ppT">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="1" green="0.87171899337980874" blue="0.84672980240039419" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -761,5 +761,11 @@
         <image name="firstBackgroundTall" width="2338" height="5315"/>
         <image name="listIcon" width="50" height="50"/>
         <image name="restartIcon" width="50" height="50"/>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
