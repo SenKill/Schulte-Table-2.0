@@ -39,13 +39,7 @@ class MenuViewController: UITableViewController {
             }
         }
     }
-    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        /*if let headerView = view as? UITableViewHeaderFooterView {
-            headerView.contentView.backgroundColor = UIColor(r: 94, g: 94, b: 94, a: 1)
-            headerView.backgroundView?.backgroundColor = .black
-            headerView.textLabel?.textColor = .black
-        }*/
-    }
+    
     func removeResult() {
         dismiss(animated: true, completion: nil)
         let defaults = UserDefaults.standard
