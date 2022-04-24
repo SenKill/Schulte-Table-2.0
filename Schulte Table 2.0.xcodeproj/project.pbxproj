@@ -8,107 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		F7175DAA26BBF3530011FDD1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7175DA926BBF3530011FDD1 /* MenuViewController.swift */; };
-		F719F34126C62D99001628E1 /* Sen-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F2A426C62D95001628E1 /* Sen-Bold.ttf */; };
-		F719F34526C62D99001628E1 /* Sen-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F2A826C62D95001628E1 /* Sen-ExtraBold.ttf */; };
-		F719F34926C62D99001628E1 /* Sen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F2AC26C62D95001628E1 /* Sen-Regular.ttf */; };
-		F719F34F26C62D99001628E1 /* Mulish-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F2B326C62D97001628E1 /* Mulish-Black.ttf */; };
-		F719F35326C62D99001628E1 /* Mulish-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F2B726C62D97001628E1 /* Mulish-BlackItalic.ttf */; };
-		F719F35726C62D99001628E1 /* Mulish-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F2BB26C62D97001628E1 /* Mulish-Bold.ttf */; };
-		F719F35B26C62D99001628E1 /* Mulish-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F2BF26C62D97001628E1 /* Mulish-BoldItalic.ttf */; };
-		F719F35F26C62D99001628E1 /* Mulish-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F2C326C62D97001628E1 /* Mulish-ExtraBold.ttf */; };
-		F719F36326C62D99001628E1 /* Mulish-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F2C726C62D97001628E1 /* Mulish-ExtraBoldItalic.ttf */; };
-		F719F36726C62D99001628E1 /* Mulish-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F2CB26C62D97001628E1 /* Mulish-ExtraLight.ttf */; };
-		F719F36B26C62D99001628E1 /* Mulish-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F2CF26C62D97001628E1 /* Mulish-ExtraLightItalic.ttf */; };
-		F719F36F26C62D99001628E1 /* Mulish-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F2D326C62D97001628E1 /* Mulish-Italic.ttf */; };
-		F719F37326C62D99001628E1 /* Mulish-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F2D726C62D97001628E1 /* Mulish-Light.ttf */; };
-		F719F37726C62D99001628E1 /* Mulish-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F2DB26C62D97001628E1 /* Mulish-LightItalic.ttf */; };
-		F719F37B26C62D99001628E1 /* Mulish-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F2DF26C62D97001628E1 /* Mulish-Medium.ttf */; };
-		F719F37F26C62D99001628E1 /* Mulish-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F2E326C62D97001628E1 /* Mulish-MediumItalic.ttf */; };
-		F719F38326C62D99001628E1 /* Mulish-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F2E726C62D97001628E1 /* Mulish-Regular.ttf */; };
-		F719F38726C62D99001628E1 /* Mulish-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F2EB26C62D97001628E1 /* Mulish-SemiBold.ttf */; };
-		F719F38B26C62D99001628E1 /* Mulish-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F2EF26C62D97001628E1 /* Mulish-SemiBoldItalic.ttf */; };
-		F719F39226C62D99001628E1 /* Piazzolla-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F2F726C62D99001628E1 /* Piazzolla-Black.ttf */; };
-		F719F39626C62D99001628E1 /* Piazzolla-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F2FB26C62D99001628E1 /* Piazzolla-BlackItalic.ttf */; };
-		F719F39A26C62D99001628E1 /* Piazzolla-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F2FF26C62D99001628E1 /* Piazzolla-Bold.ttf */; };
-		F719F39E26C62D99001628E1 /* Piazzolla-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F30326C62D99001628E1 /* Piazzolla-BoldItalic.ttf */; };
-		F719F3A226C62D99001628E1 /* Piazzolla-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F30726C62D99001628E1 /* Piazzolla-ExtraBold.ttf */; };
-		F719F3A626C62D99001628E1 /* Piazzolla-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F30B26C62D99001628E1 /* Piazzolla-ExtraBoldItalic.ttf */; };
-		F719F3AA26C62D99001628E1 /* Piazzolla-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F30F26C62D99001628E1 /* Piazzolla-ExtraLight.ttf */; };
-		F719F3AE26C62D99001628E1 /* Piazzolla-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F31326C62D99001628E1 /* Piazzolla-ExtraLightItalic.ttf */; };
-		F719F3B226C62D99001628E1 /* Piazzolla-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F31726C62D99001628E1 /* Piazzolla-Italic.ttf */; };
-		F719F3B626C62D99001628E1 /* Piazzolla-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F31B26C62D99001628E1 /* Piazzolla-Light.ttf */; };
-		F719F3BA26C62D99001628E1 /* Piazzolla-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F31F26C62D99001628E1 /* Piazzolla-LightItalic.ttf */; };
-		F719F3BE26C62D99001628E1 /* Piazzolla-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F32326C62D99001628E1 /* Piazzolla-Medium.ttf */; };
-		F719F3C226C62D99001628E1 /* Piazzolla-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F32726C62D99001628E1 /* Piazzolla-MediumItalic.ttf */; };
-		F719F3C626C62D99001628E1 /* Piazzolla-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F32B26C62D99001628E1 /* Piazzolla-Regular.ttf */; };
-		F719F3CA26C62D99001628E1 /* Piazzolla-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F32F26C62D99001628E1 /* Piazzolla-SemiBold.ttf */; };
-		F719F3CE26C62D99001628E1 /* Piazzolla-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F33326C62D99001628E1 /* Piazzolla-SemiBoldItalic.ttf */; };
-		F719F3D226C62D99001628E1 /* Piazzolla-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F33726C62D99001628E1 /* Piazzolla-Thin.ttf */; };
-		F719F3D626C62D99001628E1 /* Piazzolla-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F33B26C62D99001628E1 /* Piazzolla-ThinItalic.ttf */; };
-		F719F3DC26C62EC9001628E1 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F29E26C61E46001628E1 /* SF-Pro.ttf */; };
-		F719F3DD26C62ED8001628E1 /* CallingCode-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F719F2A026C626AF001628E1 /* CallingCode-Regular.ttf */; };
 		F72164A026BD0B3D003DC2FB /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F721649F26BD0B3D003DC2FB /* SlideInTransition.swift */; };
+		F7307FD62815A1E0005C545B /* EndGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7307FD52815A1E0005C545B /* EndGameView.swift */; };
+		F7307FD92815A42E005C545B /* LocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7307FD82815A42E005C545B /* LocalService.swift */; };
+		F75162162815105700FCADAD /* SmallExtenions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75162152815105700FCADAD /* SmallExtenions.swift */; };
 		F75530F926AAB2180030F9E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F75530F826AAB2180030F9E7 /* Main.storyboard */; };
 		F766792E26A53CCC0059B7C4 /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = F766792B26A53CCC0059B7C4 /* correct.wav */; };
-		F766792F26A53CCC0059B7C4 /* wrong(voice).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F766792C26A53CCC0059B7C4 /* wrong(voice).mp3 */; };
 		F766793026A53CCC0059B7C4 /* wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = F766792D26A53CCC0059B7C4 /* wrong.wav */; };
 		F7981D7B26A16A69003ECEFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7981D7A26A16A69003ECEFB /* AppDelegate.swift */; };
 		F7981D7D26A16A69003ECEFB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7981D7C26A16A69003ECEFB /* HomeViewController.swift */; };
-		F7981D8326A16A6A003ECEFB /* Schulte_Table_2_0.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F7981D8126A16A6A003ECEFB /* Schulte_Table_2_0.xcdatamodeld */; };
 		F7981D8526A16A6F003ECEFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7981D8426A16A6F003ECEFB /* Assets.xcassets */; };
 		F7981D8826A16A6F003ECEFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7981D8626A16A6F003ECEFB /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F7175DA926BBF3530011FDD1 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MenuViewController.swift; sourceTree = "<group>"; wrapsLines = 1; };
-		F719F29E26C61E46001628E1 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
-		F719F2A026C626AF001628E1 /* CallingCode-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CallingCode-Regular.ttf"; sourceTree = "<group>"; };
-		F719F2A426C62D95001628E1 /* Sen-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sen-Bold.ttf"; sourceTree = "<group>"; };
-		F719F2A826C62D95001628E1 /* Sen-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sen-ExtraBold.ttf"; sourceTree = "<group>"; };
-		F719F2AC26C62D95001628E1 /* Sen-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sen-Regular.ttf"; sourceTree = "<group>"; };
-		F719F2B326C62D97001628E1 /* Mulish-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-Black.ttf"; sourceTree = "<group>"; };
-		F719F2B726C62D97001628E1 /* Mulish-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-BlackItalic.ttf"; sourceTree = "<group>"; };
-		F719F2BB26C62D97001628E1 /* Mulish-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-Bold.ttf"; sourceTree = "<group>"; };
-		F719F2BF26C62D97001628E1 /* Mulish-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-BoldItalic.ttf"; sourceTree = "<group>"; };
-		F719F2C326C62D97001628E1 /* Mulish-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-ExtraBold.ttf"; sourceTree = "<group>"; };
-		F719F2C726C62D97001628E1 /* Mulish-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
-		F719F2CB26C62D97001628E1 /* Mulish-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-ExtraLight.ttf"; sourceTree = "<group>"; };
-		F719F2CF26C62D97001628E1 /* Mulish-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
-		F719F2D326C62D97001628E1 /* Mulish-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-Italic.ttf"; sourceTree = "<group>"; };
-		F719F2D726C62D97001628E1 /* Mulish-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-Light.ttf"; sourceTree = "<group>"; };
-		F719F2DB26C62D97001628E1 /* Mulish-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-LightItalic.ttf"; sourceTree = "<group>"; };
-		F719F2DF26C62D97001628E1 /* Mulish-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-Medium.ttf"; sourceTree = "<group>"; };
-		F719F2E326C62D97001628E1 /* Mulish-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-MediumItalic.ttf"; sourceTree = "<group>"; };
-		F719F2E726C62D97001628E1 /* Mulish-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-Regular.ttf"; sourceTree = "<group>"; };
-		F719F2EB26C62D97001628E1 /* Mulish-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-SemiBold.ttf"; sourceTree = "<group>"; };
-		F719F2EF26C62D97001628E1 /* Mulish-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mulish-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
-		F719F2F726C62D99001628E1 /* Piazzolla-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Piazzolla-Black.ttf"; sourceTree = "<group>"; };
-		F719F2FB26C62D99001628E1 /* Piazzolla-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Piazzolla-BlackItalic.ttf"; sourceTree = "<group>"; };
-		F719F2FF26C62D99001628E1 /* Piazzolla-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Piazzolla-Bold.ttf"; sourceTree = "<group>"; };
-		F719F30326C62D99001628E1 /* Piazzolla-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Piazzolla-BoldItalic.ttf"; sourceTree = "<group>"; };
-		F719F30726C62D99001628E1 /* Piazzolla-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Piazzolla-ExtraBold.ttf"; sourceTree = "<group>"; };
-		F719F30B26C62D99001628E1 /* Piazzolla-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Piazzolla-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
-		F719F30F26C62D99001628E1 /* Piazzolla-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Piazzolla-ExtraLight.ttf"; sourceTree = "<group>"; };
-		F719F31326C62D99001628E1 /* Piazzolla-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Piazzolla-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
-		F719F31726C62D99001628E1 /* Piazzolla-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Piazzolla-Italic.ttf"; sourceTree = "<group>"; };
-		F719F31B26C62D99001628E1 /* Piazzolla-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Piazzolla-Light.ttf"; sourceTree = "<group>"; };
-		F719F31F26C62D99001628E1 /* Piazzolla-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Piazzolla-LightItalic.ttf"; sourceTree = "<group>"; };
-		F719F32326C62D99001628E1 /* Piazzolla-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Piazzolla-Medium.ttf"; sourceTree = "<group>"; };
-		F719F32726C62D99001628E1 /* Piazzolla-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Piazzolla-MediumItalic.ttf"; sourceTree = "<group>"; };
-		F719F32B26C62D99001628E1 /* Piazzolla-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Piazzolla-Regular.ttf"; sourceTree = "<group>"; };
-		F719F32F26C62D99001628E1 /* Piazzolla-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Piazzolla-SemiBold.ttf"; sourceTree = "<group>"; };
-		F719F33326C62D99001628E1 /* Piazzolla-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Piazzolla-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
-		F719F33726C62D99001628E1 /* Piazzolla-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Piazzolla-Thin.ttf"; sourceTree = "<group>"; };
-		F719F33B26C62D99001628E1 /* Piazzolla-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Piazzolla-ThinItalic.ttf"; sourceTree = "<group>"; };
 		F721649F26BD0B3D003DC2FB /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
+		F7307FD52815A1E0005C545B /* EndGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameView.swift; sourceTree = "<group>"; };
+		F7307FD82815A42E005C545B /* LocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalService.swift; sourceTree = "<group>"; };
+		F75162152815105700FCADAD /* SmallExtenions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallExtenions.swift; sourceTree = "<group>"; };
 		F75530F826AAB2180030F9E7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F766792B26A53CCC0059B7C4 /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct.wav; sourceTree = "<group>"; };
-		F766792C26A53CCC0059B7C4 /* wrong(voice).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "wrong(voice).mp3"; sourceTree = "<group>"; };
 		F766792D26A53CCC0059B7C4 /* wrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrong.wav; sourceTree = "<group>"; };
 		F7981D7726A16A69003ECEFB /* Schulte Table 2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Schulte Table 2.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7981D7A26A16A69003ECEFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7981D7C26A16A69003ECEFB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		F7981D8226A16A6A003ECEFB /* Schulte_Table_2_0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Schulte_Table_2_0.xcdatamodel; sourceTree = "<group>"; };
 		F7981D8426A16A6F003ECEFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7981D8726A16A6F003ECEFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F7981D8926A16A6F003ECEFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -134,83 +58,69 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		F719F26226C61D45001628E1 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				F719F2F426C62D99001628E1 /* Piazzolla-Black */,
-				F719F2A126C62D95001628E1 /* Sen */,
-				F719F2B026C62D97001628E1 /* Mulish */,
-				F719F2A026C626AF001628E1 /* CallingCode-Regular.ttf */,
-				F719F29E26C61E46001628E1 /* SF-Pro.ttf */,
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
-		F719F2A126C62D95001628E1 /* Sen */ = {
-			isa = PBXGroup;
-			children = (
-				F719F2A426C62D95001628E1 /* Sen-Bold.ttf */,
-				F719F2A826C62D95001628E1 /* Sen-ExtraBold.ttf */,
-				F719F2AC26C62D95001628E1 /* Sen-Regular.ttf */,
-			);
-			path = Sen;
-			sourceTree = "<group>";
-		};
-		F719F2B026C62D97001628E1 /* Mulish */ = {
-			isa = PBXGroup;
-			children = (
-				F719F2B326C62D97001628E1 /* Mulish-Black.ttf */,
-				F719F2B726C62D97001628E1 /* Mulish-BlackItalic.ttf */,
-				F719F2BB26C62D97001628E1 /* Mulish-Bold.ttf */,
-				F719F2BF26C62D97001628E1 /* Mulish-BoldItalic.ttf */,
-				F719F2C326C62D97001628E1 /* Mulish-ExtraBold.ttf */,
-				F719F2C726C62D97001628E1 /* Mulish-ExtraBoldItalic.ttf */,
-				F719F2CB26C62D97001628E1 /* Mulish-ExtraLight.ttf */,
-				F719F2CF26C62D97001628E1 /* Mulish-ExtraLightItalic.ttf */,
-				F719F2D326C62D97001628E1 /* Mulish-Italic.ttf */,
-				F719F2D726C62D97001628E1 /* Mulish-Light.ttf */,
-				F719F2DB26C62D97001628E1 /* Mulish-LightItalic.ttf */,
-				F719F2DF26C62D97001628E1 /* Mulish-Medium.ttf */,
-				F719F2E326C62D97001628E1 /* Mulish-MediumItalic.ttf */,
-				F719F2E726C62D97001628E1 /* Mulish-Regular.ttf */,
-				F719F2EB26C62D97001628E1 /* Mulish-SemiBold.ttf */,
-				F719F2EF26C62D97001628E1 /* Mulish-SemiBoldItalic.ttf */,
-			);
-			path = Mulish;
-			sourceTree = "<group>";
-		};
-		F719F2F426C62D99001628E1 /* Piazzolla-Black */ = {
-			isa = PBXGroup;
-			children = (
-				F719F2F726C62D99001628E1 /* Piazzolla-Black.ttf */,
-				F719F2FB26C62D99001628E1 /* Piazzolla-BlackItalic.ttf */,
-				F719F2FF26C62D99001628E1 /* Piazzolla-Bold.ttf */,
-				F719F30326C62D99001628E1 /* Piazzolla-BoldItalic.ttf */,
-				F719F30726C62D99001628E1 /* Piazzolla-ExtraBold.ttf */,
-				F719F30B26C62D99001628E1 /* Piazzolla-ExtraBoldItalic.ttf */,
-				F719F30F26C62D99001628E1 /* Piazzolla-ExtraLight.ttf */,
-				F719F31326C62D99001628E1 /* Piazzolla-ExtraLightItalic.ttf */,
-				F719F31726C62D99001628E1 /* Piazzolla-Italic.ttf */,
-				F719F31B26C62D99001628E1 /* Piazzolla-Light.ttf */,
-				F719F31F26C62D99001628E1 /* Piazzolla-LightItalic.ttf */,
-				F719F32326C62D99001628E1 /* Piazzolla-Medium.ttf */,
-				F719F32726C62D99001628E1 /* Piazzolla-MediumItalic.ttf */,
-				F719F32B26C62D99001628E1 /* Piazzolla-Regular.ttf */,
-				F719F32F26C62D99001628E1 /* Piazzolla-SemiBold.ttf */,
-				F719F33326C62D99001628E1 /* Piazzolla-SemiBoldItalic.ttf */,
-				F719F33726C62D99001628E1 /* Piazzolla-Thin.ttf */,
-				F719F33B26C62D99001628E1 /* Piazzolla-ThinItalic.ttf */,
-			);
-			path = "Piazzolla-Black";
-			sourceTree = "<group>";
-		};
 		F719F3DA26C62E50001628E1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F7981D8426A16A6F003ECEFB /* Assets.xcassets */,
+				F7981D8926A16A6F003ECEFB /* Info.plist */,
 				F766793126A53CD30059B7C4 /* Sounds */,
-				F719F26226C61D45001628E1 /* Fonts */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		F7307FD42815A1C4005C545B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F7307FD52815A1E0005C545B /* EndGameView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F7307FD72815A419005C545B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F7307FD82815A42E005C545B /* LocalService.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F751620D28150EE900FCADAD /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				F75162122815103F00FCADAD /* Extensions */,
+				F7981D7A26A16A69003ECEFB /* AppDelegate.swift */,
+				F751620F28150F9000FCADAD /* Helpers */,
+				F751620E28150F8500FCADAD /* Storyboards */,
+				F7307FD42815A1C4005C545B /* Views */,
+				F7175DA826BBF30D0011FDD1 /* ViewControllers */,
+				F7307FD72815A419005C545B /* Model */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		F751620E28150F8500FCADAD /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F75530F826AAB2180030F9E7 /* Main.storyboard */,
+				F7981D8626A16A6F003ECEFB /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		F751620F28150F9000FCADAD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F721649F26BD0B3D003DC2FB /* SlideInTransition.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F75162122815103F00FCADAD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F75162152815105700FCADAD /* SmallExtenions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		F766793126A53CD30059B7C4 /* Sounds */ = {
@@ -218,7 +128,6 @@
 			children = (
 				F766792B26A53CCC0059B7C4 /* correct.wav */,
 				F766792D26A53CCC0059B7C4 /* wrong.wav */,
-				F766792C26A53CCC0059B7C4 /* wrong(voice).mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -242,15 +151,8 @@
 		F7981D7926A16A69003ECEFB /* Schulte Table 2.0 */ = {
 			isa = PBXGroup;
 			children = (
-				F7175DA826BBF30D0011FDD1 /* ViewControllers */,
+				F751620D28150EE900FCADAD /* Sources */,
 				F719F3DA26C62E50001628E1 /* Resources */,
-				F7981D8426A16A6F003ECEFB /* Assets.xcassets */,
-				F721649F26BD0B3D003DC2FB /* SlideInTransition.swift */,
-				F7981D7A26A16A69003ECEFB /* AppDelegate.swift */,
-				F75530F826AAB2180030F9E7 /* Main.storyboard */,
-				F7981D8626A16A6F003ECEFB /* LaunchScreen.storyboard */,
-				F7981D8926A16A6F003ECEFB /* Info.plist */,
-				F7981D8126A16A6A003ECEFB /* Schulte_Table_2_0.xcdatamodeld */,
 			);
 			path = "Schulte Table 2.0";
 			sourceTree = "<group>";
@@ -313,51 +215,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F719F3A226C62D99001628E1 /* Piazzolla-ExtraBold.ttf in Resources */,
-				F719F3DD26C62ED8001628E1 /* CallingCode-Regular.ttf in Resources */,
-				F719F39626C62D99001628E1 /* Piazzolla-BlackItalic.ttf in Resources */,
-				F719F34526C62D99001628E1 /* Sen-ExtraBold.ttf in Resources */,
 				F75530F926AAB2180030F9E7 /* Main.storyboard in Resources */,
-				F719F37726C62D99001628E1 /* Mulish-LightItalic.ttf in Resources */,
-				F719F36326C62D99001628E1 /* Mulish-ExtraBoldItalic.ttf in Resources */,
-				F719F3DC26C62EC9001628E1 /* SF-Pro.ttf in Resources */,
-				F719F34F26C62D99001628E1 /* Mulish-Black.ttf in Resources */,
-				F766792F26A53CCC0059B7C4 /* wrong(voice).mp3 in Resources */,
-				F719F3B626C62D99001628E1 /* Piazzolla-Light.ttf in Resources */,
-				F719F36F26C62D99001628E1 /* Mulish-Italic.ttf in Resources */,
-				F719F35F26C62D99001628E1 /* Mulish-ExtraBold.ttf in Resources */,
-				F719F38B26C62D99001628E1 /* Mulish-SemiBoldItalic.ttf in Resources */,
-				F719F39E26C62D99001628E1 /* Piazzolla-BoldItalic.ttf in Resources */,
-				F719F3D226C62D99001628E1 /* Piazzolla-Thin.ttf in Resources */,
-				F719F3CA26C62D99001628E1 /* Piazzolla-SemiBold.ttf in Resources */,
-				F719F38326C62D99001628E1 /* Mulish-Regular.ttf in Resources */,
-				F719F3BE26C62D99001628E1 /* Piazzolla-Medium.ttf in Resources */,
-				F719F36726C62D99001628E1 /* Mulish-ExtraLight.ttf in Resources */,
-				F719F3C626C62D99001628E1 /* Piazzolla-Regular.ttf in Resources */,
-				F719F38726C62D99001628E1 /* Mulish-SemiBold.ttf in Resources */,
-				F719F3AA26C62D99001628E1 /* Piazzolla-ExtraLight.ttf in Resources */,
 				F7981D8826A16A6F003ECEFB /* LaunchScreen.storyboard in Resources */,
 				F766792E26A53CCC0059B7C4 /* correct.wav in Resources */,
 				F7981D8526A16A6F003ECEFB /* Assets.xcassets in Resources */,
-				F719F35726C62D99001628E1 /* Mulish-Bold.ttf in Resources */,
-				F719F3B226C62D99001628E1 /* Piazzolla-Italic.ttf in Resources */,
-				F719F39226C62D99001628E1 /* Piazzolla-Black.ttf in Resources */,
-				F719F3CE26C62D99001628E1 /* Piazzolla-SemiBoldItalic.ttf in Resources */,
-				F719F37326C62D99001628E1 /* Mulish-Light.ttf in Resources */,
-				F719F35326C62D99001628E1 /* Mulish-BlackItalic.ttf in Resources */,
-				F719F3C226C62D99001628E1 /* Piazzolla-MediumItalic.ttf in Resources */,
-				F719F37B26C62D99001628E1 /* Mulish-Medium.ttf in Resources */,
-				F719F3AE26C62D99001628E1 /* Piazzolla-ExtraLightItalic.ttf in Resources */,
-				F719F36B26C62D99001628E1 /* Mulish-ExtraLightItalic.ttf in Resources */,
-				F719F37F26C62D99001628E1 /* Mulish-MediumItalic.ttf in Resources */,
-				F719F3BA26C62D99001628E1 /* Piazzolla-LightItalic.ttf in Resources */,
-				F719F34126C62D99001628E1 /* Sen-Bold.ttf in Resources */,
-				F719F35B26C62D99001628E1 /* Mulish-BoldItalic.ttf in Resources */,
 				F766793026A53CCC0059B7C4 /* wrong.wav in Resources */,
-				F719F3A626C62D99001628E1 /* Piazzolla-ExtraBoldItalic.ttf in Resources */,
-				F719F39A26C62D99001628E1 /* Piazzolla-Bold.ttf in Resources */,
-				F719F34926C62D99001628E1 /* Sen-Regular.ttf in Resources */,
-				F719F3D626C62D99001628E1 /* Piazzolla-ThinItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,10 +230,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7307FD62815A1E0005C545B /* EndGameView.swift in Sources */,
 				F7981D7D26A16A69003ECEFB /* HomeViewController.swift in Sources */,
+				F7307FD92815A42E005C545B /* LocalService.swift in Sources */,
 				F7175DAA26BBF3530011FDD1 /* MenuViewController.swift in Sources */,
-				F7981D8326A16A6A003ECEFB /* Schulte_Table_2_0.xcdatamodeld in Sources */,
 				F72164A026BD0B3D003DC2FB /* SlideInTransition.swift in Sources */,
+				F75162162815105700FCADAD /* SmallExtenions.swift in Sources */,
 				F7981D7B26A16A69003ECEFB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,7 +379,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZKRYANSM8S;
-				INFOPLIST_FILE = "Schulte Table 2.0/Info.plist";
+				INFOPLIST_FILE = "Schulte Table 2.0/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -535,7 +399,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZKRYANSM8S;
-				INFOPLIST_FILE = "Schulte Table 2.0/Info.plist";
+				INFOPLIST_FILE = "Schulte Table 2.0/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -570,19 +434,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		F7981D8126A16A6A003ECEFB /* Schulte_Table_2_0.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				F7981D8226A16A6A003ECEFB /* Schulte_Table_2_0.xcdatamodel */,
-			);
-			currentVersion = F7981D8226A16A6A003ECEFB /* Schulte_Table_2_0.xcdatamodel */;
-			path = Schulte_Table_2_0.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = F7981D6F26A16A69003ECEFB /* Project object */;
 }
