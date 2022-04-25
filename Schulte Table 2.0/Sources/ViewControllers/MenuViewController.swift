@@ -16,21 +16,21 @@ enum GameType: Int {
 }
 
 class MenuViewController: UITableViewController {
-
+    
     var didTapMenuType: ((GameType) -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Menu"
     }
-
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             guard let GameType = GameType(rawValue: indexPath.row) else { return }
             dismiss(animated: true) { [weak self] in
                 self?.didTapMenuType?(GameType)
             }
-        }
-        else if indexPath.section == 1 {
+        } else if indexPath.section == 1 {
             if indexPath.row == 0 {
                 let alert = UIAlertController(title: "Reseting result", message: "All of your result will be deleted, are you sure?", preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { UIAlertAction in self.handleResetting()}))

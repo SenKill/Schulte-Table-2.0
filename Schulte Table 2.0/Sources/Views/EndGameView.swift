@@ -15,10 +15,10 @@ class EndGameView: UIView {
     var bestValue: Double
     var previousValue: Double
     
-    init(frame: CGRect, current: Double, best: Double, previous: Double) {
+    init(frame: CGRect, previous: Double, current: Double, best: Double) {
+        previousValue = previous
         currentValue = current
         bestValue = best
-        previousValue = previous
         super.init(frame: frame)
         isUserInteractionEnabled = true
         backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5)

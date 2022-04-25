@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 enum DefaultKeys: String {
     case classicPrev = "classicPrevious"
     case classicBest = "classicBest"
@@ -21,11 +20,11 @@ enum DefaultKeys: String {
 class LocalService {
     let defaults = UserDefaults.standard
     
-    func setResult(yourResult result: Double, forKey key: DefaultKeys) {
+    private func setResult(yourResult result: Double, forKey key: DefaultKeys) {
         defaults.set(result ,forKey: key.rawValue)
     }
     
-    func getResult(forKey key: DefaultKeys) -> Double {
+    private func getResult(forKey key: DefaultKeys) -> Double {
         return defaults.double(forKey: key.rawValue)
     }
     
@@ -37,5 +36,21 @@ class LocalService {
         defaults.removeObject(forKey: "lettersBest")
         defaults.removeObject(forKey: "redblackPrevious")
         defaults.removeObject(forKey: "redblackBest")
+    }
+}
+
+extension LocalService {
+    // Checking the current result and saving it in the UserDefault if it's less than the previous best result
+    func handleEndGame(bestKey: DefaultKeys, previousKey: DefaultKeys, timeInfo: (Int, Int)) -> (Double, Double, Double) {
+        
+        let bestResult: Double = getResult(forKey: bestKey)
+        let previousResult: Double  = getResult(forKey: previousKey)
+        let currentResult: Double = Double(timeInfo.0) + Double(timeInfo.1) / 100
+        if currentResult < bestResult || bestResult == 0.0 {
+            setResult(yourResult: currentResult, forKey: bestKey)
+        }
+        
+        setResult(yourResult: currentResult, forKey: previousKey)
+        return (previousResult, currentResult, bestResult)
     }
 }
