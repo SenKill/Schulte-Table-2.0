@@ -15,10 +15,16 @@ enum GameType: Int {
     case redBlack
 }
 
+protocol MenuDelegate: AnyObject {
+    func menuDidResetResults()
+    func menu(didSelectGameType gameType: GameType)
+}
+
 class MenuViewController: UITableViewController {
     
     @IBOutlet weak var resetResultsLabel: UILabel!
-    var didTapMenuType: ((GameType) -> Void)?
+    
+    weak var delegate: MenuDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +35,16 @@ class MenuViewController: UITableViewController {
         if indexPath.section == 0 {
             guard let gameType = GameType(rawValue: indexPath.row) else { return }
             dismiss(animated: true) { [weak self] in
-                self?.didTapMenuType?(gameType)
+                self?.delegate?.menu(didSelectGameType: gameType)
             }
         } else if indexPath.section == 1 {
             if indexPath.row == 0 {
                 let alert = UIAlertController(title: "Reseting result", message: "All of your result will be deleted, are you sure?", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { UIAlertAction in self.handleResetting()}))
-                alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: { _ in self.resetResultsLabel.isHighlighted = false }))
+                alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { UIAlertAction in self.handleResetting()
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: {_ in
+                    self.resetResultsLabel.isHighlighted = false
+                }))
                 self.present(alert, animated: true, completion: nil)
             }
         }
@@ -43,6 +52,7 @@ class MenuViewController: UITableViewController {
     
     private func handleResetting() {
         LocalService().removeResult()
+        delegate?.menuDidResetResults()
         dismiss(animated: true)
     }
 }

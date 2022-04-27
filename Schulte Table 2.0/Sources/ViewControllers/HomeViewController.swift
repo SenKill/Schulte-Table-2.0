@@ -28,7 +28,7 @@ class HomeViewController: UIViewController {
     private var targetColor: UIColor?
     private var nextTargetRed: Int?
     
-    private var gameType: GameType = .classic
+    private var currentGameType: GameType = .classic
     private var gameResultPrevious: DefaultKeys = DefaultKeys.classicPrev
     private var gameResultBest: DefaultKeys = DefaultKeys.classicBest
     
@@ -50,16 +50,14 @@ extension HomeViewController {
     
     @IBAction func touchRestartButton(_ sender: UIBarButtonItem) {
         stopwatch.stop()
-        startGame(withType: gameType)
+        startGame(withType: currentGameType)
     }
     
     // Set up other game types and include them into the side bar
     @IBAction func didTapMenu(_ sender: UIBarButtonItem) {
         guard let menuViewController = storyboard?.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController else { return }
         
-        menuViewController.didTapMenuType = { gameType in
-            self.transitionToNew(gameType)
-        }
+        menuViewController.delegate = self
         menuViewController.modalPresentationStyle = .overCurrentContext
         menuViewController.transitioningDelegate = self
         present(menuViewController, animated: true)
@@ -83,7 +81,7 @@ private extension HomeViewController {
                 button = buttons[i-1]
                 button.setTitle(String(buttonNum[i-1]), for: .normal)
             }
-            nextTarget = 25
+            nextTarget = 1
             nextTargetLabel.text = String(nextTarget)
             nextTargetLabel.textColor = .white
             
@@ -120,19 +118,19 @@ private extension HomeViewController {
         
         switch gameType {
         case .classic:
-            self.gameType = .classic
+            self.currentGameType = .classic
             startGame(withType: .classic)
             gameResultPrevious = DefaultKeys.classicPrev
             gameResultBest = DefaultKeys.classicBest
             
         case .letter:
-            self.gameType = .letter
+            self.currentGameType = .letter
             startGame(withType: .letter)
             gameResultPrevious = DefaultKeys.lettersPrev
             gameResultBest = DefaultKeys.lettersBest
             
         case .redBlack:
-            self.gameType = .redBlack
+            self.currentGameType = .redBlack
             startGame(withType: .redBlack)
             gameResultPrevious = DefaultKeys.lettersPrev
             gameResultBest = DefaultKeys.lettersBest
@@ -195,7 +193,7 @@ private extension HomeViewController {
     }
     
     func checkButton(at index: Int) {
-        if gameType == .redBlack {
+        if currentGameType == .redBlack {
             guard let unwrappedNextTargetRed = nextTargetRed else { return }
             
             let isRightButton: Bool!
@@ -226,7 +224,7 @@ private extension HomeViewController {
             if buttons[index].currentTitle == String(nextTarget) || buttons[index].currentTitle == String(Unicode.Scalar(nextTarget)!) {
                 handleCorrectButton(buttons[index])
                 nextTarget += 1
-                if gameType == .letter {
+                if currentGameType == .letter {
                     nextTargetLabel.text = String(Unicode.Scalar(nextTarget)!)
                 } else {
                     nextTargetLabel.text = String(nextTarget)
@@ -244,7 +242,7 @@ private extension HomeViewController {
     }
     
     func checkIsLast(_ button: UIButton) {
-        if nextTarget == 26 && gameType != .letter || nextTarget == 14 && gameType != .classic || nextTarget == 122 {
+        if nextTarget == 26 && currentGameType != .letter || nextTarget == 14 && currentGameType != .classic || nextTarget == 122 {
             handleCorrectButton(button)
             endGame()
         }
@@ -264,7 +262,7 @@ private extension HomeViewController {
         }
         labelsView.isHidden = false
         
-        startGame(withType: gameType)
+        startGame(withType: currentGameType)
     }
 }
 
@@ -285,5 +283,17 @@ extension HomeViewController: UIViewControllerTransitioningDelegate {
 extension HomeViewController: StopwatchDelegate {
     func stopwatch(secondsDidChanged seconds: Int) {
         timeLabel.text = "\(seconds)"
+    }
+}
+
+// MARK: - MenuDelegate
+extension HomeViewController: MenuDelegate {
+    func menuDidResetResults() {
+        stopwatch.stop()
+        startGame(withType: currentGameType)
+    }
+    
+    func menu(didSelectGameType gameType: GameType) {
+        transitionToNew(gameType)
     }
 }
