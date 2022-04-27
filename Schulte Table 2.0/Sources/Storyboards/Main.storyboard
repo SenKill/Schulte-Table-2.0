@@ -384,7 +384,7 @@
                                                     <constraint firstAttribute="width" constant="90" id="EdU-Ru-xeH"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="z6z-WU-Khf"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="27"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="27"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -394,7 +394,7 @@
                                                     <constraint firstAttribute="width" constant="90" id="4xz-Q1-NQf"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="97Y-QV-0YT"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="27"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="27"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -419,7 +419,7 @@
                                                     <constraint firstAttribute="width" constant="90" id="7jb-Iz-xim"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="T4N-SM-481"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="27"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="27"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -429,7 +429,7 @@
                                                     <constraint firstAttribute="width" constant="90" id="3WC-tj-GJd"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="nR5-Ql-cul"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="27"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="27"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -580,31 +580,31 @@
                         <outlet property="nextTargetLabel" destination="kAU-9y-PpE" id="G8V-Y8-NP6"/>
                         <outlet property="restartButton" destination="iSX-5c-Bci" id="6Nq-LB-xPP"/>
                         <outlet property="timeLabel" destination="VKi-wX-IiP" id="GhA-TW-B4d"/>
-                        <outletCollection property="buttonsCollection" destination="923-ht-IQ0" collectionClass="NSMutableArray" id="TMl-lX-EqF"/>
-                        <outletCollection property="buttonsCollection" destination="6T8-jf-dof" collectionClass="NSMutableArray" id="wXG-P4-Chv"/>
-                        <outletCollection property="buttonsCollection" destination="K3v-wd-056" collectionClass="NSMutableArray" id="XFW-fE-fng"/>
-                        <outletCollection property="buttonsCollection" destination="scW-jD-8II" collectionClass="NSMutableArray" id="Fmj-sD-5GU"/>
-                        <outletCollection property="buttonsCollection" destination="K8b-TC-Pc0" collectionClass="NSMutableArray" id="Dhv-sp-dIB"/>
-                        <outletCollection property="buttonsCollection" destination="XoC-Cf-hMa" collectionClass="NSMutableArray" id="dP9-jL-Hfw"/>
-                        <outletCollection property="buttonsCollection" destination="ykt-FY-SZo" collectionClass="NSMutableArray" id="4H6-UB-qcp"/>
-                        <outletCollection property="buttonsCollection" destination="df8-na-Xos" collectionClass="NSMutableArray" id="bCr-JP-a9t"/>
-                        <outletCollection property="buttonsCollection" destination="7G4-pD-PuO" collectionClass="NSMutableArray" id="MKC-55-W06"/>
-                        <outletCollection property="buttonsCollection" destination="KCz-iR-xqO" collectionClass="NSMutableArray" id="Wvs-0F-dIM"/>
-                        <outletCollection property="buttonsCollection" destination="p6B-Dy-2RA" collectionClass="NSMutableArray" id="WQw-HF-Cwk"/>
-                        <outletCollection property="buttonsCollection" destination="bbd-iH-fot" collectionClass="NSMutableArray" id="Pyk-VE-bBf"/>
-                        <outletCollection property="buttonsCollection" destination="bEP-1o-csW" collectionClass="NSMutableArray" id="xz7-HU-Gc5"/>
-                        <outletCollection property="buttonsCollection" destination="WDA-vR-Nff" collectionClass="NSMutableArray" id="2Bo-PM-4MZ"/>
-                        <outletCollection property="buttonsCollection" destination="vNl-NW-olq" collectionClass="NSMutableArray" id="lrk-55-1zm"/>
-                        <outletCollection property="buttonsCollection" destination="aQn-PV-0QS" collectionClass="NSMutableArray" id="Ics-gw-fdX"/>
-                        <outletCollection property="buttonsCollection" destination="zEk-h8-AlI" collectionClass="NSMutableArray" id="dnx-7S-fxY"/>
-                        <outletCollection property="buttonsCollection" destination="oy9-jc-P4a" collectionClass="NSMutableArray" id="wL4-YC-qLu"/>
-                        <outletCollection property="buttonsCollection" destination="qEd-N1-vgK" collectionClass="NSMutableArray" id="Q1u-iE-pds"/>
-                        <outletCollection property="buttonsCollection" destination="iov-WJ-tEV" collectionClass="NSMutableArray" id="ygb-Dw-MZI"/>
-                        <outletCollection property="buttonsCollection" destination="4yZ-Yf-5De" collectionClass="NSMutableArray" id="5zs-Za-TZV"/>
-                        <outletCollection property="buttonsCollection" destination="cQf-2p-VDE" collectionClass="NSMutableArray" id="I0V-e7-sth"/>
-                        <outletCollection property="buttonsCollection" destination="5QK-Aw-uh9" collectionClass="NSMutableArray" id="ghc-8t-2WF"/>
-                        <outletCollection property="buttonsCollection" destination="2Z5-lp-HLo" collectionClass="NSMutableArray" id="dda-YP-ezP"/>
-                        <outletCollection property="buttonsCollection" destination="PG3-vI-Hhv" collectionClass="NSMutableArray" id="CIt-q2-iBe"/>
+                        <outletCollection property="buttons" destination="923-ht-IQ0" collectionClass="NSMutableArray" id="TMl-lX-EqF"/>
+                        <outletCollection property="buttons" destination="6T8-jf-dof" collectionClass="NSMutableArray" id="wXG-P4-Chv"/>
+                        <outletCollection property="buttons" destination="K3v-wd-056" collectionClass="NSMutableArray" id="XFW-fE-fng"/>
+                        <outletCollection property="buttons" destination="scW-jD-8II" collectionClass="NSMutableArray" id="Fmj-sD-5GU"/>
+                        <outletCollection property="buttons" destination="K8b-TC-Pc0" collectionClass="NSMutableArray" id="Dhv-sp-dIB"/>
+                        <outletCollection property="buttons" destination="XoC-Cf-hMa" collectionClass="NSMutableArray" id="dP9-jL-Hfw"/>
+                        <outletCollection property="buttons" destination="ykt-FY-SZo" collectionClass="NSMutableArray" id="4H6-UB-qcp"/>
+                        <outletCollection property="buttons" destination="df8-na-Xos" collectionClass="NSMutableArray" id="bCr-JP-a9t"/>
+                        <outletCollection property="buttons" destination="7G4-pD-PuO" collectionClass="NSMutableArray" id="MKC-55-W06"/>
+                        <outletCollection property="buttons" destination="KCz-iR-xqO" collectionClass="NSMutableArray" id="Wvs-0F-dIM"/>
+                        <outletCollection property="buttons" destination="p6B-Dy-2RA" collectionClass="NSMutableArray" id="WQw-HF-Cwk"/>
+                        <outletCollection property="buttons" destination="bbd-iH-fot" collectionClass="NSMutableArray" id="Pyk-VE-bBf"/>
+                        <outletCollection property="buttons" destination="bEP-1o-csW" collectionClass="NSMutableArray" id="xz7-HU-Gc5"/>
+                        <outletCollection property="buttons" destination="WDA-vR-Nff" collectionClass="NSMutableArray" id="2Bo-PM-4MZ"/>
+                        <outletCollection property="buttons" destination="vNl-NW-olq" collectionClass="NSMutableArray" id="lrk-55-1zm"/>
+                        <outletCollection property="buttons" destination="aQn-PV-0QS" collectionClass="NSMutableArray" id="Ics-gw-fdX"/>
+                        <outletCollection property="buttons" destination="zEk-h8-AlI" collectionClass="NSMutableArray" id="dnx-7S-fxY"/>
+                        <outletCollection property="buttons" destination="oy9-jc-P4a" collectionClass="NSMutableArray" id="wL4-YC-qLu"/>
+                        <outletCollection property="buttons" destination="qEd-N1-vgK" collectionClass="NSMutableArray" id="Q1u-iE-pds"/>
+                        <outletCollection property="buttons" destination="iov-WJ-tEV" collectionClass="NSMutableArray" id="ygb-Dw-MZI"/>
+                        <outletCollection property="buttons" destination="4yZ-Yf-5De" collectionClass="NSMutableArray" id="5zs-Za-TZV"/>
+                        <outletCollection property="buttons" destination="cQf-2p-VDE" collectionClass="NSMutableArray" id="I0V-e7-sth"/>
+                        <outletCollection property="buttons" destination="5QK-Aw-uh9" collectionClass="NSMutableArray" id="ghc-8t-2WF"/>
+                        <outletCollection property="buttons" destination="2Z5-lp-HLo" collectionClass="NSMutableArray" id="dda-YP-ezP"/>
+                        <outletCollection property="buttons" destination="PG3-vI-Hhv" collectionClass="NSMutableArray" id="CIt-q2-iBe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -618,7 +618,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Pnw-18-POw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.96470588239999999" green="0.89411764709999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.91396385732323226" green="0.85509758096166399" blue="0.71235417076033514" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <sections>
                             <tableViewSection headerTitle="GAME MODE" id="nVw-kK-ebf">
                                 <cells>
@@ -632,8 +632,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classic table" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qac-6Q-71d">
                                                     <rect key="frame" x="35" y="21" width="134.66666666666666" height="28"/>
                                                     <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="21"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
+                                                    <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.96470588239999999" green="0.89411764709999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -652,10 +651,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Letter table" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIk-vl-OS4">
-                                                    <rect key="frame" x="34.999999999999993" y="21" width="120.33333333333331" height="28"/>
+                                                    <rect key="frame" x="35.000000000000007" y="21" width="120.66666666666669" height="28"/>
                                                     <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="21"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
+                                                    <nil key="textColor"/>
+                                                    <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.96470588239999999" green="0.89411764709999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -676,8 +675,8 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red-black table" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhm-oS-Pny">
                                                     <rect key="frame" x="35" y="21" width="166" height="28"/>
                                                     <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="21"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
+                                                    <nil key="textColor"/>
+                                                    <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.96470588239999999" green="0.89411764709999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -700,10 +699,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset results" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRO-Nb-kti">
-                                                    <rect key="frame" x="35" y="21" width="131.66666666666666" height="28"/>
+                                                    <rect key="frame" x="35" y="21" width="132" height="28"/>
                                                     <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="21"/>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
+                                                    <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.96470588239999999" green="0.89411764709999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -722,6 +720,9 @@
                             <outlet property="delegate" destination="L7M-0Y-6Jd" id="Iin-Dd-FHH"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="resetResultsLabel" destination="jRO-Nb-kti" id="3H4-In-25E"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LDp-1X-7xe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

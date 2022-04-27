@@ -14,6 +14,7 @@ class EndGameView: UIView {
     var currentValue: Double
     var bestValue: Double
     var previousValue: Double
+    let fontName: String = "Rockwell"
     
     init(frame: CGRect, previous: Double, current: Double, best: Double) {
         previousValue = previous
@@ -46,7 +47,7 @@ private extension EndGameView {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 100))
         label.center = CGPoint(x: bounds.midX, y: bounds.midY - yPos)
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: fontSize)
+        label.font = UIFont(name: fontName, size: fontSize)
         label.text = text
         label.textColor = color
         label.numberOfLines = 0

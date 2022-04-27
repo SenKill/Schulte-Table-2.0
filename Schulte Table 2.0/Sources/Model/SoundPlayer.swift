@@ -24,7 +24,6 @@ class SoundPlayer {
         
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
-            audioPlayer?.prepareToPlay()
             audioPlayer?.play()
         } catch {
             print("Unexpected error: \(error.localizedDescription)")
