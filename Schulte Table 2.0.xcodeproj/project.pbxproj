@@ -11,8 +11,10 @@
 		F72164A026BD0B3D003DC2FB /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F721649F26BD0B3D003DC2FB /* SlideInTransition.swift */; };
 		F7307FD62815A1E0005C545B /* EndGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7307FD52815A1E0005C545B /* EndGameView.swift */; };
 		F7307FD92815A42E005C545B /* LocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7307FD82815A42E005C545B /* LocalService.swift */; };
+		F7316D44281BF27100AF12A6 /* ButtonsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7316D43281BF27100AF12A6 /* ButtonsCell.swift */; };
 		F75162162815105700FCADAD /* SmallExtenions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75162152815105700FCADAD /* SmallExtenions.swift */; };
 		F75530F926AAB2180030F9E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F75530F826AAB2180030F9E7 /* Main.storyboard */; };
+		F7622234281BFE0800B85057 /* ButtonsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7622233281BFE0800B85057 /* ButtonsCollectionViewController.swift */; };
 		F766792E26A53CCC0059B7C4 /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = F766792B26A53CCC0059B7C4 /* correct.wav */; };
 		F766793026A53CCC0059B7C4 /* wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = F766792D26A53CCC0059B7C4 /* wrong.wav */; };
 		F7981D7B26A16A69003ECEFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7981D7A26A16A69003ECEFB /* AppDelegate.swift */; };
@@ -29,8 +31,10 @@
 		F721649F26BD0B3D003DC2FB /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		F7307FD52815A1E0005C545B /* EndGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameView.swift; sourceTree = "<group>"; };
 		F7307FD82815A42E005C545B /* LocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalService.swift; sourceTree = "<group>"; };
+		F7316D43281BF27100AF12A6 /* ButtonsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsCell.swift; sourceTree = "<group>"; };
 		F75162152815105700FCADAD /* SmallExtenions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallExtenions.swift; sourceTree = "<group>"; };
 		F75530F826AAB2180030F9E7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F7622233281BFE0800B85057 /* ButtonsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsCollectionViewController.swift; sourceTree = "<group>"; };
 		F766792B26A53CCC0059B7C4 /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct.wav; sourceTree = "<group>"; };
 		F766792D26A53CCC0059B7C4 /* wrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrong.wav; sourceTree = "<group>"; };
 		F7981D7726A16A69003ECEFB /* Schulte Table 2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Schulte Table 2.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +64,7 @@
 			children = (
 				F7981D7C26A16A69003ECEFB /* HomeViewController.swift */,
 				F7175DA926BBF3530011FDD1 /* MenuViewController.swift */,
+				F7622233281BFE0800B85057 /* ButtonsCollectionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -78,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				F7307FD52815A1E0005C545B /* EndGameView.swift */,
+				F7316D43281BF27100AF12A6 /* ButtonsCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -241,11 +247,13 @@
 			files = (
 				F7D22A7B28170275001E86AF /* SoundPlayer.swift in Sources */,
 				F7307FD62815A1E0005C545B /* EndGameView.swift in Sources */,
+				F7622234281BFE0800B85057 /* ButtonsCollectionViewController.swift in Sources */,
 				F7981D7D26A16A69003ECEFB /* HomeViewController.swift in Sources */,
 				F7307FD92815A42E005C545B /* LocalService.swift in Sources */,
 				F7175DAA26BBF3530011FDD1 /* MenuViewController.swift in Sources */,
 				F7D22A792816AF88001E86AF /* UIColor.swift in Sources */,
 				F72164A026BD0B3D003DC2FB /* SlideInTransition.swift in Sources */,
+				F7316D44281BF27100AF12A6 /* ButtonsCell.swift in Sources */,
 				F75162162815105700FCADAD /* SmallExtenions.swift in Sources */,
 				F7981D7B26A16A69003ECEFB /* AppDelegate.swift in Sources */,
 				F7D22A772816A637001E86AF /* Stopwatch.swift in Sources */,

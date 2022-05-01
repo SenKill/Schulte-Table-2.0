@@ -40,7 +40,7 @@ class SlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
         
         // Animate on screen
         let transform = {
-            self.dimmingView.alpha = 0.5
+            self.dimmingView.alpha = 0.3
             toViewController.view.transform = CGAffineTransform(translationX: finalWidth, y: 0)
         }
         

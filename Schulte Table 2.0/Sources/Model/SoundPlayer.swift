@@ -16,7 +16,7 @@ class SoundPlayer {
         static let type = "wav"
     }
     
-    var audioPlayer: AVAudioPlayer?
+    private var audioPlayer: AVAudioPlayer?
     
     func playCorrect() {
         guard let pathToSound = Bundle.main.path(forResource: ResourceNames.correct, ofType: ResourceNames.type) else { return }
