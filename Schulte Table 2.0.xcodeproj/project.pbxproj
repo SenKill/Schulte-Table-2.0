@@ -21,6 +21,7 @@
 		F7981D7D26A16A69003ECEFB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7981D7C26A16A69003ECEFB /* HomeViewController.swift */; };
 		F7981D8526A16A6F003ECEFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7981D8426A16A6F003ECEFB /* Assets.xcassets */; };
 		F7981D8826A16A6F003ECEFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7981D8626A16A6F003ECEFB /* LaunchScreen.storyboard */; };
+		F7B4C7BB281FAA39005E4535 /* SchulteTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4C7BA281FAA39005E4535 /* SchulteTable.swift */; };
 		F7D22A772816A637001E86AF /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D22A762816A637001E86AF /* Stopwatch.swift */; };
 		F7D22A792816AF88001E86AF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D22A782816AF88001E86AF /* UIColor.swift */; };
 		F7D22A7B28170275001E86AF /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D22A7A28170275001E86AF /* SoundPlayer.swift */; };
@@ -43,6 +44,7 @@
 		F7981D8426A16A6F003ECEFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7981D8726A16A6F003ECEFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F7981D8926A16A6F003ECEFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7B4C7BA281FAA39005E4535 /* SchulteTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchulteTable.swift; sourceTree = "<group>"; };
 		F7D22A762816A637001E86AF /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
 		F7D22A782816AF88001E86AF /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		F7D22A7A28170275001E86AF /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				F7307FD82815A42E005C545B /* LocalService.swift */,
 				F7D22A762816A637001E86AF /* Stopwatch.swift */,
 				F7D22A7A28170275001E86AF /* SoundPlayer.swift */,
+				F7B4C7BA281FAA39005E4535 /* SchulteTable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				F7D22A7B28170275001E86AF /* SoundPlayer.swift in Sources */,
 				F7307FD62815A1E0005C545B /* EndGameView.swift in Sources */,
 				F7622234281BFE0800B85057 /* ButtonsCollectionViewController.swift in Sources */,
+				F7B4C7BB281FAA39005E4535 /* SchulteTable.swift in Sources */,
 				F7981D7D26A16A69003ECEFB /* HomeViewController.swift in Sources */,
 				F7307FD92815A42E005C545B /* LocalService.swift in Sources */,
 				F7175DAA26BBF3530011FDD1 /* MenuViewController.swift in Sources */,

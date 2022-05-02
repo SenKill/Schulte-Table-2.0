@@ -14,7 +14,6 @@ class HomeViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet var nextTargetLabel: UILabel!
-    @IBOutlet var buttons: [UIButton]!
     @IBOutlet var labelsView: UIView!
     @IBOutlet var restartButton: UIBarButtonItem!
     @IBOutlet weak var buttonsCollectionView: UICollectionView!
@@ -25,10 +24,6 @@ class HomeViewController: UIViewController {
     private let stopwatch = Stopwatch()
     private var endGameView: EndGameView!
     private var numberOfItems = 25
-    
-    // Red-black properties
-    private var targetColor: UIColor?
-    private var nextTargetRed: Int?
     
     private var currentGameType: GameType = .classic
     private var gameResultPrevious: DefaultKeys = DefaultKeys.classicPrev
@@ -68,48 +63,47 @@ extension HomeViewController {
 // MARK: - Internal
 private extension HomeViewController {
     func startGame(withType gameType: GameType) {
+        buttonsVC.game = SchulteTable()
         buttonsVC.currentGameType = gameType
+        buttonsVC.game.numberOfItems = numberOfItems
         var titles: [String] = []
         var colors: [UIColor] = []
         let range = 1...numberOfItems
+        
+        buttonsVC.game.nextTarget = 1
+        nextTargetLabel.text = String(buttonsVC.game.nextTarget)
+        nextTargetLabel.textColor = .white
+        
         switch gameType {
         case .classic:
             range.forEach { number in
                 titles.append(String(number))
             }
-            titles.shuffle()
             colors = getOrderedColors(first: UIColor.theme.classicFirstColor, second: UIColor.theme.classicSecondColor)
             
-            buttonsVC.nextTarget = 1
-            nextTargetLabel.text = String(buttonsVC.nextTarget)
-            nextTargetLabel.textColor = .white
-            
         case .letter:
-            let rangeOfLetterNumbers = 97...121
-            let letterNumbers = rangeOfLetterNumbers.shuffled()
+            let smallCharacters = 97...122
+            let capitalCharacters = 65...90
+            
+            let letterArray = Array(smallCharacters) + Array(capitalCharacters)
             for i in range {
-                let letter = String(Unicode.Scalar(letterNumbers[i-1])!)
+                let letter = String(Unicode.Scalar(letterArray[i-1])!)
                 titles.append(letter)
             }
             
             colors = getOrderedColors(first: UIColor.theme.letterFirstColor, second: UIColor.theme.letterSecondColor)
-            buttonsVC.nextTarget = 97
-            nextTargetLabel.text = String(Unicode.Scalar(buttonsVC.nextTarget)!)
-            nextTargetLabel.textColor = .white
+            buttonsVC.game.nextTarget = 97
+            buttonsVC.game.letterLastTarget = letterArray[numberOfItems-1] + 1
+            nextTargetLabel.text = String(Unicode.Scalar(buttonsVC.game.nextTarget)!)
             
         case .redBlack:
             colors = getDisorderedColors(first: UIColor.theme.redBlackFirstColor, second: UIColor.theme.redBlackSecondColor)
-            buttonsVC.nextTarget = 1
-            nextTargetRed = numberOfItems
-            nextTargetLabel.text = String(buttonsVC.nextTarget)
-            targetColor = UIColor.theme.redBlackSecondColor
-            nextTargetLabel.textColor = .white
         }
-        buttonsVC.titles = titles
-        buttonsVC.colors = colors
-        buttonsVC.numberOfItems = numberOfItems
+        titles.shuffle()
+        buttonsVC.game.titles = titles
+        buttonsVC.game.colors = colors
         
-        buttonsCollectionView.reloadSections(IndexSet(integer: 0))
+        buttonsCollectionView.reloadItems(at: buttonsCollectionView.indexPathsForVisibleItems)
         stopwatch.start()
     }
     
@@ -140,7 +134,22 @@ private extension HomeViewController {
     
     func getOrderedColors(first firstColor: UIColor, second secondColor: UIColor) -> [UIColor] {
         var colors: [UIColor] = []
-    
+        var isRowEven: Bool = false
+        
+        if buttonsVC.game.isItemsEven {
+            for i in 1...numberOfItems {
+                if (!isRowEven && i%2 == 0) || (isRowEven && i%2 == 1) {
+                    colors.append(firstColor)
+                } else {
+                    colors.append(secondColor)
+                }
+                if i%Int(sqrt(Double(numberOfItems))) == 0 {
+                    isRowEven.toggle()
+                }
+            }
+            return colors
+        }
+        
         for i in 1...numberOfItems {
             if i%2 == 0 {
                 colors.append(firstColor)

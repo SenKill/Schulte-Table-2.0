@@ -17,43 +17,16 @@ protocol ButtonsCollectionDelegate: AnyObject {
 class ButtonsCollectionViewController: UICollectionViewController {
     weak var delegate: ButtonsCollectionDelegate?
     
-    var numberOfItems: Int = 0
-    var colors: [UIColor] = []
-    var titles: [String] = []
+    var game: SchulteTable!
     var currentGameType: GameType = .classic
     
     private let soundPlayer = SoundPlayer()
-    
-    var nextTarget = 1
-    // Red-black properties
-    private lazy var targetColor: UIColor = UIColor.theme.redBlackSecondColor
-    private lazy var nextTargetRed: Int = numberOfItems / 2
-    private lazy var redTitles: [Int] = (1...numberOfItems/2).shuffled()
-    private lazy var blackTitles: [Int] = numberOfItems%2==0 ? (1...numberOfItems/2).shuffled() : (1...numberOfItems/2 + 1).shuffled()
-    private lazy var redCount: Int = 0
-    private lazy var blackCount: Int = 0
-    
-    // MARK: - View's life cycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    // TODO: Create and implement properly a reset method
-    func resetGame() {
-        nextTarget = 1
-        targetColor = UIColor.theme.redBlackSecondColor
-        nextTargetRed = numberOfItems / 2
-        redTitles = (1...numberOfItems/2).shuffled()
-        blackTitles = numberOfItems%2==0 ? (1...numberOfItems/2).shuffled() : (1...numberOfItems/2 + 1).shuffled()
-        redCount = 0
-        blackCount = 0
-    }
 }
 
 // MARK: - Data source
 extension ButtonsCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        numberOfItems
+        game.numberOfItems
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -61,15 +34,15 @@ extension ButtonsCollectionViewController {
             return UICollectionViewCell()
         }
         
-        var buttonTitle: String = titles.isEmpty ? "" : titles[indexPath.row]
-        let buttonColor = colors[indexPath.row]
+        var buttonTitle: String = game.titles.isEmpty ? "" : game.titles[indexPath.row]
+        let buttonColor = game.colors[indexPath.row]
         if currentGameType == .redBlack {
             if buttonColor == UIColor.theme.redBlackSecondColor {
-                buttonTitle = String(blackTitles[blackCount])
-                blackCount += 1
+                buttonTitle = String(game.blackTitles[game.blackCount])
+                game.blackCount += 1
             } else if buttonColor == UIColor.theme.redBlackFirstColor {
-                buttonTitle = String(redTitles[redCount])
-                redCount += 1
+                buttonTitle = String(game.redTitles[game.redCount])
+                game.redCount += 1
             }
         }
         cell.configureCell(with: buttonTitle, color: buttonColor)
@@ -87,22 +60,27 @@ extension ButtonsCollectionViewController {
 // MARK: - UICollectionViewDelegateFlowLayout
 extension ButtonsCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        // TODO: Scale cells depending on the screen size
-        CGSize(width: 82, height: 82)
+        let bounds = UIScreen.main.bounds
+        let cellWidth = (bounds.width / sqrt(CGFloat(game.numberOfItems))) - 1
+        return CGSize(width: cellWidth, height: cellWidth)
     }
 }
 
 // MARK: - Internal
-extension ButtonsCollectionViewController {
+private extension ButtonsCollectionViewController {
     func checkButton(_ button: UIButton) {
-        if button.currentTitle == String(nextTarget) || button.currentTitle == String(Unicode.Scalar(nextTarget)!) {
+        if button.currentTitle == String(game.nextTarget) || button.currentTitle == String(Unicode.Scalar(game.nextTarget)!) {
             handleCorrectButton(button)
-            nextTarget += 1
+            game.nextTarget += 1
+            // Transition to capital letters in the Letter game type
+            if game.nextTarget == 123 {
+                game.nextTarget = 65
+            }
             var textForTargetLabel: String = ""
             if currentGameType == .letter {
-                textForTargetLabel = String(Unicode.Scalar(nextTarget)!)
+                textForTargetLabel = String(Unicode.Scalar(game.nextTarget)!)
             } else {
-                textForTargetLabel = String(nextTarget)
+                textForTargetLabel = String(game.nextTarget)
             }
             delegate?.buttonsCollection(changeTargetLabelWithText: textForTargetLabel, color: nil)
             checkIsLast(button)
@@ -115,23 +93,23 @@ extension ButtonsCollectionViewController {
         // Decomposing if else logic, and storing it in the property below
         let isRightButton: Bool!
         let backgroundColorIsBlack: Bool = button.backgroundColor == UIColor.theme.redBlackSecondColor
-        if targetColor == UIColor.theme.redBlackSecondColor {
-            isRightButton = button.currentTitle == String(nextTarget) && backgroundColorIsBlack
+        if game.targetColor == UIColor.theme.redBlackSecondColor {
+            isRightButton = button.currentTitle == String(game.nextTarget) && backgroundColorIsBlack
         } else {
-            isRightButton = button.currentTitle == String(nextTargetRed) && !backgroundColorIsBlack
+            isRightButton = button.currentTitle == String(game.nextTargetRed) && !backgroundColorIsBlack
         }
         
         // If the button was right then it will send the new text to the master through delegate
         if isRightButton {
             handleCorrectButton(button)
-            if targetColor == UIColor.theme.redBlackSecondColor {
-                nextTarget += 1
-                targetColor = UIColor.theme.redBlackFirstColor
-                delegate?.buttonsCollection(changeTargetLabelWithText: String(nextTargetRed), color: targetColor)
+            if game.targetColor == UIColor.theme.redBlackSecondColor {
+                game.nextTarget += 1
+                game.targetColor = UIColor.theme.redBlackFirstColor
+                delegate?.buttonsCollection(changeTargetLabelWithText: String(game.nextTargetRed), color: game.targetColor)
             } else {
-                nextTargetRed -= 1
-                targetColor = UIColor.theme.redBlackSecondColor
-                delegate?.buttonsCollection(changeTargetLabelWithText: String(nextTarget), color: .white)
+                game.nextTargetRed -= 1
+                game.targetColor = UIColor.theme.redBlackSecondColor
+                delegate?.buttonsCollection(changeTargetLabelWithText: String(game.nextTarget), color: .white)
             }
             checkIsLast(button)
             return
@@ -145,8 +123,7 @@ extension ButtonsCollectionViewController {
     }
     
     func checkIsLast(_ button: UIButton) {
-        // TODO: Make next target for letter game type adaptive
-        if nextTarget == numberOfItems+1 && currentGameType != .letter || nextTarget == blackTitles.last && currentGameType != .classic || nextTarget == 122 {
+        if game.nextTarget == game.numberOfItems+1 || game.nextTarget == game.redBlackLastTarget && currentGameType != .classic || game.nextTarget == game.letterLastTarget {
             handleCorrectButton(button)
             delegate?.buttonsCollectionDidEndGame()
         }
