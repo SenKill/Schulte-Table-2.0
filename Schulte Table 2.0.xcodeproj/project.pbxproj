@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F708665928210CA500053459 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F708665828210CA400053459 /* SettingsTableViewController.swift */; };
+		F708665B28210EC100053459 /* TableSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F708665A28210EC100053459 /* TableSize.swift */; };
 		F7175DAA26BBF3530011FDD1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7175DA926BBF3530011FDD1 /* MenuViewController.swift */; };
 		F72164A026BD0B3D003DC2FB /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F721649F26BD0B3D003DC2FB /* SlideInTransition.swift */; };
 		F7307FD62815A1E0005C545B /* EndGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7307FD52815A1E0005C545B /* EndGameView.swift */; };
@@ -25,9 +27,12 @@
 		F7D22A772816A637001E86AF /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D22A762816A637001E86AF /* Stopwatch.swift */; };
 		F7D22A792816AF88001E86AF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D22A782816AF88001E86AF /* UIColor.swift */; };
 		F7D22A7B28170275001E86AF /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D22A7A28170275001E86AF /* SoundPlayer.swift */; };
+		F7E21F7728218B54000A1B5E /* SizeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E21F7628218B54000A1B5E /* SizeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F708665828210CA400053459 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		F708665A28210EC100053459 /* TableSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSize.swift; sourceTree = "<group>"; };
 		F7175DA926BBF3530011FDD1 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MenuViewController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		F721649F26BD0B3D003DC2FB /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		F7307FD52815A1E0005C545B /* EndGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameView.swift; sourceTree = "<group>"; };
@@ -48,6 +53,7 @@
 		F7D22A762816A637001E86AF /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
 		F7D22A782816AF88001E86AF /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		F7D22A7A28170275001E86AF /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
+		F7E21F7628218B54000A1B5E /* SizeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +70,7 @@
 		F7175DA826BBF30D0011FDD1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F7E21F7528218B3C000A1B5E /* Settings */,
 				F7981D7C26A16A69003ECEFB /* HomeViewController.swift */,
 				F7175DA926BBF3530011FDD1 /* MenuViewController.swift */,
 				F7622233281BFE0800B85057 /* ButtonsCollectionViewController.swift */,
@@ -97,6 +104,7 @@
 				F7D22A762816A637001E86AF /* Stopwatch.swift */,
 				F7D22A7A28170275001E86AF /* SoundPlayer.swift */,
 				F7B4C7BA281FAA39005E4535 /* SchulteTable.swift */,
+				F708665A28210EC100053459 /* TableSize.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -173,6 +181,15 @@
 				F719F3DA26C62E50001628E1 /* Resources */,
 			);
 			path = "Schulte Table 2.0";
+			sourceTree = "<group>";
+		};
+		F7E21F7528218B3C000A1B5E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F708665828210CA400053459 /* SettingsTableViewController.swift */,
+				F7E21F7628218B54000A1B5E /* SizeTableViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,13 +271,16 @@
 				F7B4C7BB281FAA39005E4535 /* SchulteTable.swift in Sources */,
 				F7981D7D26A16A69003ECEFB /* HomeViewController.swift in Sources */,
 				F7307FD92815A42E005C545B /* LocalService.swift in Sources */,
+				F708665928210CA500053459 /* SettingsTableViewController.swift in Sources */,
 				F7175DAA26BBF3530011FDD1 /* MenuViewController.swift in Sources */,
 				F7D22A792816AF88001E86AF /* UIColor.swift in Sources */,
 				F72164A026BD0B3D003DC2FB /* SlideInTransition.swift in Sources */,
+				F7E21F7728218B54000A1B5E /* SizeTableViewController.swift in Sources */,
 				F7316D44281BF27100AF12A6 /* ButtonsCell.swift in Sources */,
 				F75162162815105700FCADAD /* SmallExtenions.swift in Sources */,
 				F7981D7B26A16A69003ECEFB /* AppDelegate.swift in Sources */,
 				F7D22A772816A637001E86AF /* Stopwatch.swift in Sources */,
+				F708665B28210EC100053459 /* TableSize.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

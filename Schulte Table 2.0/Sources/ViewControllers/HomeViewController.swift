@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var buttonsCollectionView: UICollectionView!
     
     private let buttonsVC = ButtonsCollectionViewController()
+    private var settingsVC: SettingsTableViewController?
     private let localService = LocalService()
     private let transition = SlideInTransition()
     private let stopwatch = Stopwatch()
@@ -32,11 +33,22 @@ class HomeViewController: UIViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.largeTitleDisplayMode = .never
         buttonsCollectionView.dataSource = buttonsVC
         buttonsCollectionView.delegate = buttonsVC
         buttonsVC.delegate = self
         stopwatch.delegate = self
         startGame(withType: .classic)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // Everytime when settings is being closed it will check the selected size
+        if let number = settingsVC?.selectedSize.numberOfItems,
+           number != numberOfItems {
+            numberOfItems = number
+            startGame(withType: currentGameType)
+        }
+        super.viewWillAppear(animated)
     }
 }
 
@@ -134,21 +146,6 @@ private extension HomeViewController {
     
     func getOrderedColors(first firstColor: UIColor, second secondColor: UIColor) -> [UIColor] {
         var colors: [UIColor] = []
-        var isRowEven: Bool = false
-        
-        if buttonsVC.game.isItemsEven {
-            for i in 1...numberOfItems {
-                if (!isRowEven && i%2 == 0) || (isRowEven && i%2 == 1) {
-                    colors.append(firstColor)
-                } else {
-                    colors.append(secondColor)
-                }
-                if i%Int(sqrt(Double(numberOfItems))) == 0 {
-                    isRowEven.toggle()
-                }
-            }
-            return colors
-        }
         
         for i in 1...numberOfItems {
             if i%2 == 0 {
@@ -214,6 +211,15 @@ extension HomeViewController: StopwatchDelegate {
 
 // MARK: - MenuDelegate
 extension HomeViewController: MenuDelegate {
+    func menuDidSelectSettings() {
+        guard let settingsViewController = storyboard?.instantiateViewController(withIdentifier: "SettingsTableViewController") as? SettingsTableViewController else {
+            print("Can't insantiate SettingsTableViewController")
+            return
+        }
+        settingsVC = settingsViewController
+        navigationController?.pushViewController(settingsVC!, animated: true)
+    }
+    
     func menuDidResetResults() {
         stopwatch.stop()
         startGame(withType: currentGameType)

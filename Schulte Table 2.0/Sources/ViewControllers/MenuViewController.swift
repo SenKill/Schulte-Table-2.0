@@ -16,8 +16,9 @@ enum GameType: Int {
 }
 
 protocol MenuDelegate: AnyObject {
-    func menuDidResetResults()
     func menu(didSelectGameType gameType: GameType)
+    func menuDidResetResults()
+    func menuDidSelectSettings()
 }
 
 class MenuViewController: UITableViewController {
@@ -26,11 +27,6 @@ class MenuViewController: UITableViewController {
     
     weak var delegate: MenuDelegate?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        title = "Menu"
-    }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             guard let gameType = GameType(rawValue: indexPath.row) else { return }
@@ -38,7 +34,11 @@ class MenuViewController: UITableViewController {
                 self?.delegate?.menu(didSelectGameType: gameType)
             }
         } else if indexPath.section == 1 {
-            if indexPath.row == 0 {
+            switch indexPath.row {
+            case 0:
+                dismiss(animated: true)
+                delegate?.menuDidSelectSettings()
+            case 1:
                 let alert = UIAlertController(title: "Reseting result", message: "All of your result will be deleted, are you sure?", preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { UIAlertAction in self.handleResetting()
                 }))
@@ -46,6 +46,8 @@ class MenuViewController: UITableViewController {
                     self.resetResultsLabel.isHighlighted = false
                 }))
                 self.present(alert, animated: true, completion: nil)
+            default:
+                print("Undefined row")
             }
         }
     }
