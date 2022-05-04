@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
     private let transition = SlideInTransition()
     private let stopwatch = Stopwatch()
     private var endGameView: EndGameView!
-    private var numberOfItems = 25
+    private var tableSize: TableSize!
     
     private var currentGameType: GameType = .classic
     private var gameResultPrevious: DefaultKeys = DefaultKeys.classicPrev
@@ -33,6 +33,7 @@ class HomeViewController: UIViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableSize = TableSize(rawValue: localService.getLastTableSize() ?? 2)
         navigationItem.largeTitleDisplayMode = .never
         buttonsCollectionView.dataSource = buttonsVC
         buttonsCollectionView.delegate = buttonsVC
@@ -43,9 +44,10 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         // Everytime when settings is being closed it will check the selected size
-        if let number = settingsVC?.selectedSize.numberOfItems,
-           number != numberOfItems {
-            numberOfItems = number
+        if let size = settingsVC?.selectedSize,
+           size != tableSize {
+            tableSize = size
+            stopwatch.stop()
             startGame(withType: currentGameType)
         }
         super.viewWillAppear(animated)
@@ -75,13 +77,13 @@ extension HomeViewController {
 // MARK: - Internal
 private extension HomeViewController {
     func startGame(withType gameType: GameType) {
-        buttonsVC.game = SchulteTable()
-        buttonsVC.currentGameType = gameType
-        buttonsVC.game.numberOfItems = numberOfItems
         var titles: [String] = []
         var colors: [UIColor] = []
-        let range = 1...numberOfItems
+        let range = 1...tableSize.items
         
+        buttonsVC.game = SchulteTable()
+        buttonsVC.currentGameType = gameType
+        buttonsVC.game.tableSize = tableSize
         buttonsVC.game.nextTarget = 1
         nextTargetLabel.text = String(buttonsVC.game.nextTarget)
         nextTargetLabel.textColor = .white
@@ -105,7 +107,7 @@ private extension HomeViewController {
             
             colors = getOrderedColors(first: UIColor.theme.letterFirstColor, second: UIColor.theme.letterSecondColor)
             buttonsVC.game.nextTarget = 97
-            buttonsVC.game.letterLastTarget = letterArray[numberOfItems-1] + 1
+            buttonsVC.game.letterLastTarget = letterArray[tableSize.items-1] + 1
             nextTargetLabel.text = String(Unicode.Scalar(buttonsVC.game.nextTarget)!)
             
         case .redBlack:
@@ -115,7 +117,8 @@ private extension HomeViewController {
         buttonsVC.game.titles = titles
         buttonsVC.game.colors = colors
         
-        buttonsCollectionView.reloadItems(at: buttonsCollectionView.indexPathsForVisibleItems)
+        // TODO: Fix CollectionView's twice reloading bug
+        buttonsCollectionView.reloadData()
         stopwatch.start()
     }
     
@@ -147,7 +150,7 @@ private extension HomeViewController {
     func getOrderedColors(first firstColor: UIColor, second secondColor: UIColor) -> [UIColor] {
         var colors: [UIColor] = []
         
-        for i in 1...numberOfItems {
+        for i in 1...tableSize.items {
             if i%2 == 0 {
                 colors.append(firstColor)
             } else {
@@ -159,9 +162,9 @@ private extension HomeViewController {
     
     func getDisorderedColors(first firstColor: UIColor, second secondColor: UIColor) -> [UIColor] {
         var colors: [UIColor] = []
-        let isNumberEven: Bool = numberOfItems % 2 == 0
-        let firstRange = 1...(numberOfItems / 2)
-        let secondRange = 1...(isNumberEven ? numberOfItems / 2 : numberOfItems / 2 + 1)
+        let isNumberEven: Bool = tableSize.items % 2 == 0
+        let firstRange = 1...(tableSize.items / 2)
+        let secondRange = 1...(isNumberEven ? tableSize.items / 2 : tableSize.items / 2 + 1)
         
         for _ in firstRange {
             colors.append(firstColor)

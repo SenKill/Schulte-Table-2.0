@@ -10,11 +10,12 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var selectedSizeLabel: UILabel!
-    var selectedSize: TableSize = .medium
+    var selectedSize: TableSize!
     var localService = LocalService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.selectedSize = TableSize(rawValue: localService.getLastTableSize() ?? 2)
         navigationItem.largeTitleDisplayMode = .always
         selectedSizeLabel.text = selectedSize.name
     }
@@ -26,9 +27,10 @@ class SettingsTableViewController: UITableViewController {
                 print("Can't instantiate SizeTableViewController")
                 return
             }
-            sizeTableVC.selectedIndex = IndexPath(row: selectedSize.rawValue, section: 0)
+            sizeTableVC.selectedIndex = IndexPath(row: selectedSize.rawValue-1, section: 0)
             // Getting data from the closure
             sizeTableVC.didSelectSize = { tableSize in
+                self.localService.setTableSize(tableSize)
                 self.selectedSize = tableSize
                 self.selectedSizeLabel.text = tableSize.name
             }

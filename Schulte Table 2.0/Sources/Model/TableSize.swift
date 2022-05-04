@@ -9,10 +9,10 @@
 import Foundation
 
 enum TableSize: Int {
-    case small = 0
-    case medium = 1
-    case big = 2
-    case huge = 3
+    case small = 1
+    case medium = 2
+    case big = 3
+    case huge = 4
     
     var name: String {
         switch self {
@@ -27,7 +27,7 @@ enum TableSize: Int {
         }
     }
     
-    var numberOfItems: Int {
+    var items: Int {
         switch self {
         case .small:
             return 9

@@ -12,18 +12,18 @@ import UIKit
 class SchulteTable {
     var colors: [UIColor] = []
     var titles: [String] = []
-    var numberOfItems: Int = 0
+    var tableSize: TableSize!
     var letterLastTarget: Int?
     var nextTarget = 1
     
     // Red-black properties
     var redBlackLastTarget: Int {
-        numberOfItems/2 + 2
+        tableSize.items/2 + 2
     }
     lazy var targetColor: UIColor = UIColor.theme.redBlackSecondColor
-    lazy var nextTargetRed: Int = numberOfItems / 2
-    lazy var redTitles: [Int] = (1...numberOfItems/2).shuffled()
-    lazy var blackTitles: [Int] = (1...numberOfItems/2 + 1).shuffled()
+    lazy var nextTargetRed: Int = tableSize.items / 2
+    lazy var redTitles: [Int] = (1...tableSize.items/2).shuffled()
+    lazy var blackTitles: [Int] = (1...tableSize.items/2 + 1).shuffled()
     lazy var redCount: Int = 0
     lazy var blackCount: Int = 0
 }

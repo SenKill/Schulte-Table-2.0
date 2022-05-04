@@ -14,22 +14,20 @@ class SizeTableViewController: UITableViewController {
     private let tableSizes: [TableSize] = [TableSize.small, TableSize.medium, TableSize.big, TableSize.huge]
     var selectedIndex: IndexPath!
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
+        // Kolhoz
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.0001) {
             self.checkCells()
         }
     }
     
+    // Setting checkmark to the current table size row
     func checkCells() {
-        for i in 0..<tableSizes.count {
-            let cell = tableView.cellForRow(at: IndexPath(item: i, section: 0))
-            if i == selectedIndex.row {
+        for i in 1...tableSizes.count {
+            let cell = tableView.cellForRow(at: IndexPath(item: i-1, section: 0))
+            if i-1 == selectedIndex.row {
                 cell?.accessoryType = .checkmark
             }
         }

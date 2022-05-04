@@ -18,7 +18,8 @@ enum DefaultKeys: String {
 }
 
 class LocalService {
-    let defaults = UserDefaults.standard
+    private let defaults = UserDefaults.standard
+    private let tableSizeKey = "tableSize"
     
     private func setResult(yourResult result: Double, forKey key: DefaultKeys) {
         defaults.set(result ,forKey: key.rawValue)
@@ -30,12 +31,21 @@ class LocalService {
     
     func removeResult() {
         let defaults = UserDefaults.standard
-        defaults.removeObject(forKey: "classicPrevious")
-        defaults.removeObject(forKey: "classicBest")
-        defaults.removeObject(forKey: "lettersPrevious")
-        defaults.removeObject(forKey: "lettersBest")
-        defaults.removeObject(forKey: "redblackPrevious")
-        defaults.removeObject(forKey: "redblackBest")
+        defaults.removeObject(forKey: DefaultKeys.classicPrev.rawValue)
+        defaults.removeObject(forKey: DefaultKeys.classicBest.rawValue)
+        defaults.removeObject(forKey: DefaultKeys.lettersPrev.rawValue)
+        defaults.removeObject(forKey: DefaultKeys.lettersBest.rawValue)
+        defaults.removeObject(forKey: DefaultKeys.redBlackPrev.rawValue)
+        defaults.removeObject(forKey: DefaultKeys.redBlackBest.rawValue)
+    }
+    
+    func getLastTableSize() -> Int? {
+        let value = defaults.integer(forKey: tableSizeKey)
+        return value != 0 ? value : nil
+    }
+    
+    func setTableSize(_ size: TableSize) {
+        defaults.set(size.rawValue, forKey: tableSizeKey)
     }
 }
 

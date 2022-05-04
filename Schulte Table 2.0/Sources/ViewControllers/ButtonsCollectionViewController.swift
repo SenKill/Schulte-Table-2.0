@@ -16,7 +16,6 @@ protocol ButtonsCollectionDelegate: AnyObject {
 
 class ButtonsCollectionViewController: UICollectionViewController {
     weak var delegate: ButtonsCollectionDelegate?
-    
     var game: SchulteTable!
     var currentGameType: GameType = .classic
     
@@ -26,7 +25,7 @@ class ButtonsCollectionViewController: UICollectionViewController {
 // MARK: - Data source
 extension ButtonsCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        game.numberOfItems
+        game.tableSize.items
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -61,7 +60,7 @@ extension ButtonsCollectionViewController {
 extension ButtonsCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let bounds = UIScreen.main.bounds
-        let cellWidth = (bounds.width / sqrt(CGFloat(game.numberOfItems))) - 1
+        let cellWidth = (bounds.width / sqrt(CGFloat(game.tableSize.items))) - 1
         return CGSize(width: cellWidth, height: cellWidth)
     }
 }
@@ -70,7 +69,6 @@ extension ButtonsCollectionViewController: UICollectionViewDelegateFlowLayout {
 private extension ButtonsCollectionViewController {
     func checkButton(_ button: UIButton) {
         if button.currentTitle == String(game.nextTarget) || button.currentTitle == String(Unicode.Scalar(game.nextTarget)!) {
-            handleCorrectButton(button)
             game.nextTarget += 1
             // Transition to capital letters in the Letter game type
             if game.nextTarget == 123 {
@@ -83,7 +81,7 @@ private extension ButtonsCollectionViewController {
                 textForTargetLabel = String(game.nextTarget)
             }
             delegate?.buttonsCollection(changeTargetLabelWithText: textForTargetLabel, color: nil)
-            checkIsLast(button)
+            handleCorrectButton(button)
             return
         }
         soundPlayer.playWrong()
@@ -111,7 +109,7 @@ private extension ButtonsCollectionViewController {
                 game.targetColor = UIColor.theme.redBlackSecondColor
                 delegate?.buttonsCollection(changeTargetLabelWithText: String(game.nextTarget), color: .white)
             }
-            checkIsLast(button)
+            handleCorrectButton(button)
             return
         }
         soundPlayer.playWrong()
@@ -120,11 +118,9 @@ private extension ButtonsCollectionViewController {
     func handleCorrectButton(_ button: UIButton) {
         soundPlayer.playCorrect()
         button.isHidden = true
-    }
-    
-    func checkIsLast(_ button: UIButton) {
-        if game.nextTarget == game.numberOfItems+1 || game.nextTarget == game.redBlackLastTarget && currentGameType != .classic || game.nextTarget == game.letterLastTarget {
-            handleCorrectButton(button)
+        
+        // Checking if the button is the last
+        if game.nextTarget == game.tableSize.items+1 || game.nextTarget == game.redBlackLastTarget && currentGameType != .classic || game.nextTarget == game.letterLastTarget {
             delegate?.buttonsCollectionDidEndGame()
         }
     }
