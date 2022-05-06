@@ -29,7 +29,7 @@ extension ButtonsCollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonsCell.reuseId, for: indexPath) as? ButtonsCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonsCollectionViewCell.reuseId, for: indexPath) as? ButtonsCollectionViewCell else {
             return UICollectionViewCell()
         }
         

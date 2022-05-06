@@ -117,8 +117,7 @@ private extension HomeViewController {
         buttonsVC.game.titles = titles
         buttonsVC.game.colors = colors
         
-        // TODO: Fix CollectionView's twice reloading bug
-        buttonsCollectionView.reloadData()
+        buttonsCollectionView.reloadSections(IndexSet(integer: 0))
         stopwatch.start()
     }
     
@@ -241,7 +240,7 @@ extension HomeViewController: ButtonsCollectionDelegate {
     }
     
     func buttonsCollectionDidEndGame() {
-        let statTuple = localService.handleEndGame(bestKey: gameResultBest, previousKey: gameResultPrevious, timeInfo: stopwatch.getTimeInfo())
+        let statTuple = localService.handleEndGame(bestKey: gameResultBest, previousKey: gameResultPrevious, table: tableSize, timeInfo: stopwatch.getTimeInfo())
         
         stopwatch.stop()
         labelsView.isHidden = true

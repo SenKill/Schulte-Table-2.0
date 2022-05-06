@@ -21,10 +21,6 @@ class LocalService {
     private let defaults = UserDefaults.standard
     private let tableSizeKey = "tableSize"
     
-    private func setResult(yourResult result: Double, forKey key: DefaultKeys) {
-        defaults.set(result ,forKey: key.rawValue)
-    }
-    
     private func getResult(forKey key: DefaultKeys) -> Double {
         return defaults.double(forKey: key.rawValue)
     }
@@ -38,7 +34,26 @@ class LocalService {
         defaults.removeObject(forKey: DefaultKeys.redBlackPrev.rawValue)
         defaults.removeObject(forKey: DefaultKeys.redBlackBest.rawValue)
     }
-    
+}
+
+extension LocalService {
+    // Checking the current result and saving it in the UserDefault if it's less than the previous best result
+    func handleEndGame(bestKey: DefaultKeys, previousKey: DefaultKeys, table size: TableSize, timeInfo: (Int, Int)) -> (Double, Double, Double) {
+        
+        let bestResult: Double = getResult(forKey: bestKey)
+        let previousResult: Double  = getResult(forKey: previousKey)
+        let currentResult: Double = Double(timeInfo.0) + Double(timeInfo.1) / 100
+        if currentResult < bestResult || bestResult == 0.0 {
+            defaults.set(currentResult ,forKey: bestKey.rawValue + size.string)
+        }
+        
+        defaults.set(currentResult, forKey: previousKey.rawValue + size.string)
+        return (previousResult, currentResult, bestResult)
+    }
+}
+
+// MARK: - TableSize
+extension LocalService {
     func getLastTableSize() -> Int? {
         let value = defaults.integer(forKey: tableSizeKey)
         return value != 0 ? value : nil
@@ -46,21 +61,5 @@ class LocalService {
     
     func setTableSize(_ size: TableSize) {
         defaults.set(size.rawValue, forKey: tableSizeKey)
-    }
-}
-
-extension LocalService {
-    // Checking the current result and saving it in the UserDefault if it's less than the previous best result
-    func handleEndGame(bestKey: DefaultKeys, previousKey: DefaultKeys, timeInfo: (Int, Int)) -> (Double, Double, Double) {
-        
-        let bestResult: Double = getResult(forKey: bestKey)
-        let previousResult: Double  = getResult(forKey: previousKey)
-        let currentResult: Double = Double(timeInfo.0) + Double(timeInfo.1) / 100
-        if currentResult < bestResult || bestResult == 0.0 {
-            setResult(yourResult: currentResult, forKey: bestKey)
-        }
-        
-        setResult(yourResult: currentResult, forKey: previousKey)
-        return (previousResult, currentResult, bestResult)
     }
 }

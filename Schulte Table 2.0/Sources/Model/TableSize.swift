@@ -14,7 +14,9 @@ enum TableSize: Int {
     case big = 3
     case huge = 4
     
-    var name: String {
+    static let allCases: [TableSize] = [.small, .medium, .big, .huge]
+    
+    var string: String {
         switch self {
         case .small:
             return "3x3"

@@ -9,11 +9,10 @@
 import Foundation
 import UIKit
 
-class ButtonsCell: UICollectionViewCell {
-    static let reuseId = "ButtonsCell"
+class ButtonsCollectionViewCell: UICollectionViewCell {
+    static let reuseId = "ButtonsCollectionViewCell"
     
     @IBOutlet weak var button: UIButton!
-    
     @IBAction func didTapButton(_ sender: UIButton) {
         handleButtonAction?(sender)
     }
