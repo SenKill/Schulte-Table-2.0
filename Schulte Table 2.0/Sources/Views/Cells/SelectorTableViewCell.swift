@@ -11,10 +11,6 @@ import UIKit
 class SelectorTableViewCell: UITableViewCell, ReusableCell {
     @IBOutlet weak var label: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
     func getReuseId() -> String {
         "SelectorTableViewCell"
     }

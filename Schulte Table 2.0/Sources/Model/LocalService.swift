@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum DefaultKeys: String {
+enum DefaultKeys: String, CaseIterable {
     case classicPrev = "classicPrevious"
     case classicBest = "classicBest"
     case lettersPrev = "lettersPrevious"
@@ -17,22 +17,25 @@ enum DefaultKeys: String {
     case redBlackBest = "redBlackBest"
 }
 
-class LocalService {
+final class LocalService {
     private let defaults = UserDefaults.standard
     private let tableSizeKey = "tableSize"
     
-    private func getResult(forKey key: DefaultKeys) -> Double {
-        return defaults.double(forKey: key.rawValue)
-    }
-    
     func removeResult() {
         let defaults = UserDefaults.standard
-        defaults.removeObject(forKey: DefaultKeys.classicPrev.rawValue)
-        defaults.removeObject(forKey: DefaultKeys.classicBest.rawValue)
-        defaults.removeObject(forKey: DefaultKeys.lettersPrev.rawValue)
-        defaults.removeObject(forKey: DefaultKeys.lettersBest.rawValue)
-        defaults.removeObject(forKey: DefaultKeys.redBlackPrev.rawValue)
-        defaults.removeObject(forKey: DefaultKeys.redBlackBest.rawValue)
+        
+        for key in DefaultKeys.allCases {
+            defaults.removeObject(forKey: key.rawValue + "3x3")
+        }
+        for key in DefaultKeys.allCases {
+            defaults.removeObject(forKey: key.rawValue + "5x5")
+        }
+        for key in DefaultKeys.allCases {
+            defaults.removeObject(forKey: key.rawValue + "7x7")
+        }
+        for key in DefaultKeys.allCases {
+            defaults.removeObject(forKey: key.rawValue + "9x9")
+        }
     }
 }
 
@@ -40,11 +43,12 @@ extension LocalService {
     // Checking the current result and saving it in the UserDefault if it's less than the previous best result
     func handleEndGame(bestKey: DefaultKeys, previousKey: DefaultKeys, table size: TableSize, timeInfo: (Int, Int)) -> (Double, Double, Double) {
         
-        let bestResult: Double = getResult(forKey: bestKey)
-        let previousResult: Double  = getResult(forKey: previousKey)
+        let bestResult: Double = defaults.double(forKey: bestKey.rawValue + size.string)
+        let previousResult: Double  = defaults.double(forKey: previousKey.rawValue + size.string)
+        
         let currentResult: Double = Double(timeInfo.0) + Double(timeInfo.1) / 100
         if currentResult < bestResult || bestResult == 0.0 {
-            defaults.set(currentResult ,forKey: bestKey.rawValue + size.string)
+            defaults.set(currentResult, forKey: bestKey.rawValue + size.string)
         }
         
         defaults.set(currentResult, forKey: previousKey.rawValue + size.string)
@@ -54,12 +58,15 @@ extension LocalService {
 
 // MARK: - TableSize
 extension LocalService {
-    func getLastTableSize() -> Int? {
-        let value = defaults.integer(forKey: tableSizeKey)
-        return value != 0 ? value : nil
-    }
-    
-    func setTableSize(_ size: TableSize) {
-        defaults.set(size.rawValue, forKey: tableSizeKey)
+    var defaultTableSize: Int? {
+        get {
+            let value = defaults.integer(forKey: tableSizeKey)
+            return value != 0 ? value : nil
+        }
+        set(value) {
+            if let value = value {
+                defaults.set(value, forKey: tableSizeKey)
+            }
+        }
     }
 }

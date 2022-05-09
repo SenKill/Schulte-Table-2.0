@@ -39,10 +39,10 @@ class MenuViewController: UITableViewController {
                 dismiss(animated: true)
                 delegate?.menuDidSelectSettings()
             case 1:
-                let alert = UIAlertController(title: "Reseting result", message: "All of your result will be deleted, are you sure?", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { UIAlertAction in self.handleResetting()
+                let alert = UIAlertController(title: "RESET_RESULTS".localized, message: "RESET_MESSAGE".localized, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "RESET_CONTINUE".localized, style: UIAlertAction.Style.default, handler: { UIAlertAction in self.handleResetting()
                 }))
-                alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: {_ in
+                alert.addAction(UIAlertAction(title: "RESET_CANCEL".localized, style: UIAlertAction.Style.cancel, handler: {_ in
                     self.resetResultsLabel.isHighlighted = false
                 }))
                 self.present(alert, animated: true, completion: nil)

@@ -41,11 +41,9 @@ class SelectorTableViewController: UITableViewController {
             return cell
         } else if let cell = rawCell as? LanguageTableViewCell,
                   let selectedValue = rawSelectedValue as? Language {
-            cell.firstLabel.text = selectedValue.string
-            cell.secondLabel.text = selectedValue.localizedString
+            cell.configureCell(selectedValue)
             return cell
         }
-        print("Lol(")
         return UITableViewCell()
     }
     

@@ -17,3 +17,11 @@ extension Sequence {
         return result
     }
 }
+
+extension String {
+    var localized: String {
+        get {
+            Bundle.main.localizedString(forKey: self, value: UserDefaults.languageCode, table: nil)
+        }
+    }
+}

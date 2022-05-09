@@ -12,16 +12,15 @@ class LanguageTableViewCell: UITableViewCell, ReusableCell {
     @IBOutlet weak var firstLabel: UILabel!
     @IBOutlet weak var secondLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
-    
     func getReuseId() -> String {
         "LanguageTableViewCell"
     }
+    
+    func configureCell(_ lang: Language) {
+        firstLabel.text = lang.string
+        secondLabel.text = lang.rawValue.localized
+    }
 }
-
 
 protocol ReusableCell: UITableViewCell {
     func getReuseId() -> String

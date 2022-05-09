@@ -33,8 +33,9 @@ class HomeViewController: UIViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableSize = TableSize(rawValue: localService.getLastTableSize() ?? 2)
+        tableSize = TableSize(rawValue: localService.defaultTableSize ?? 2)
         navigationItem.largeTitleDisplayMode = .never
+        navigationItem.title = "classic".localized
         buttonsCollectionView.dataSource = buttonsVC
         buttonsCollectionView.delegate = buttonsVC
         buttonsVC.delegate = self
@@ -99,6 +100,7 @@ private extension HomeViewController {
             let smallCharacters = 97...122
             let capitalCharacters = 65...90
             
+            // TODO: More letters for letter table grid
             let letterArray = Array(smallCharacters) + Array(capitalCharacters)
             for i in range {
                 let letter = String(Unicode.Scalar(letterArray[i-1])!)
@@ -123,7 +125,7 @@ private extension HomeViewController {
     
     func transitionToNew(_ gameType: GameType) {
         stopwatch.stop()
-        let title = String(describing: gameType).capitalized
+        let title = String(describing: gameType).localized
         self.title = title
         switch gameType {
         case .classic:

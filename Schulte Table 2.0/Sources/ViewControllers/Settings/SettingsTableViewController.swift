@@ -18,10 +18,11 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectedSize = TableSize(rawValue: localService.getLastTableSize() ?? 2)
-        // Hardcoded
-        selectedLanguage = Language.english
+        selectedSize = TableSize(rawValue: localService.defaultTableSize ?? 2)
+        selectedLanguage = Language(rawValue: UserDefaults.languageCode ?? Locale.current.languageCode!)
         navigationItem.largeTitleDisplayMode = .always
+        
+        selectedLanguageLabel.text = selectedLanguage.rawValue.localized
         selectedSizeLabel.text = selectedSize.string
     }
     
@@ -41,7 +42,7 @@ class SettingsTableViewController: UITableViewController {
                     print("ERROR: Can't cast value into the TableSize")
                     return
                 }
-                self.localService.setTableSize(tableSize)
+                self.localService.defaultTableSize = tableSize.rawValue
                 self.selectedSize = tableSize
                 self.selectedSizeLabel.text = tableSize.string
             }
@@ -53,15 +54,16 @@ class SettingsTableViewController: UITableViewController {
             }
             languageTableVC.someCell = LanguageTableViewCell()
             languageTableVC.selectableValues = Language.allCases
-            languageTableVC.selectedIndex = IndexPath(row: selectedLanguage.rawValue, section: 0)
+            let selectedRow: Int = Language.allCases.firstIndex(of: selectedLanguage)!
+            languageTableVC.selectedIndex = IndexPath(row: selectedRow, section: 0)
             languageTableVC.didSelectRow = { value in
                 guard let language = value as? Language else {
                     print("ERROR: Can't cast value into the Language")
                     return
                 }
-                // LocalService
                 self.selectedLanguage = language
-                self.selectedLanguageLabel.text = language.string
+                self.selectedLanguageLabel.text = language.rawValue.localized
+                Locale.updateLanguage(code: language.rawValue)
             }
             navigationController?.pushViewController(languageTableVC, animated: true)
         default:

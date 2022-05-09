@@ -1,0 +1,66 @@
+
+/* Class = "UILabel"; text = "Language"; ObjectID = "2Sy-P9-nlT"; */
+"2Sy-P9-nlT.text" = "Язык";
+
+/* Class = "UILabel"; text = "English"; ObjectID = "7UW-Kr-NzS"; */
+"7UW-Kr-NzS.text" = "English";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "8JF-dw-3ZJ"; */
+"8JF-dw-3ZJ.title" = "Item";
+
+/* Class = "UILabel"; text = "Letter table"; ObjectID = "8sq-jl-g9I"; */
+"8sq-jl-g9I.text" = "Буквенный";
+
+/* Class = "UILabel"; text = "Time: "; ObjectID = "FFV-Xg-jqL"; */
+"FFV-Xg-jqL.text" = "Время: ";
+
+/* Class = "UITableViewSection"; headerTitle = "OTHER OPTIONS"; ObjectID = "GiN-Q9-DSE"; */
+"GiN-Q9-DSE.headerTitle" = "ДРУГИЕ ПАРАМЕТРЫ";
+
+/* Class = "UILabel"; text = "Settings"; ObjectID = "Hzr-5v-CLd"; */
+"Hzr-5v-CLd.text" = "Настройки";
+
+/* Class = "UILabel"; text = "Reset results"; ObjectID = "Suv-U5-i1C"; */
+"Suv-U5-i1C.text" = "Сбросить результаты";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "VKi-wX-IiP"; */
+"VKi-wX-IiP.text" = "0";
+
+/* Class = "UITableViewController"; title = "Table Size"; ObjectID = "Xkh-jf-IST"; */
+"Xkh-jf-IST.title" = "Размер сетки";
+
+/* Class = "UITableViewController"; title = "Settings"; ObjectID = "dJV-Zu-xhE"; */
+"dJV-Zu-xhE.title" = "Настройки";
+
+/* Class = "UITableViewSection"; headerTitle = "GAME SETTINGS"; ObjectID = "eKv-bk-ed6"; */
+"eKv-bk-ed6.headerTitle" = "ИГРОВЫЕ НАСТРОЙКИ";
+
+/* Class = "UIBarButtonItem"; title = "restartButton"; ObjectID = "iSX-5c-Bci"; */
+"iSX-5c-Bci.title" = "restartButton";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "kAU-9y-PpE"; */
+"kAU-9y-PpE.text" = "1";
+
+/* Class = "UILabel"; text = "Next:"; ObjectID = "nLS-CJ-F3Y"; */
+"nLS-CJ-F3Y.text" = "Следуещее:";
+
+/* Class = "UITableViewSection"; headerTitle = "GAME MODE"; ObjectID = "nVw-kK-ebf"; */
+"nVw-kK-ebf.headerTitle" = "ИГРОВОЙ РЕЖИМ";
+
+/* Class = "UILabel"; text = "5x5"; ObjectID = "oKe-Id-z4u"; */
+"oKe-Id-z4u.text" = "5x5";
+
+/* Class = "UILabel"; text = "Red-black table"; ObjectID = "pOg-PV-v7t"; */
+"pOg-PV-v7t.text" = "Красный-черный";
+
+/* Class = "UILabel"; text = "Classic table"; ObjectID = "qac-6Q-71d"; */
+"qac-6Q-71d.text" = "Классический";
+
+/* Class = "UITableViewController"; title = "Language"; ObjectID = "tAW-VW-dsU"; */
+"tAW-VW-dsU.title" = "Язык";
+
+/* Class = "UILabel"; text = "Table Size"; ObjectID = "tLE-uT-lja"; */
+"tLE-uT-lja.text" = "Размер сетки";
+
+/* Class = "UIButton"; normalTitle = "1"; ObjectID = "tXA-aA-kjX"; */
+"tXA-aA-kjX.normalTitle" = "1";

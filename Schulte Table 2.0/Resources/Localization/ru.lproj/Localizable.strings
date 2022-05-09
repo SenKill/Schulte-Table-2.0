@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  Schulte Table 2.0
+
+  Created by Serik Musaev on 08.05.2022.
+  Copyright © 2022 SenKill. All rights reserved.
+*/
+
+"classic" = "Классический";
+"letter" = "Буквенный";
+"redBlack" = "Красный-черный";
+"ru" = "Русский";
+"en" = "Английский";
+"RESET_RESULTS" = "Сброс результатов";
+"RESET_MESSAGE" = "Все ваши результаты будут удалены, вы уверены?";
+"RESET_CONTINUE" = "Продолжить";
+"RESET_CANCEL" = "Отменить";
