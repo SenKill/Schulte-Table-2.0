@@ -78,6 +78,8 @@ extension HomeViewController {
 // MARK: - Internal
 private extension HomeViewController {
     func startGame(withType gameType: GameType) {
+        self.title = String(describing: gameType).localized
+        
         var titles: [String] = []
         var colors: [UIColor] = []
         let range = 1...tableSize.items
@@ -97,10 +99,18 @@ private extension HomeViewController {
             colors = getOrderedColors(first: UIColor.theme.classicFirstColor, second: UIColor.theme.classicSecondColor)
             
         case .letter:
+            guard tableSize != .huge else {
+                let alert = UIAlertController(title: "LETTER_TABLE_SIZE_TITLE".localized, message: "LETTER_TABLE_SIZE_MESSAGE".localized, preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .cancel)
+                alert.addAction(action)
+                present(alert, animated: true)
+                startGame(withType: .classic)
+                return
+            }
+            
             let smallCharacters = 97...122
             let capitalCharacters = 65...90
             
-            // TODO: More letters for letter table grid
             let letterArray = Array(smallCharacters) + Array(capitalCharacters)
             for i in range {
                 let letter = String(Unicode.Scalar(letterArray[i-1])!)
@@ -125,8 +135,6 @@ private extension HomeViewController {
     
     func transitionToNew(_ gameType: GameType) {
         stopwatch.stop()
-        let title = String(describing: gameType).localized
-        self.title = title
         switch gameType {
         case .classic:
             self.currentGameType = .classic
@@ -246,7 +254,7 @@ extension HomeViewController: ButtonsCollectionDelegate {
         
         stopwatch.stop()
         labelsView.isHidden = true
-        endGameView = EndGameView(frame: view.bounds.self, previous: statTuple.0, current: statTuple.1, best: statTuple.2)
+        endGameView = EndGameView(frame: view.bounds.self, previous: statTuple.0, current: statTuple.1, best: statTuple.2, game: currentGameType, table: tableSize)
         navigationController?.navigationBar.removeFromSuperview()
         
         view.addSubview(endGameView)

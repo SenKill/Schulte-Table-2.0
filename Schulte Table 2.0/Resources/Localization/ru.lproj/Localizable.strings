@@ -15,3 +15,10 @@
 "RESET_MESSAGE" = "Все ваши результаты будут удалены, вы уверены?";
 "RESET_CONTINUE" = "Продолжить";
 "RESET_CANCEL" = "Отменить";
+"YOUR_RESULT" = "Результат:\n";
+"BEST_RESULT" = "Лучший:\n";
+"PREVIOUS_RESULT" = "Предыдущий:\n";
+"sec" = "с";
+"grid" = "сетка";
+"LETTER_TABLE_SIZE_TITLE" = "Извините!";
+"LETTER_TABLE_SIZE_MESSAGE" = "Вы не можете играть буквенный режим с 9x9 сеткой(";

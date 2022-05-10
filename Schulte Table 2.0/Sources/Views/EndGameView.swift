@@ -11,15 +11,19 @@ import UIKit
 
 class EndGameView: UIView {
     
-    var currentValue: Double
-    var bestValue: Double
-    var previousValue: Double
-    let fontName: String = "Rockwell"
+    private let currentValue: Double
+    private let bestValue: Double
+    private let previousValue: Double
+    private var gameType: GameType
+    private var tableSize: TableSize!
     
-    init(frame: CGRect, previous: Double, current: Double, best: Double) {
+    
+    init(frame: CGRect, previous: Double, current: Double, best: Double, game: GameType, table: TableSize) {
         previousValue = previous
         currentValue = current
         bestValue = best
+        gameType = game
+        tableSize = table
         super.init(frame: frame)
         isUserInteractionEnabled = true
         backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5)
@@ -30,13 +34,19 @@ class EndGameView: UIView {
         currentValue = 0.0
         bestValue = 0.0
         previousValue = 0.0
+        gameType = .classic
         super.init(coder: coder)
     }
     
     private func setViews() {
-        installLabel(withYpos: 50, withText: "Your result:\n\(currentValue)s", withColor: UIColor(r: 156, g: 192, b: 231, a: 1), withFontSize: 40)
-        installLabel(withYpos: 250, withText: "Best result:\n\(bestValue)s", withColor: UIColor(r: 255, g: 215, b: 0, a: 0.7), withFontSize: 30)
-        installLabel(withYpos: -150, withText: "Previous result:\n\(previousValue)s", withColor: UIColor(r: 255, g: 160, b: 122, a: 0.8), withFontSize: 30)
+        let gameTypeLocalized = String(describing: gameType).localized
+        installLabel(withYpos: 75, withText: "\(gameTypeLocalized), \(tableSize.string) " + "grid".localized, withColor: .lightGray, withFontSize: 25)
+        let bestText = "BEST_RESULT".localized + String(bestValue) + "sec".localized
+        installLabel(withYpos: bounds.midY - 250, withText: bestText, withColor: UIColor(r: 255, g: 215, b: 0, a: 0.8), withFontSize: 30)
+        let yourText: String = "YOUR_RESULT".localized + String(currentValue) + "sec".localized
+        installLabel(withYpos: bounds.midY - 50, withText: yourText, withColor: UIColor(r: 156, g: 192, b: 231, a: 0.8), withFontSize: 40)
+        let previousText = "PREVIOUS_RESULT".localized + String(previousValue) + "sec".localized
+        installLabel(withYpos: bounds.midY + 150, withText: previousText, withColor: UIColor(r: 255, g: 160, b: 122, a: 0.8), withFontSize: 30)
         
     }
 }
@@ -44,8 +54,9 @@ class EndGameView: UIView {
 // MARK: Internal
 private extension EndGameView {
     func installLabel(withYpos yPos: CGFloat, withText text: String, withColor color: UIColor, withFontSize fontSize: CGFloat) {
+        let fontName: String = "Rockwell"
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 100))
-        label.center = CGPoint(x: bounds.midX, y: bounds.midY - yPos)
+        label.center = CGPoint(x: bounds.midX, y: yPos)
         label.textAlignment = .center
         label.font = UIFont(name: fontName, size: fontSize)
         label.text = text
