@@ -207,9 +207,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classic table" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qac-6Q-71d">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classic table" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qac-6Q-71d">
                                                     <rect key="frame" x="25" y="11" width="369" height="48"/>
-                                                    <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="21"/>
+                                                    <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="20"/>
                                                     <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </label>
                                             </subviews>
@@ -229,9 +229,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Letter table" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sq-jl-g9I">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Letter table" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sq-jl-g9I">
                                                     <rect key="frame" x="25" y="11" width="369" height="48"/>
-                                                    <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="21"/>
+                                                    <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="20"/>
                                                     <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </label>
                                             </subviews>
@@ -251,9 +251,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red-black table" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOg-PV-v7t">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red-black table" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOg-PV-v7t">
                                                     <rect key="frame" x="25" y="11" width="369" height="48"/>
-                                                    <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="21"/>
+                                                    <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="20"/>
                                                     <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </label>
                                             </subviews>
@@ -277,40 +277,60 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzr-5v-CLd">
-                                                    <rect key="frame" x="25" y="11" width="369" height="48"/>
-                                                    <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzr-5v-CLd">
+                                                    <rect key="frame" x="55" y="11" width="339" height="48"/>
+                                                    <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="20"/>
                                                     <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gearshape.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="UaT-75-p5j">
+                                                    <rect key="frame" x="20" y="20.333333333333332" width="30" height="29.333333333333339"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="kNU-hq-sPL"/>
+                                                        <constraint firstAttribute="width" constant="30" id="x9J-f2-TQu"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.96470588239999999" green="0.89411764709999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
+                                                <constraint firstItem="UaT-75-p5j" firstAttribute="leading" secondItem="vQH-EY-tl9" secondAttribute="leadingMargin" id="9bt-3H-lUq"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Hzr-5v-CLd" secondAttribute="trailing" id="buj-NI-2ed"/>
-                                                <constraint firstItem="Hzr-5v-CLd" firstAttribute="leading" secondItem="vQH-EY-tl9" secondAttribute="leadingMargin" constant="5" id="u9J-Mg-rgE"/>
+                                                <constraint firstItem="Hzr-5v-CLd" firstAttribute="leading" secondItem="UaT-75-p5j" secondAttribute="trailing" constant="5" id="hmE-py-zbH"/>
+                                                <constraint firstItem="UaT-75-p5j" firstAttribute="centerY" secondItem="vQH-EY-tl9" secondAttribute="centerY" id="owE-Vb-hVx"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Hzr-5v-CLd" secondAttribute="bottom" id="wlG-Hv-U3e"/>
                                                 <constraint firstItem="Hzr-5v-CLd" firstAttribute="top" secondItem="vQH-EY-tl9" secondAttribute="topMargin" id="zWo-sn-20o"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="F0e-za-xMv">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="ZEx-7u-qbl">
                                         <rect key="frame" x="0.0" y="391.99999809265137" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F0e-za-xMv" id="SVI-R9-MRM">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZEx-7u-qbl" id="se7-Ee-Hqq">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset results" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Suv-U5-i1C">
-                                                    <rect key="frame" x="25" y="11" width="369" height="48"/>
-                                                    <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset results" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHb-TF-4pU">
+                                                    <rect key="frame" x="55" y="11" width="339" height="48"/>
+                                                    <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="20"/>
                                                     <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="restart.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ii1-IA-Gp4">
+                                                    <rect key="frame" x="20" y="21" width="30" height="28.666666666666671"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="fkY-ah-63B"/>
+                                                        <constraint firstAttribute="height" constant="30" id="r4N-KH-kxG"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.96470588239999999" green="0.89411764709999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Suv-U5-i1C" secondAttribute="bottom" id="8a4-83-UFh"/>
-                                                <constraint firstItem="Suv-U5-i1C" firstAttribute="top" secondItem="SVI-R9-MRM" secondAttribute="topMargin" id="EcR-i8-0jx"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Suv-U5-i1C" secondAttribute="trailing" id="WEt-wI-q9d"/>
-                                                <constraint firstItem="Suv-U5-i1C" firstAttribute="leading" secondItem="SVI-R9-MRM" secondAttribute="leadingMargin" constant="5" id="YfN-90-Wbm"/>
+                                                <constraint firstItem="qHb-TF-4pU" firstAttribute="top" secondItem="se7-Ee-Hqq" secondAttribute="topMargin" id="3T3-yY-VsE"/>
+                                                <constraint firstItem="qHb-TF-4pU" firstAttribute="leading" secondItem="Ii1-IA-Gp4" secondAttribute="trailing" constant="5" id="NNN-xS-1Ob"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="qHb-TF-4pU" secondAttribute="bottom" id="RgM-ls-yZr"/>
+                                                <constraint firstItem="Ii1-IA-Gp4" firstAttribute="leading" secondItem="se7-Ee-Hqq" secondAttribute="leadingMargin" id="TAV-ic-BAp"/>
+                                                <constraint firstItem="Ii1-IA-Gp4" firstAttribute="centerY" secondItem="se7-Ee-Hqq" secondAttribute="centerY" id="ePW-YD-MeL"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="qHb-TF-4pU" secondAttribute="trailing" id="x39-44-hPf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -323,12 +343,12 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="resetResultsLabel" destination="Suv-U5-i1C" id="RFH-Lk-oBd"/>
+                        <outlet property="resetResultsLabel" destination="qHb-TF-4pU" id="5Hj-m8-gqK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LDp-1X-7xe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2849" y="137"/>
+            <point key="canvasLocation" x="2847.826086956522" y="136.60714285714286"/>
         </scene>
         <!--Settings-->
         <scene sceneID="k4L-Jn-Cvg">
@@ -388,6 +408,30 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="fvT-zv-Iqk">
+                                        <rect key="frame" x="20" y="136.33333587646484" width="374" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fvT-zv-Iqk" id="age-dK-q3f">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="IOO-Mv-Pyc">
+                                                    <rect key="frame" x="305" y="7" width="49" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="didTapShuffleColors:" destination="dJV-Zu-xhE" eventType="valueChanged" id="trE-L1-HTe"/>
+                                                    </connections>
+                                                </switch>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Shuffle colors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NNj-FQ-qdw">
+                                                    <rect key="frame" x="20" y="13" width="101" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -399,6 +443,7 @@
                     <connections>
                         <outlet property="selectedLanguageLabel" destination="7UW-Kr-NzS" id="cj2-Nd-xwM"/>
                         <outlet property="selectedSizeLabel" destination="oKe-Id-z4u" id="2Q5-xj-pCS"/>
+                        <outlet property="shuffleColorsSwitch" destination="IOO-Mv-Pyc" id="nbY-HP-Afz"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wuh-3b-9qo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -519,8 +564,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="listIcon" width="50" height="50"/>
         <image name="owl" width="2250" height="3000"/>
+        <image name="restart.circle" catalog="system" width="128" height="121"/>
         <image name="restartIcon" width="50" height="50"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>

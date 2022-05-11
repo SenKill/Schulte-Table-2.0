@@ -11,21 +11,41 @@ import UIKit
 class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var selectedSizeLabel: UILabel!
     @IBOutlet weak var selectedLanguageLabel: UILabel!
+    @IBOutlet weak var shuffleColorsSwitch: UISwitch!
     
     var selectedSize: TableSize!
-    var selectedLanguage: Language!
-    var localService = LocalService()
+    private var selectedLanguage: Language!
+    private var localService = LocalService()
+    private let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectedSize = TableSize(rawValue: localService.defaultTableSize ?? 2)
-        selectedLanguage = Language(rawValue: UserDefaults.languageCode ?? Locale.current.languageCode!)
+        loadDefaults()
         navigationItem.largeTitleDisplayMode = .always
         
         selectedLanguageLabel.text = selectedLanguage.rawValue.localized
         selectedSizeLabel.text = selectedSize.string
     }
-    
+}
+
+// MARK: - Actions
+extension SettingsTableViewController {
+    @IBAction func didTapShuffleColors(_ sender: UISwitch) {
+        defaults.set(sender.isOn, forKey: UserDefaults.Key.shuffleColors)
+    }
+}
+
+// MARK: - Internal
+private extension SettingsTableViewController {
+    func loadDefaults() {
+        selectedSize = TableSize(rawValue: localService.defaultTableSize ?? 2)
+        selectedLanguage = Language(rawValue: UserDefaults.languageCode ?? Locale.current.languageCode!)
+        shuffleColorsSwitch.isOn = defaults.bool(forKey: UserDefaults.Key.shuffleColors)
+    }
+}
+
+// MARK: - TableViewDataSource
+extension SettingsTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:

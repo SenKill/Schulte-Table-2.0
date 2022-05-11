@@ -56,6 +56,9 @@
 /* Class = "UILabel"; text = "Classic table"; ObjectID = "qac-6Q-71d"; */
 "qac-6Q-71d.text" = "Классический";
 
+/* Class = "UILabel"; text = "Reset results"; ObjectID = "qHb-TF-4pU"; */
+"qHb-TF-4pU.text" = "Сбросить результ.";
+
 /* Class = "UITableViewController"; title = "Language"; ObjectID = "tAW-VW-dsU"; */
 "tAW-VW-dsU.title" = "Язык";
 

@@ -20,9 +20,6 @@
 /* Class = "UILabel"; text = "Settings"; ObjectID = "Hzr-5v-CLd"; */
 "Hzr-5v-CLd.text" = "Settings";
 
-/* Class = "UILabel"; text = "Reset results"; ObjectID = "Suv-U5-i1C"; */
-"Suv-U5-i1C.text" = "Reset results";
-
 /* Class = "UILabel"; text = "0"; ObjectID = "VKi-wX-IiP"; */
 "VKi-wX-IiP.text" = "0";
 
@@ -53,14 +50,17 @@
 /* Class = "UILabel"; text = "Red-black table"; ObjectID = "pOg-PV-v7t"; */
 "pOg-PV-v7t.text" = "Red-black table";
 
+/* Class = "UILabel"; text = "Reset results"; ObjectID = "qHb-TF-4pU"; */
+"qHb-TF-4pU.text" = "Reset results";
+
 /* Class = "UILabel"; text = "Classic table"; ObjectID = "qac-6Q-71d"; */
 "qac-6Q-71d.text" = "Classic table";
 
 /* Class = "UITableViewController"; title = "Language"; ObjectID = "tAW-VW-dsU"; */
 "tAW-VW-dsU.title" = "Language";
 
-/* Class = "UILabel"; text = "Table Size"; ObjectID = "tLE-uT-lja"; */
-"tLE-uT-lja.text" = "Table Size";
+/* Class = "UILabel"; text = "Grid size"; ObjectID = "tLE-uT-lja"; */
+"tLE-uT-lja.text" = "Grid size";
 
 /* Class = "UIButton"; normalTitle = "1"; ObjectID = "tXA-aA-kjX"; */
 "tXA-aA-kjX.normalTitle" = "1";

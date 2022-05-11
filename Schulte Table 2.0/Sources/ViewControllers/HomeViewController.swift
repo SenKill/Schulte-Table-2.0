@@ -30,6 +30,8 @@ class HomeViewController: UIViewController {
     private var gameResultPrevious: DefaultKeys = DefaultKeys.classicPrev
     private var gameResultBest: DefaultKeys = DefaultKeys.classicBest
     
+    private var shuffleColors: Bool = false
+    
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +42,7 @@ class HomeViewController: UIViewController {
         buttonsCollectionView.delegate = buttonsVC
         buttonsVC.delegate = self
         stopwatch.delegate = self
+        shuffleColors = UserDefaults.standard.bool(forKey: UserDefaults.Key.shuffleColors)
         startGame(withType: .classic)
     }
     
@@ -48,6 +51,12 @@ class HomeViewController: UIViewController {
         if let size = settingsVC?.selectedSize,
            size != tableSize {
             tableSize = size
+            stopwatch.stop()
+            startGame(withType: currentGameType)
+        }
+        if let isShuffleOn = settingsVC?.shuffleColorsSwitch.isOn,
+           isShuffleOn != shuffleColors {
+            shuffleColors = isShuffleOn
             stopwatch.stop()
             startGame(withType: currentGameType)
         }
@@ -96,7 +105,7 @@ private extension HomeViewController {
             range.forEach { number in
                 titles.append(String(number))
             }
-            colors = getOrderedColors(first: UIColor.theme.classicFirstColor, second: UIColor.theme.classicSecondColor)
+            colors = shuffleColors ? getDisorderedColors(first: UIColor.theme.classicFirstColor, second: UIColor.theme.classicSecondColor) : getOrderedColors(first: UIColor.theme.classicFirstColor, second: UIColor.theme.classicSecondColor)
             
         case .letter:
             guard tableSize != .huge else {
@@ -117,7 +126,7 @@ private extension HomeViewController {
                 titles.append(letter)
             }
             
-            colors = getOrderedColors(first: UIColor.theme.letterFirstColor, second: UIColor.theme.letterSecondColor)
+            colors = shuffleColors ? getDisorderedColors(first: UIColor.theme.letterFirstColor, second: UIColor.theme.letterSecondColor) : getOrderedColors(first: UIColor.theme.letterFirstColor, second: UIColor.theme.letterSecondColor)
             buttonsVC.game.nextTarget = 97
             buttonsVC.game.letterLastTarget = letterArray[tableSize.items-1] + 1
             nextTargetLabel.text = String(Unicode.Scalar(buttonsVC.game.nextTarget)!)

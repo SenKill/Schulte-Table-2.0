@@ -9,38 +9,39 @@
 import Foundation
 
 extension UserDefaults {
-    private enum Key: String {
-        case languageCode = "languageCode"
-        case regionCode = "regionCode"
+    enum Key {
+        static let languageCode = "languageCode"
+        static let regionCode = "regionCode"
+        static let shuffleColors = "shuffleColors"
     }
     
     static var languageCode: String? {
         get {
             let defaults = UserDefaults.standard
-            return defaults.string(forKey: Key.languageCode.rawValue)
+            return defaults.string(forKey: Key.languageCode)
         }
         set(value) {
             let defaults = UserDefaults.standard
             if let value = value {
-                defaults.set(value, forKey: Key.languageCode.rawValue)
+                defaults.set(value, forKey: Key.languageCode)
                 return
             }
-            defaults.removeObject(forKey: Key.languageCode.rawValue)
+            defaults.removeObject(forKey: Key.languageCode)
         }
     }
     
     static var regionCode: String? {
         get {
             let defaults = UserDefaults.standard
-            return defaults.string(forKey: Key.regionCode.rawValue)
+            return defaults.string(forKey: Key.regionCode)
         }
         set(value) {
             let defaults = UserDefaults.standard
             if let value = value {
-                defaults.set(value, forKey: Key.regionCode.rawValue)
+                defaults.set(value, forKey: Key.regionCode)
                 return
             }
-            defaults.removeObject(forKey: Key.regionCode.rawValue)
+            defaults.removeObject(forKey: Key.regionCode)
         }
     }
 }
