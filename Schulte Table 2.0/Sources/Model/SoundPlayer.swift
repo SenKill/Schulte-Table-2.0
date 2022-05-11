@@ -17,24 +17,25 @@ class SoundPlayer {
     }
     
     private var audioPlayer: AVAudioPlayer?
+    var correctSoundPath: URL?
+    var wrongSoundPath: URL?
     
-    func playCorrect() {
-        guard let pathToSound = Bundle.main.path(forResource: ResourceNames.correct, ofType: ResourceNames.type) else { return }
-        let url = URL(fileURLWithPath: pathToSound)
-        
-        do {
-            audioPlayer = try AVAudioPlayer(contentsOf: url)
-            audioPlayer?.play()
-        } catch {
-            print("Unexpected error: \(error.localizedDescription)")
+    init() {
+        if let pathToCorrectSound = Bundle.main.path(forResource: ResourceNames.correct, ofType: ResourceNames.type) {
+            correctSoundPath = URL(fileURLWithPath: pathToCorrectSound)
+        }
+        if let pathToWrongSound = Bundle.main.path(forResource: ResourceNames.wrong, ofType: ResourceNames.type) {
+            wrongSoundPath = URL(fileURLWithPath: pathToWrongSound)
         }
     }
     
-    func playWrong() {
-        guard let pathToSound = Bundle.main.path(forResource: ResourceNames.wrong, ofType: ResourceNames.type) else { return }
-        let url = URL(fileURLWithPath: pathToSound)
+    func playSound(soundPath: URL?) {
+        guard let path = soundPath else {
+            print("Error: Can't find sound path")
+            return
+        }
         do {
-            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer = try AVAudioPlayer(contentsOf: path, fileTypeHint: ResourceNames.type)
             audioPlayer?.prepareToPlay()
             audioPlayer?.play()
         } catch {

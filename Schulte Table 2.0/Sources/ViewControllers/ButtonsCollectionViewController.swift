@@ -84,7 +84,7 @@ private extension ButtonsCollectionViewController {
             handleCorrectButton(button)
             return
         }
-        soundPlayer.playWrong()
+        soundPlayer.playSound(soundPath: soundPlayer.wrongSoundPath)
     }
     
     func checkRedBlackButton(_ button: UIButton) {
@@ -112,11 +112,11 @@ private extension ButtonsCollectionViewController {
             handleCorrectButton(button)
             return
         }
-        soundPlayer.playWrong()
+        soundPlayer.playSound(soundPath: soundPlayer.wrongSoundPath)
     }
     
     func handleCorrectButton(_ button: UIButton) {
-        soundPlayer.playCorrect()
+        soundPlayer.playSound(soundPath: soundPlayer.correctSoundPath)
         button.isHidden = true
         
         // Checking if the button is the last
