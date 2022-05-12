@@ -53,7 +53,7 @@ class MenuViewController: UITableViewController {
     }
     
     private func handleResetting() {
-        LocalService().removeResult()
+        LocalService().clearAllData()
         delegate?.menuDidResetResults()
         dismiss(animated: true)
     }

@@ -23,6 +23,8 @@
 		F7622234281BFE0800B85057 /* ButtonsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7622233281BFE0800B85057 /* ButtonsCollectionViewController.swift */; };
 		F766792E26A53CCC0059B7C4 /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = F766792B26A53CCC0059B7C4 /* correct.wav */; };
 		F766793026A53CCC0059B7C4 /* wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = F766792D26A53CCC0059B7C4 /* wrong.wav */; };
+		F76D4660282D268A0054A683 /* SchulteTable.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F76D465E282D268A0054A683 /* SchulteTable.xcdatamodeld */; };
+		F76D4662282D282A0054A683 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76D4661282D282A0054A683 /* CoreDataStack.swift */; };
 		F7981D7B26A16A69003ECEFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7981D7A26A16A69003ECEFB /* AppDelegate.swift */; };
 		F7981D7D26A16A69003ECEFB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7981D7C26A16A69003ECEFB /* HomeViewController.swift */; };
 		F7981D8526A16A6F003ECEFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7981D8426A16A6F003ECEFB /* Assets.xcassets */; };
@@ -60,6 +62,8 @@
 		F7622233281BFE0800B85057 /* ButtonsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsCollectionViewController.swift; sourceTree = "<group>"; };
 		F766792B26A53CCC0059B7C4 /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct.wav; sourceTree = "<group>"; };
 		F766792D26A53CCC0059B7C4 /* wrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrong.wav; sourceTree = "<group>"; };
+		F76D465F282D268A0054A683 /* SchulteTable.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SchulteTable.xcdatamodel; sourceTree = "<group>"; };
+		F76D4661282D282A0054A683 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		F7981D7726A16A69003ECEFB /* Schulte Table 2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Schulte Table 2.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7981D7A26A16A69003ECEFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7981D7C26A16A69003ECEFB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 		F7307FD72815A419005C545B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F76D465D282D267C0054A683 /* Core Data */,
 				F736ADD02828DA60009912E9 /* Localization */,
 				F7307FD82815A42E005C545B /* LocalService.swift */,
 				F7D22A762816A637001E86AF /* Stopwatch.swift */,
@@ -201,6 +206,15 @@
 				F766792D26A53CCC0059B7C4 /* wrong.wav */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		F76D465D282D267C0054A683 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				F76D465E282D268A0054A683 /* SchulteTable.xcdatamodeld */,
+				F76D4661282D282A0054A683 /* CoreDataStack.swift */,
+			);
+			path = "Core Data";
 			sourceTree = "<group>";
 		};
 		F7981D6E26A16A69003ECEFB = {
@@ -343,8 +357,10 @@
 				F72164A026BD0B3D003DC2FB /* SlideInTransition.swift in Sources */,
 				F7B929D528257282008D8117 /* ButtonsCollectionViewCell.swift in Sources */,
 				F7B929DE282572F4008D8117 /* SelectorTableViewCell.swift in Sources */,
+				F76D4660282D268A0054A683 /* SchulteTable.xcdatamodeld in Sources */,
 				F75162162815105700FCADAD /* SmallExtenions.swift in Sources */,
 				F79FECDF28281C8700E1E09F /* UserDefaults.swift in Sources */,
+				F76D4662282D282A0054A683 /* CoreDataStack.swift in Sources */,
 				F7981D7B26A16A69003ECEFB /* AppDelegate.swift in Sources */,
 				F736ADD22828DA9A009912E9 /* Bundle.swift in Sources */,
 				F7D22A772816A637001E86AF /* Stopwatch.swift in Sources */,
@@ -567,6 +583,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F76D465E282D268A0054A683 /* SchulteTable.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F76D465F282D268A0054A683 /* SchulteTable.xcdatamodel */,
+			);
+			currentVersion = F76D465F282D268A0054A683 /* SchulteTable.xcdatamodel */;
+			path = SchulteTable.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F7981D6F26A16A69003ECEFB /* Project object */;
 }

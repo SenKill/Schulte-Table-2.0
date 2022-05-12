@@ -41,11 +41,11 @@ class EndGameView: UIView {
     private func setViews() {
         let gameTypeLocalized = String(describing: gameType).localized
         installLabel(withYpos: 75, withText: "\(gameTypeLocalized), \(tableSize.string) " + "grid".localized, withColor: .lightGray, withFontSize: 25)
-        let bestText = "BEST_RESULT".localized + String(bestValue) + "sec".localized
+        let bestText = "BEST_RESULT".localized + String(format: "%.2f", bestValue) + "sec".localized
         installLabel(withYpos: bounds.midY - 250, withText: bestText, withColor: UIColor(r: 255, g: 215, b: 0, a: 0.8), withFontSize: 30)
-        let yourText: String = "YOUR_RESULT".localized + String(currentValue) + "sec".localized
+        let yourText: String = "YOUR_RESULT".localized + String(format: "%.2f", currentValue) + "sec".localized
         installLabel(withYpos: bounds.midY - 50, withText: yourText, withColor: UIColor(r: 156, g: 192, b: 231, a: 0.8), withFontSize: 40)
-        let previousText = "PREVIOUS_RESULT".localized + String(previousValue) + "sec".localized
+        let previousText = "PREVIOUS_RESULT".localized + String(format: "%.2f", previousValue) + "sec".localized
         installLabel(withYpos: bounds.midY + 150, withText: previousText, withColor: UIColor(r: 255, g: 160, b: 122, a: 0.8), withFontSize: 30)
         
     }

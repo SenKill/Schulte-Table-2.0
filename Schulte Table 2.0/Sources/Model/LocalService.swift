@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 enum DefaultKeys: String, CaseIterable {
     case classicPrev = "classicPrevious"
@@ -20,39 +21,61 @@ enum DefaultKeys: String, CaseIterable {
 final class LocalService {
     private let defaults = UserDefaults.standard
     private let tableSizeKey = "tableSize"
+    private let stack = CoreDataStack.shared
     
-    func removeResult() {
-        let defaults = UserDefaults.standard
+    func clearAllData() {
+        let entityName = "GameResult"
         
-        for key in DefaultKeys.allCases {
-            defaults.removeObject(forKey: key.rawValue + "3x3")
-        }
-        for key in DefaultKeys.allCases {
-            defaults.removeObject(forKey: key.rawValue + "5x5")
-        }
-        for key in DefaultKeys.allCases {
-            defaults.removeObject(forKey: key.rawValue + "7x7")
-        }
-        for key in DefaultKeys.allCases {
-            defaults.removeObject(forKey: key.rawValue + "9x9")
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: entityName)
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try stack.managedContext.persistentStoreCoordinator?.execute(deleteRequest, with: stack.managedContext)
+            stack.saveContext()
+        } catch let error as NSError {
+            print("Deleting results error: \(error), \(error.userInfo)")
         }
     }
 }
 
 extension LocalService {
-    // Checking the current result and saving it in the UserDefault if it's less than the previous best result
-    func handleEndGame(bestKey: DefaultKeys, previousKey: DefaultKeys, table size: TableSize, timeInfo: (Int, Int)) -> (Double, Double, Double) {
+    func handleEndGame(gameType: GameType, table size: TableSize, timeInfo: (Int, Int)) -> (Double, Double, Double) {
+        let currentTime: Double = Double(timeInfo.0) + Double(timeInfo.1) / 100
+        let fetchRequest: NSFetchRequest<GameResult> = GameResult.fetchRequest()
         
-        let bestResult: Double = defaults.double(forKey: bestKey.rawValue + size.string)
-        let previousResult: Double  = defaults.double(forKey: previousKey.rawValue + size.string)
-        
-        let currentResult: Double = Double(timeInfo.0) + Double(timeInfo.1) / 100
-        if currentResult < bestResult || bestResult == 0.0 {
-            defaults.set(currentResult, forKey: bestKey.rawValue + size.string)
+        do {
+            var gameResults = try stack.managedContext.fetch(fetchRequest)
+            gameResults = gameResults.filter({ gameResult in
+                if gameResult.gameType == gameType.rawValue && gameResult.grid == size.rawValue {
+                    return true
+                }
+                return false
+            })
+            let previousTime: Double = gameResults.last?.time ?? 0
+            
+            var bestTime: Double = 0
+            for result in gameResults {
+                if result.time < bestTime || bestTime == 0 {
+                    bestTime = result.time
+                }
+            }
+            
+            let currentResult = GameResult(context: stack.managedContext)
+            currentResult.time = currentTime
+            currentResult.gameType = Int16(gameType.rawValue)
+            currentResult.grid = Int16(size.rawValue)
+            currentResult.date = Date()
+            
+            gameResults.append(currentResult)
+            // Saving changed data in store
+            stack.saveContext()
+            
+            return (previousTime, currentTime, bestTime)
+        } catch let error as NSError {
+            print("Fetch error \(error), \(error.userInfo)")
         }
         
-        defaults.set(currentResult, forKey: previousKey.rawValue + size.string)
-        return (previousResult, currentResult, bestResult)
+        return (0.0, currentTime, 0.0)
     }
 }
 

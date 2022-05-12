@@ -238,7 +238,9 @@ extension HomeViewController: MenuDelegate {
             return
         }
         settingsVC = settingsViewController
-        navigationController?.pushViewController(settingsVC!, animated: true)
+        if let navControl = navigationController {
+            navControl.pushViewController(settingsVC!, animated: true)
+        }
     }
     
     func menuDidResetResults() {
@@ -259,7 +261,7 @@ extension HomeViewController: ButtonsCollectionDelegate {
     }
     
     func buttonsCollectionDidEndGame() {
-        let statTuple = localService.handleEndGame(bestKey: gameResultBest, previousKey: gameResultPrevious, table: tableSize, timeInfo: stopwatch.getTimeInfo())
+        let statTuple = localService.handleEndGame(gameType: currentGameType, table: tableSize, timeInfo: stopwatch.getTimeInfo())
         
         stopwatch.stop()
         labelsView.isHidden = true
