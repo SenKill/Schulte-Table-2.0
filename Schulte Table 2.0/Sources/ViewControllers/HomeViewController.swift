@@ -232,6 +232,14 @@ extension HomeViewController: StopwatchDelegate {
 
 // MARK: - MenuDelegate
 extension HomeViewController: MenuDelegate {
+    func menu(didSelectOption viewController: UIViewController) {
+        guard let navControl = navigationController else {
+            print("ERROR: Can't find navigationController")
+            return
+        }
+        navControl.pushViewController(viewController, animated: true)
+    }
+    
     func menuDidSelectSettings() {
         guard let settingsViewController = storyboard?.instantiateViewController(withIdentifier: "SettingsTableViewController") as? SettingsTableViewController else {
             print("Can't insantiate SettingsTableViewController")
@@ -239,7 +247,7 @@ extension HomeViewController: MenuDelegate {
         }
         settingsVC = settingsViewController
         if let navControl = navigationController {
-            navControl.pushViewController(settingsVC!, animated: true)
+            navControl.pushViewController(settingsVC!, animated: false)
         }
     }
     

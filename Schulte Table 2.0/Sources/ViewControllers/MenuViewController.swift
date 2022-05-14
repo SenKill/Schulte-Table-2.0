@@ -17,8 +17,8 @@ enum GameType: Int {
 
 protocol MenuDelegate: AnyObject {
     func menu(didSelectGameType gameType: GameType)
+    func menu(didSelectOption viewController: UIViewController)
     func menuDidResetResults()
-    func menuDidSelectSettings()
 }
 
 class MenuViewController: UITableViewController {
@@ -37,8 +37,20 @@ class MenuViewController: UITableViewController {
             switch indexPath.row {
             case 0:
                 dismiss(animated: true)
-                delegate?.menuDidSelectSettings()
+                guard let settingsViewController = storyboard?.instantiateViewController(withIdentifier: "SettingsTableViewController") as? SettingsTableViewController else {
+                    print("Can't insantiate SettingsTableViewController")
+                    return
+                }
+                delegate?.menu(didSelectOption: settingsViewController)
             case 1:
+                dismiss(animated: true)
+                guard let statsViewController = storyboard?.instantiateViewController(withIdentifier: "StatsViewController") as? StatsViewController else {
+                    print("Can't insantiate StatsViewController")
+                    return
+                    
+                }
+                delegate?.menu(didSelectOption: statsViewController)
+            case 2:
                 let alert = UIAlertController(title: "RESET_RESULTS".localized, message: "RESET_MESSAGE".localized, preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "RESET_CONTINUE".localized, style: UIAlertAction.Style.default, handler: { UIAlertAction in self.handleResetting()
                 }))
