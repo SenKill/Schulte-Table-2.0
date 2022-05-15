@@ -8,12 +8,19 @@
 
 import UIKit
 
+protocol SettingsDelegate: AnyObject {
+    func settings(didChangedTableSize grid: TableSize)
+    func settings(didChangedShuffleColors shuffleColors: Bool)
+}
+
 class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var selectedSizeLabel: UILabel!
     @IBOutlet weak var selectedLanguageLabel: UILabel!
     @IBOutlet weak var shuffleColorsSwitch: UISwitch!
     
-    var selectedSize: TableSize!
+    weak var delegate: SettingsDelegate?
+    
+    private var selectedSize: TableSize!
     private var selectedLanguage: Language!
     private var localService = LocalService()
     private let defaults = UserDefaults.standard
@@ -32,6 +39,7 @@ class SettingsTableViewController: UITableViewController {
 extension SettingsTableViewController {
     @IBAction func didTapShuffleColors(_ sender: UISwitch) {
         defaults.set(sender.isOn, forKey: UserDefaults.Key.shuffleColors)
+        delegate?.settings(didChangedShuffleColors: sender.isOn)
     }
 }
 
@@ -48,6 +56,7 @@ private extension SettingsTableViewController {
 extension SettingsTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
+        // MARK: GridSize
         case 0:
             guard let sizeTableVC = storyboard?.instantiateViewController(withIdentifier: "SizeTableViewController") as? SelectorTableViewController else {
                 print("Can't instantiate SizeTableViewController")
@@ -65,8 +74,10 @@ extension SettingsTableViewController {
                 self.localService.defaultTableSize = tableSize.rawValue
                 self.selectedSize = tableSize
                 self.selectedSizeLabel.text = tableSize.string
+                self.delegate?.settings(didChangedTableSize: tableSize)
             }
             navigationController?.pushViewController(sizeTableVC, animated: true)
+        // MARK: Language
         case 1:
             guard let languageTableVC = storyboard?.instantiateViewController(withIdentifier: "LangTableViewController") as? SelectorTableViewController else {
                 print("Can't instantiate LangTableViewController")

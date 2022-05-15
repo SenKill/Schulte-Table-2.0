@@ -15,11 +15,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet var nextTargetLabel: UILabel!
     @IBOutlet var labelsView: UIView!
-    @IBOutlet var restartButton: UIBarButtonItem!
     @IBOutlet weak var buttonsCollectionView: UICollectionView!
     
     private let buttonsVC = ButtonsCollectionViewController()
-    private var settingsVC: SettingsTableViewController?
     private let localService = LocalService()
     private let transition = SlideInTransition()
     private let stopwatch = Stopwatch()
@@ -37,7 +35,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         tableSize = TableSize(rawValue: localService.defaultTableSize ?? 2)
         navigationItem.largeTitleDisplayMode = .never
-        navigationItem.title = "classic".localized
+        navigationItem.title = String(describing: currentGameType).lowercased().localized
         buttonsCollectionView.dataSource = buttonsVC
         buttonsCollectionView.delegate = buttonsVC
         buttonsVC.delegate = self
@@ -45,30 +43,12 @@ class HomeViewController: UIViewController {
         shuffleColors = UserDefaults.standard.bool(forKey: UserDefaults.Key.shuffleColors)
         startGame(withType: .classic)
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        // Everytime when settings is being closed it will check the selected size
-        if let size = settingsVC?.selectedSize,
-           size != tableSize {
-            tableSize = size
-            stopwatch.stop()
-            startGame(withType: currentGameType)
-        }
-        if let isShuffleOn = settingsVC?.shuffleColorsSwitch.isOn,
-           isShuffleOn != shuffleColors {
-            shuffleColors = isShuffleOn
-            stopwatch.stop()
-            startGame(withType: currentGameType)
-        }
-        super.viewWillAppear(animated)
-    }
 }
 
 // MARK: - Actions
 extension HomeViewController {
     @IBAction func touchRestartButton(_ sender: UIBarButtonItem) {
-        stopwatch.stop()
-        startGame(withType: currentGameType)
+        restartGame()
     }
     
     // Set up other game types and include them into the side bar
@@ -133,6 +113,8 @@ private extension HomeViewController {
             
         case .redBlack:
             colors = getDisorderedColors(first: UIColor.theme.redBlackFirstColor, second: UIColor.theme.redBlackSecondColor)
+        default:
+            print("Undefined game type")
         }
         titles.shuffle()
         buttonsVC.game.titles = titles
@@ -140,6 +122,11 @@ private extension HomeViewController {
         
         buttonsCollectionView.reloadSections(IndexSet(integer: 0))
         stopwatch.start()
+    }
+    
+    func restartGame() {
+        stopwatch.stop()
+        startGame(withType: currentGameType)
     }
     
     func transitionToNew(_ gameType: GameType) {
@@ -162,6 +149,8 @@ private extension HomeViewController {
             startGame(withType: .redBlack)
             gameResultPrevious = DefaultKeys.lettersPrev
             gameResultBest = DefaultKeys.lettersBest
+        default:
+            print("Undefined game type")
         }
     }
     
@@ -237,18 +226,10 @@ extension HomeViewController: MenuDelegate {
             print("ERROR: Can't find navigationController")
             return
         }
-        navControl.pushViewController(viewController, animated: true)
-    }
-    
-    func menuDidSelectSettings() {
-        guard let settingsViewController = storyboard?.instantiateViewController(withIdentifier: "SettingsTableViewController") as? SettingsTableViewController else {
-            print("Can't insantiate SettingsTableViewController")
-            return
+        if let settingsVC = viewController as? SettingsTableViewController {
+            settingsVC.delegate = self
         }
-        settingsVC = settingsViewController
-        if let navControl = navigationController {
-            navControl.pushViewController(settingsVC!, animated: false)
-        }
+        navControl.pushViewController(viewController, animated: false)
     }
     
     func menuDidResetResults() {
@@ -280,5 +261,22 @@ extension HomeViewController: ButtonsCollectionDelegate {
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapEndGameView(_:)))
         endGameView.addGestureRecognizer(tapGestureRecognizer)
+    }
+}
+
+// MARK: - SettingsDelegate
+extension HomeViewController: SettingsDelegate {
+    func settings(didChangedTableSize tableSize: TableSize) {
+        if tableSize != self.tableSize {
+            self.tableSize = tableSize
+            restartGame()
+        }
+    }
+    
+    func settings(didChangedShuffleColors shuffleColors: Bool) {
+        if self.shuffleColors != shuffleColors {
+            self.shuffleColors = shuffleColors
+            restartGame()
+        }
     }
 }

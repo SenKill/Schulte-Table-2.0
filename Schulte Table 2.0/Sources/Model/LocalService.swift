@@ -46,7 +46,7 @@ extension LocalService {
         do {
             var gameResults = try stack.managedContext.fetch(fetchRequest)
             gameResults = gameResults.filter({ gameResult in
-                if gameResult.gameType == gameType.rawValue && gameResult.grid == size.rawValue {
+                if gameResult.gameType == gameType.rawValue && gameResult.tableSize == size.rawValue {
                     return true
                 }
                 return false
@@ -63,7 +63,7 @@ extension LocalService {
             let currentResult = GameResult(context: stack.managedContext)
             currentResult.time = currentTime
             currentResult.gameType = Int16(gameType.rawValue)
-            currentResult.grid = Int16(size.rawValue)
+            currentResult.tableSize = Int16(size.rawValue)
             currentResult.date = Date()
             
             gameResults.append(currentResult)

@@ -13,6 +13,7 @@ enum GameType: Int {
     case classic
     case letter
     case redBlack
+    case last
 }
 
 protocol MenuDelegate: AnyObject {
@@ -44,10 +45,9 @@ class MenuViewController: UITableViewController {
                 delegate?.menu(didSelectOption: settingsViewController)
             case 1:
                 dismiss(animated: true)
-                guard let statsViewController = storyboard?.instantiateViewController(withIdentifier: "StatsViewController") as? StatsViewController else {
-                    print("Can't insantiate StatsViewController")
+                guard let statsViewController = storyboard?.instantiateViewController(withIdentifier: "StatsTableViewController") as? StatsTableViewController else {
+                    print("Can't insantiate StatsTableViewController")
                     return
-                    
                 }
                 delegate?.menu(didSelectOption: statsViewController)
             case 2:

@@ -1,5 +1,5 @@
 //
-//  StatsViewController.swift
+//  ChartViewController.swift
 //  Schulte Table 2.0
 //
 //  Created by Serik Musaev on 14.05.2022.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Charts
 
-class StatsViewController: UIViewController, ChartViewDelegate {
+class ChartViewController: UIViewController, ChartViewDelegate {
     
     lazy var chartView: ChartView = {
         let chart = ChartView()

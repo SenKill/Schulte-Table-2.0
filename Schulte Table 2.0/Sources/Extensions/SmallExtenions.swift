@@ -25,3 +25,19 @@ extension String {
         }
     }
 }
+
+extension Double {
+    var formatSeconds: String {
+        String(format: "%.2f", self) + "sec".localized
+    }
+}
+
+extension Date {
+    var format: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.current
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        return dateFormatter.string(from: self)
+    }
+}

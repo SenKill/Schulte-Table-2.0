@@ -1,0 +1,6 @@
+framework module Pods_Schulte_Table_2_0 {
+  umbrella header "Pods-Schulte Table 2.0-umbrella.h"
+
+  export *
+  module * { export * }
+}

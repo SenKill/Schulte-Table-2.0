@@ -181,7 +181,6 @@
                         <outlet property="buttonsCollectionView" destination="zhC-Jg-PTY" id="ypf-Wa-TXh"/>
                         <outlet property="labelsView" destination="JMP-YB-NAJ" id="4TM-KY-Ob3"/>
                         <outlet property="nextTargetLabel" destination="kAU-9y-PpE" id="G8V-Y8-NP6"/>
-                        <outlet property="restartButton" destination="iSX-5c-Bci" id="6Nq-LB-xPP"/>
                         <outlet property="timeLabel" destination="VKi-wX-IiP" id="tZA-rM-MyC"/>
                     </connections>
                 </viewController>
@@ -576,20 +575,34 @@
             </objects>
             <point key="canvasLocation" x="5162" y="137"/>
         </scene>
-        <!--Stats View Controller-->
-        <scene sceneID="QXJ-6S-iRT">
+        <!--Statistics-->
+        <scene sceneID="6NY-Hl-lQp">
             <objects>
-                <viewController storyboardIdentifier="StatsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qj3-Fy-ckz" customClass="StatsViewController" customModule="Schulte_Table_2_0" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="OMG-2n-a0H">
+                <tableViewController storyboardIdentifier="StatsTableViewController" title="Statistics" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sWO-6x-cmd" customClass="StatsTableViewController" customModule="Schulte_Table_2_0" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="hjz-j0-XSU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="zRr-bS-eC5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fid-V9-mCG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StatsTableViewCell" rowHeight="50" id="23G-2J-Cdj" customClass="StatsTableViewCell" customModule="Schulte_Table_2_0" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.666666030883789" width="414" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="23G-2J-Cdj" id="hs5-yu-YTW">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="sWO-6x-cmd" id="46D-XW-7UW"/>
+                            <outlet property="delegate" destination="sWO-6x-cmd" id="Bnt-QA-fMK"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Stats" largeTitleDisplayMode="always" id="pQZ-r8-lGE"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gk0-9B-ztV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6110" y="137"/>
+            <point key="canvasLocation" x="6015.9420289855079" y="136.60714285714286"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nfA-Ju-6aU">
