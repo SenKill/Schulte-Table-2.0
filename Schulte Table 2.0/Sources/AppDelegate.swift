@@ -16,23 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         Locale.setupInitialLanguage()
         setupNotifications()
-        
-        window?.overrideUserInterfaceStyle = .light
+        setNavigationBarTransparent()
         return true
-    }
-
-    private func setupNotifications() {
-        let nc = NotificationCenter.default
-        nc.addObserver(forName: NSLocale.currentLocaleDidChangeNotification, object: nil, queue: OperationQueue.main) { [weak self] notification in
-            guard let `self` = self else { return }
-            
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            let vc = sb.instantiateInitialViewController()
-            self.window?.rootViewController = vc
-        }
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -54,3 +41,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+// MARK: - Internal functions
+private extension AppDelegate {
+    func setupNotifications() {
+        let nc = NotificationCenter.default
+        nc.addObserver(forName: NSLocale.currentLocaleDidChangeNotification, object: nil, queue: OperationQueue.main) { [weak self] notification in
+            guard let `self` = self else { return }
+            
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateInitialViewController()
+            self.window?.rootViewController = vc
+        }
+    }
+    
+    func setNavigationBarTransparent() {
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithTransparentBackground()
+            UINavigationBar.appearance().standardAppearance = appearance
+        }
+    }
+}

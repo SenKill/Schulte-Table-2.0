@@ -23,11 +23,33 @@ protocol MenuDelegate: AnyObject {
 }
 
 class MenuViewController: UITableViewController {
-    
     @IBOutlet weak var resetResultsLabel: UILabel!
-    
+    @IBOutlet weak var resetResultsCell: UITableViewCell!
     weak var delegate: MenuDelegate?
     
+    private func handleResetting() {
+        LocalService().clearAllData()
+        delegate?.menuDidResetResults()
+        dismiss(animated: true)
+    }
+}
+
+// MARK: - TableViewDataSource
+extension MenuViewController {
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = .clear
+        if let header = view as? UITableViewHeaderFooterView {
+            header.textLabel?.textColor = .gray
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        view.tintColor = .clear
+    }
+}
+
+// MARK: - TableViewDelegate
+extension MenuViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             guard let gameType = GameType(rawValue: indexPath.row) else { return }
@@ -56,6 +78,7 @@ class MenuViewController: UITableViewController {
                 }))
                 alert.addAction(UIAlertAction(title: "RESET_CANCEL".localized, style: UIAlertAction.Style.cancel, handler: {_ in
                     self.resetResultsLabel.isHighlighted = false
+                    self.resetResultsCell.isSelected = false
                 }))
                 self.present(alert, animated: true, completion: nil)
             default:
@@ -64,9 +87,13 @@ class MenuViewController: UITableViewController {
         }
     }
     
-    private func handleResetting() {
-        LocalService().clearAllData()
-        delegate?.menuDidResetResults()
-        dismiss(animated: true)
+    override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.backgroundColor = UIColor.theme.highlitedMenuCellColor
+    }
+    
+    override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.backgroundColor = UIColor.theme.menuCellColor
     }
 }

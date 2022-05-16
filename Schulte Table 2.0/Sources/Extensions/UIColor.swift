@@ -25,4 +25,7 @@ struct Theme {
     let letterSecondColor = UIColor(r: 69, g: 80, b: 69, a: 1)
     let redBlackFirstColor = UIColor(r: 132,g: 51,b: 58,a: 1)
     let redBlackSecondColor = UIColor.black
+    
+    let menuCellColor = UIColor(r: 245, g: 228, b: 195, a: 1)
+    let highlitedMenuCellColor = UIColor(r: 215, g: 200, b: 165, a: 1)
 }

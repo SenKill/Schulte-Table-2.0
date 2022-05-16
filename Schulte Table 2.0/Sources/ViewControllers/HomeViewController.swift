@@ -33,9 +33,10 @@ class HomeViewController: UIViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableSize = TableSize(rawValue: localService.defaultTableSize ?? 2)
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.title = String(describing: currentGameType).lowercased().localized
+        
+        tableSize = TableSize(rawValue: localService.defaultTableSize ?? 2)
         buttonsCollectionView.dataSource = buttonsVC
         buttonsCollectionView.delegate = buttonsVC
         buttonsVC.delegate = self
@@ -222,14 +223,11 @@ extension HomeViewController: StopwatchDelegate {
 // MARK: - MenuDelegate
 extension HomeViewController: MenuDelegate {
     func menu(didSelectOption viewController: UIViewController) {
-        guard let navControl = navigationController else {
-            print("ERROR: Can't find navigationController")
-            return
-        }
         if let settingsVC = viewController as? SettingsTableViewController {
             settingsVC.delegate = self
         }
-        navControl.pushViewController(viewController, animated: false)
+        navigationController?.pushViewController(viewController, animated: false)
+        navigationController?.navigationBar.isHidden = false
     }
     
     func menuDidResetResults() {
