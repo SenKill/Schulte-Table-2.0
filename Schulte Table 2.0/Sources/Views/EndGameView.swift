@@ -10,13 +10,28 @@ import Foundation
 import UIKit
 
 class EndGameView: UIView {
-    
     private let currentValue: Double
     private let bestValue: Double
     private let previousValue: Double
     private var gameType: GameType
     private var tableSize: TableSize!
     
+    private let gameInfoLabel: UILabel = {
+        getLabel(withColor: .lightGray, withFontSize: 25)
+    }()
+    
+    private let bestLabel: UILabel = {
+        getLabel(withColor: UIColor(r: 255, g: 215, b: 0, a: 0.8), withFontSize: 30)
+    }()
+    
+    private let currentLabel: UILabel = {
+        getLabel(withColor: UIColor(r: 156, g: 192, b: 231, a: 0.8), withFontSize: 40)
+        
+    }()
+    
+    private let previousLabel: UILabel = {
+        getLabel(withColor: UIColor(r: 255, g: 160, b: 122, a: 0.8), withFontSize: 30)
+    }()
     
     init(frame: CGRect, previous: Double, current: Double, best: Double, game: GameType, table: TableSize) {
         previousValue = previous
@@ -25,9 +40,10 @@ class EndGameView: UIView {
         gameType = game
         tableSize = table
         super.init(frame: frame)
-        isUserInteractionEnabled = true
+        
         backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5)
         setViews()
+        layoutViews()
     }
     
     required init?(coder: NSCoder) {
@@ -38,30 +54,56 @@ class EndGameView: UIView {
         super.init(coder: coder)
     }
     
-    private func setViews() {
-        let gameTypeLocalized = String(describing: gameType).localized
-        installLabel(withYpos: 75, withText: "\(gameTypeLocalized), \(tableSize.string) " + "grid".localized, withColor: .lightGray, withFontSize: 25)
-        let bestText = "BEST_RESULT".localized + bestValue.formatSeconds
-        installLabel(withYpos: bounds.midY - 250, withText: bestText, withColor: UIColor(r: 255, g: 215, b: 0, a: 0.8), withFontSize: 30)
-        let yourText: String = "YOUR_RESULT".localized + String(format: "%.2f", currentValue) + "sec".localized
-        installLabel(withYpos: bounds.midY - 50, withText: yourText, withColor: UIColor(r: 156, g: 192, b: 231, a: 0.8), withFontSize: 40)
-        let previousText = "PREVIOUS_RESULT".localized + String(format: "%.2f", previousValue) + "sec".localized
-        installLabel(withYpos: bounds.midY + 150, withText: previousText, withColor: UIColor(r: 255, g: 160, b: 122, a: 0.8), withFontSize: 30)
-        
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        previousLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -bestLabel.frame.minY).isActive = true
     }
 }
 
 // MARK: Internal
 private extension EndGameView {
-    func installLabel(withYpos yPos: CGFloat, withText text: String, withColor color: UIColor, withFontSize fontSize: CGFloat) {
-        let fontName: String = "Rockwell"
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 100))
-        label.center = CGPoint(x: bounds.midX, y: yPos)
+    static func getLabel(withColor color: UIColor, withFontSize fontSize: CGFloat) -> UILabel {
+        let fontName: String = "Gill Sans SemiBold"
+        let label = UILabel()
         label.textAlignment = .center
         label.font = UIFont(name: fontName, size: fontSize)
-        label.text = text
         label.textColor = color
-        label.numberOfLines = 0
-        addSubview(label)
+        label.numberOfLines = 3
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }
+    
+    func setViews() {
+        let gameInfoText = "\(String(describing: gameType).localized), \(tableSize.string) \("GRID".localized)"
+        gameInfoLabel.text = gameInfoText
+        let bestText = "BEST_RESULT".localized + bestValue.formatSeconds
+        bestLabel.text = bestText
+        let currentText: String = "YOUR_RESULT".localized + String(format: "%.2f", currentValue) + "SEC".localized
+        currentLabel.text = currentText
+        let previousText = "PREVIOUS_RESULT".localized + String(format: "%.2f", previousValue) + "SEC".localized
+        previousLabel.text = previousText
+        addSubview(gameInfoLabel)
+        addSubview(bestLabel)
+        addSubview(currentLabel)
+        addSubview(previousLabel)
+    }
+    
+    func layoutViews() {
+        NSLayoutConstraint.activate([
+            gameInfoLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            gameInfoLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            gameInfoLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
+            
+            currentLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            currentLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            currentLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            
+            bestLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            bestLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            bestLabel.topAnchor.constraint(equalTo: gameInfoLabel.bottomAnchor, constant: 30),
+            
+            previousLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            previousLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
+        ])
     }
 }

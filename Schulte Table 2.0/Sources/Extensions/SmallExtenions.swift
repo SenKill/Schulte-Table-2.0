@@ -28,14 +28,14 @@ extension String {
 
 extension Double {
     var formatSeconds: String {
-        String(format: "%.2f", self) + "sec".localized
+        String(format: "%.2f", self) + "SEC".localized
     }
 }
 
 extension Date {
     var format: String {
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale.current
+        dateFormatter.locale = Locale(identifier: AppLocale.identifier)
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .short
         return dateFormatter.string(from: self)

@@ -17,8 +17,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.34s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0d-Bt-zAt">
-                        <rect key="frame" x="269" y="0.0" width="41" height="50"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.34s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0d-Bt-zAt">
+                        <rect key="frame" x="240" y="0.0" width="70" height="50"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -49,30 +49,31 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0SM-uJ-5pT">
-                        <rect key="frame" x="262" y="7" width="2" height="36"/>
+                        <rect key="frame" x="233" y="7" width="2" height="36"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="2" id="FES-Tk-m5r"/>
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" red="0.9882352941176471" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="Chv-mE-YFv" secondAttribute="bottom" id="5sK-Ws-rGH"/>
                     <constraint firstItem="Chv-mE-YFv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6aS-m1-kJw"/>
                     <constraint firstItem="EsP-v6-bao" firstAttribute="leading" secondItem="Chv-mE-YFv" secondAttribute="trailing" constant="5" id="I6W-aS-Ntm"/>
                     <constraint firstAttribute="bottom" secondItem="0SM-uJ-5pT" secondAttribute="bottom" constant="7" id="IkV-Sw-AMy"/>
                     <constraint firstAttribute="bottom" secondItem="F0d-Bt-zAt" secondAttribute="bottom" id="QnF-sl-LMQ"/>
+                    <constraint firstAttribute="trailing" secondItem="0SM-uJ-5pT" secondAttribute="trailing" constant="85" id="UvG-oo-I8w"/>
                     <constraint firstItem="0SM-uJ-5pT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="YhS-Iu-41g"/>
-                    <constraint firstItem="F0d-Bt-zAt" firstAttribute="leading" secondItem="0SM-uJ-5pT" secondAttribute="trailing" constant="5" id="heq-RF-R9c"/>
                     <constraint firstAttribute="trailing" secondItem="F0d-Bt-zAt" secondAttribute="trailing" constant="10" id="ibQ-CP-dLG"/>
                     <constraint firstItem="F0d-Bt-zAt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ifw-Wa-rtl"/>
                     <constraint firstItem="Chv-mE-YFv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="mVM-pz-RMG"/>
+                    <constraint firstItem="F0d-Bt-zAt" firstAttribute="leading" secondItem="0SM-uJ-5pT" secondAttribute="trailing" constant="5" id="pAR-hc-0q6"/>
                     <constraint firstAttribute="bottom" secondItem="EsP-v6-bao" secondAttribute="bottom" id="r0H-aU-6k3"/>
                     <constraint firstItem="EsP-v6-bao" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="t2D-DB-QZc"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" red="0.9882352941176471" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="dateLabel" destination="EsP-v6-bao" id="gmv-Ua-Ftm"/>
                 <outlet property="resultTimeLabel" destination="F0d-Bt-zAt" id="VsV-K6-gIf"/>

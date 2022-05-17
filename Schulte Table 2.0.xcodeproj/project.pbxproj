@@ -126,14 +126,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		F71289922827B0E60030FAF6 /* Localization */ = {
-			isa = PBXGroup;
-			children = (
-				F71289972827B1DE0030FAF6 /* Localizable.strings */,
-			);
-			path = Localization;
-			sourceTree = "<group>";
-		};
 		F7175DA826BBF30D0011FDD1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,7 +142,6 @@
 		F719F3DA26C62E50001628E1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F71289922827B0E60030FAF6 /* Localization */,
 				F7981D8426A16A6F003ECEFB /* Assets.xcassets */,
 				F7981D8926A16A6F003ECEFB /* Info.plist */,
 				F766793126A53CD30059B7C4 /* Sounds */,
@@ -186,6 +177,7 @@
 		F736ADD02828DA60009912E9 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
+				F71289972827B1DE0030FAF6 /* Localizable.strings */,
 				F71F45D32824F82600577471 /* Language.swift */,
 				F736ADCE2828C7BF009912E9 /* AppLocale.swift */,
 				F736ADD12828DA9A009912E9 /* Bundle.swift */,

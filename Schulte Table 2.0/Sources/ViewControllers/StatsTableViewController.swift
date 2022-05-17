@@ -18,6 +18,7 @@ class StatsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "STATS".localized
         registerCell()
         sortRecords(rawRecords: fetchRecords())
     }

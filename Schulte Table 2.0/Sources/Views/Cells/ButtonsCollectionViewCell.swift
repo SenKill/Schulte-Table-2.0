@@ -23,5 +23,7 @@ class ButtonsCollectionViewCell: UICollectionViewCell {
         button.isHidden = false
         button.setTitle(name, for: .normal)
         button.backgroundColor = color
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleLabel?.minimumScaleFactor = 20
     }
 }

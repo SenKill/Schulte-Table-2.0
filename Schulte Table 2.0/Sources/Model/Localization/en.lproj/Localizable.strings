@@ -18,7 +18,8 @@
 "YOUR_RESULT" = "Your result:\n";
 "BEST_RESULT" = "Best:\n";
 "PREVIOUS_RESULT" = "Previous:\n";
-"sec" = "s";
-"grid" = "grid";
+"SEC" = "s";
+"GRID" = "grid";
 "LETTER_TABLE_SIZE_TITLE" = "Sorry!";
 "LETTER_TABLE_SIZE_MESSAGE" = "You can't play Letter game type with 9x9 grid size(";
+"STATS" = "Statistics";

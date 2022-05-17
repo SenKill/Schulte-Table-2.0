@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         Locale.setupInitialLanguage()
         setupNotifications()
-        setNavigationBarTransparent()
         return true
     }
     
@@ -51,14 +50,6 @@ private extension AppDelegate {
             let sb = UIStoryboard(name: "Main", bundle: nil)
             let vc = sb.instantiateInitialViewController()
             self.window?.rootViewController = vc
-        }
-    }
-    
-    func setNavigationBarTransparent() {
-        if #available(iOS 13.0, *) {
-            let appearance = UINavigationBarAppearance()
-            appearance.configureWithTransparentBackground()
-            UINavigationBar.appearance().standardAppearance = appearance
         }
     }
 }

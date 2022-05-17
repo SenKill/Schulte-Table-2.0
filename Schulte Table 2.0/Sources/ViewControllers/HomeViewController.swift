@@ -192,9 +192,7 @@ private extension HomeViewController {
     
     @objc func didTapEndGameView(_ sender: UITapGestureRecognizer) {
         endGameView.removeFromSuperview()
-        if let navigationController = navigationController {
-            view.addSubview(navigationController.navigationBar)
-        }
+        navigationController?.isNavigationBarHidden = false
         labelsView.isHidden = false
         startGame(withType: currentGameType)
     }
@@ -227,7 +225,6 @@ extension HomeViewController: MenuDelegate {
             settingsVC.delegate = self
         }
         navigationController?.pushViewController(viewController, animated: false)
-        navigationController?.navigationBar.isHidden = false
     }
     
     func menuDidResetResults() {
@@ -253,8 +250,7 @@ extension HomeViewController: ButtonsCollectionDelegate {
         stopwatch.stop()
         labelsView.isHidden = true
         endGameView = EndGameView(frame: view.bounds.self, previous: statTuple.0, current: statTuple.1, best: statTuple.2, game: currentGameType, table: tableSize)
-        navigationController?.navigationBar.removeFromSuperview()
-        
+        navigationController?.isNavigationBarHidden = true
         view.addSubview(endGameView)
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapEndGameView(_:)))
