@@ -13,9 +13,9 @@ class ChartView: BarChartView {
     
     init() {
         super.init(frame: .zero)
+        backgroundColor = .secondarySystemBackground
         rightAxis.enabled = true
         leftAxis.enabled = true
-        animate(xAxisDuration: 0.5)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -23,9 +23,7 @@ class ChartView: BarChartView {
     }
     
     func activateConstraints() {
-        print("yes")
         guard let superview = superview else {
-            print("no")
             return
         }
         translatesAutoresizingMaskIntoConstraints = false
@@ -33,7 +31,7 @@ class ChartView: BarChartView {
             leadingAnchor.constraint(equalTo: superview.leadingAnchor),
             trailingAnchor.constraint(equalTo: superview.trailingAnchor),
             bottomAnchor.constraint(equalTo: superview.bottomAnchor),
-            heightAnchor.constraint(equalTo: superview.heightAnchor, multiplier: 0.5),
+            heightAnchor.constraint(equalTo: superview.heightAnchor, multiplier: 2/3)
         ])
     }
 }

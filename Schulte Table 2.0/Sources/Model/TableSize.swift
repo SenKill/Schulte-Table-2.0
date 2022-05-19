@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum TableSize: Int {
     case small = 1
@@ -39,6 +40,19 @@ enum TableSize: Int {
             return 49
         case .huge:
             return 81
+        }
+    }
+    
+    var statsColors: [UIColor] {
+        switch self {
+        case .small:
+            return [UIColor.theme.statsSmallColor]
+        case .medium:
+            return [UIColor.theme.statsMediumColor]
+        case .big:
+            return [UIColor.theme.statsBigColor]
+        case .huge:
+            return [UIColor.theme.statsHugeColor]
         }
     }
 }

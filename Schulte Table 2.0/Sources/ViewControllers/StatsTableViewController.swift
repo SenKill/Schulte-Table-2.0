@@ -18,6 +18,7 @@ class StatsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = 50
         title = "STATS".localized
         registerCell()
         sortRecords(rawRecords: fetchRecords())
@@ -55,7 +56,7 @@ private extension StatsTableViewController {
     }
 }
 
-// MARK: Table Data Source
+// MARK: TableDataSource
 extension StatsTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         GameType.last.rawValue
@@ -83,7 +84,7 @@ extension StatsTableViewController {
         view.backgroundColor = .secondarySystemBackground
         let label = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.bounds.width - 30, height: sectionHeaderHeigh))
         label.font = UIFont.boldSystemFont(ofSize: 15)
-        label.textColor = UIColor.black
+        label.textColor = .label
         if let gameType = GameType(rawValue: section) {
             switch gameType {
             case .classic:
@@ -105,5 +106,18 @@ extension StatsTableViewController {
             return sectionHeaderHeigh
         }
         return 0
+    }
+}
+
+// MARK: - TableViewDelegate
+extension StatsTableViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let gameTypeRecords: [GameResult] = records[GameType(rawValue: indexPath.section)!] ?? []
+        let currentTableSize = gameTypeRecords[indexPath.row].tableSize
+        let currentTableRecords: [GameResult] = gameTypeRecords.filter({ $0.tableSize == currentTableSize})
+        let chartVC = ChartViewController(gameResults: currentTableRecords)
+        chartVC.modalPresentationStyle = .automatic
+        
+        present(chartVC, animated: true)
     }
 }

@@ -10,52 +10,77 @@ import Foundation
 import UIKit
 import Charts
 
-class ChartViewController: UIViewController, ChartViewDelegate {
+class ChartViewController: UIViewController {
+    private let chartView = ChartView()
+    private let records: [GameResult]
+    private var tableSize: TableSize!
+    private var gameType: GameType!
     
-    lazy var chartView: ChartView = {
-        let chart = ChartView()
-        return chart
+    private let cancelButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Cancel", for: .normal)
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
+    
+    init(gameResults: [GameResult]) {
+        records = gameResults
+        tableSize = TableSize(rawValue: Int(gameResults[0].tableSize))
+        gameType = GameType(rawValue: Int(gameResults[0].gameType))
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        records = []
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .cyan
+        view.backgroundColor = .systemBackground
+        view.addSubview(cancelButton)
+        layoutViews()
+        cancelButton.addTarget(self, action: #selector(didTapCancelButton(_:)), for: .touchUpInside)
         view.addSubview(chartView)
         chartView.activateConstraints()
-        setData()
+        createDataSets()
+    }
+}
+
+// MARK: - Internal
+private extension ChartViewController {
+    func createDataSets() {
+        let dataSet = BarChartDataSet()
+        dataSet.colors = tableSize.statsColors
+        dataSet.label = "\(tableSize.string), \(String(describing: gameType!).localized)"
+        
+        for i in 0..<records.count {
+            let dataEntry = BarChartDataEntry(x: Double(i), y: records[i].time)
+            dataSet.append(dataEntry)
+        }
+        
+        let chartData = BarChartData(dataSet: dataSet)
+        chartView.data = chartData
     }
     
-    func setChartOnView() {
+    func layoutViews() {
         NSLayoutConstraint.activate([
-            chartView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            chartView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            chartView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            chartView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5),
+            cancelButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            cancelButton.widthAnchor.constraint(equalToConstant: 100),
+            cancelButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     
+    @objc func didTapCancelButton(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
+}
+
+// MARK: - ChartViewDelegate
+extension ChartViewController: ChartViewDelegate {
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         print(entry)
     }
-    
-    func setData() {
-        let set1 = BarChartDataSet(entries: yValues, label: "Abobus")
-        let data = BarChartData(dataSet: set1)
-        chartView.data = data
-    }
-    
-    let yValues: [BarChartDataEntry] = [
-        BarChartDataEntry(x: 1, y: 7),
-        BarChartDataEntry(x: 2, y: 3),
-        BarChartDataEntry(x: 3, y: 10),
-        BarChartDataEntry(x: 4, y: 0),
-        BarChartDataEntry(x: 5, y: 5),
-        BarChartDataEntry(x: 6, y: 6),
-        BarChartDataEntry(x: 7, y: 8),
-        BarChartDataEntry(x: 8, y: 6),
-        BarChartDataEntry(x: 9, y: 7),
-        BarChartDataEntry(x: 10, y: 4),
-        BarChartDataEntry(x: 11, y: 5),
-        BarChartDataEntry(x: 12, y: 3),
-    ]
 }

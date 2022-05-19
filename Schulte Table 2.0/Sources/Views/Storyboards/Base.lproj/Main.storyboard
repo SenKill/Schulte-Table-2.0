@@ -19,9 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="owl" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FjP-Du-Z0x" userLabel="backgroundImageView">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="owl" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FjP-Du-Z0x" userLabel="backgroundImageView">
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JMP-YB-NAJ" userLabel="LabelsView">
                                 <rect key="frame" x="0.0" y="344" width="386" height="84"/>
@@ -157,6 +156,10 @@
                             <constraint firstItem="JMP-YB-NAJ" firstAttribute="leading" secondItem="dwK-2B-wya" secondAttribute="leading" id="CfU-G6-oa5"/>
                             <constraint firstItem="zhC-Jg-PTY" firstAttribute="top" secondItem="JMP-YB-NAJ" secondAttribute="bottom" constant="70" id="DQ1-Hr-11k"/>
                             <constraint firstItem="zhC-Jg-PTY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="G4f-K0-zDT"/>
+                            <constraint firstItem="FjP-Du-Z0x" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="V1u-xU-DK1"/>
+                            <constraint firstItem="FjP-Du-Z0x" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="aCR-qZ-8kH"/>
+                            <constraint firstItem="FjP-Du-Z0x" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="uwx-UY-Ngf"/>
+                            <constraint firstAttribute="bottom" secondItem="FjP-Du-Z0x" secondAttribute="bottom" id="ybS-7R-H75"/>
                             <constraint firstItem="dwK-2B-wya" firstAttribute="trailing" secondItem="JMP-YB-NAJ" secondAttribute="trailing" constant="42" id="zsu-Sk-GaK"/>
                         </constraints>
                     </view>
@@ -586,35 +589,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mCh-vM-Adz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5162" y="137"/>
-        </scene>
-        <!--Statistics-->
-        <scene sceneID="6NY-Hl-lQp">
-            <objects>
-                <tableViewController storyboardIdentifier="StatsTableViewController" title="Statistics" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sWO-6x-cmd" customClass="StatsTableViewController" customModule="Schulte_Table_2_0" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="hjz-j0-XSU">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StatsTableViewCell" rowHeight="50" id="23G-2J-Cdj" customClass="StatsTableViewCell" customModule="Schulte_Table_2_0" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="50"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="23G-2J-Cdj" id="hs5-yu-YTW">
-                                    <rect key="frame" x="0.0" y="0.0" width="428" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="sWO-6x-cmd" id="46D-XW-7UW"/>
-                            <outlet property="delegate" destination="sWO-6x-cmd" id="Bnt-QA-fMK"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Stats" largeTitleDisplayMode="always" id="pQZ-r8-lGE"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gk0-9B-ztV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6015.9420289855079" y="136.60714285714286"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nfA-Ju-6aU">

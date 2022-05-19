@@ -28,4 +28,9 @@ struct Theme {
     
     let menuCellColor = UIColor(r: 245, g: 228, b: 195, a: 1)
     let highlitedMenuCellColor = UIColor(r: 215, g: 200, b: 165, a: 1)
+    
+    let statsSmallColor = UIColor(r: 208, g: 222, b: 205, a: 1)
+    let statsMediumColor = UIColor(r: 78, g: 144, b: 138, a: 1)
+    let statsBigColor = UIColor(r: 38, g: 84, b: 91, a: 1)
+    let statsHugeColor = UIColor(r: 237, g: 114, b: 103, a: 1)
 }

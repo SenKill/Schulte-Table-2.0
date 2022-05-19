@@ -21,5 +21,18 @@ class StatsTableViewCell: UITableViewCell {
         tableSizeLabel.text = tableSize?.string
         dateLabel.text = gameResult.date?.format
         resultTimeLabel.text = gameResult.time.formatSeconds
+        
+        switch TableSize(rawValue: Int(gameResult.tableSize)) {
+        case .small:
+            tableSizeView.backgroundColor = UIColor.theme.statsSmallColor
+        case .medium:
+            tableSizeView.backgroundColor = UIColor.theme.statsMediumColor
+        case .big:
+            tableSizeView.backgroundColor = UIColor.theme.statsBigColor
+        case .huge:
+            tableSizeView.backgroundColor = UIColor.theme.statsHugeColor
+        default:
+            print("ERROR: Unexpected table size")
+        }
     }
 }

@@ -67,11 +67,7 @@ extension MenuViewController {
                 delegate?.menu(didSelectOption: settingsViewController)
             case 1:
                 dismiss(animated: true)
-                guard let statsViewController = storyboard?.instantiateViewController(withIdentifier: "StatsTableViewController") as? StatsTableViewController else {
-                    print("Can't insantiate StatsTableViewController")
-                    return
-                }
-                delegate?.menu(didSelectOption: statsViewController)
+                delegate?.menu(didSelectOption: StatsTableViewController())
             case 2:
                 let alert = UIAlertController(title: "RESET_RESULTS".localized, message: "RESET_MESSAGE".localized, preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "RESET_CONTINUE".localized, style: UIAlertAction.Style.default, handler: { UIAlertAction in self.handleResetting()
