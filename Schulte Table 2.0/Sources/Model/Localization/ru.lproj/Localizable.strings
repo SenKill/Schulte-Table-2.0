@@ -23,3 +23,4 @@
 "LETTER_TABLE_SIZE_TITLE" = "Извините!";
 "LETTER_TABLE_SIZE_MESSAGE" = "Вы не можете играть буквенный режим с 9x9 сеткой(";
 "STATS" = "Статистика";
+"AVERAGE" = "Средний результат";

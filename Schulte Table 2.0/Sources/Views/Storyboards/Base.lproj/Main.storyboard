@@ -164,15 +164,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="CDU-9W-6po">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="listIcon" landscapeImage="listIcon" style="done" id="8JF-dw-3ZJ">
+                        <barButtonItem key="leftBarButtonItem" title="Item" largeContentSizeImage="listIcon" style="done" id="8JF-dw-3ZJ">
+                            <imageReference key="image" image="listIcon" symbolScale="large"/>
+                            <imageReference key="landscapeImage" image="listIcon" symbolScale="large"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="didTapMenu:" destination="BYZ-38-t0r" id="UiH-GX-4Ca"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="restartButton" style="done" id="iSX-5c-Bci">
-                            <imageReference key="image" image="restartIcon" symbolScale="large" renderingMode="template"/>
-                            <imageReference key="landscapeImage" image="restartIcon" symbolScale="large"/>
+                        <barButtonItem key="rightBarButtonItem" title="restartButton" largeContentSizeImage="restart" style="done" id="iSX-5c-Bci">
+                            <imageReference key="image" image="restart" symbolScale="large" renderingMode="template"/>
+                            <imageReference key="landscapeImage" image="restart" symbolScale="large"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="touchRestartButton:" destination="BYZ-38-t0r" id="WlP-f9-BeX"/>
@@ -612,10 +614,10 @@
     <resources>
         <image name="chart.bar.fill" catalog="system" width="128" height="92"/>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
-        <image name="listIcon" width="50" height="50"/>
+        <image name="listIcon" width="36" height="36"/>
         <image name="owl" width="2250" height="3000"/>
+        <image name="restart" width="37.5" height="37.5"/>
         <image name="restart.circle" catalog="system" width="128" height="121"/>
-        <image name="restartIcon" width="50" height="50"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

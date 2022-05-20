@@ -18,8 +18,18 @@ class ChartViewController: UIViewController {
     
     private let cancelButton: UIButton = {
         let button = UIButton()
+        
         button.setTitle("Cancel", for: .normal)
-        button.setTitleColor(.systemBlue, for: .normal)
+        button.setTitleColor(.systemRed, for: .normal)
+        button.titleLabel?.font = UIFont(name: "Gill Sans SemiBold", size: 20)
+        
+        button.backgroundColor = .white
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.systemRed.cgColor
+        button.layer.cornerRadius = 20
+        button.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+        button.layer.masksToBounds = false
+        
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -38,38 +48,58 @@ class ChartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        view.addSubview(cancelButton)
-        layoutViews()
-        cancelButton.addTarget(self, action: #selector(didTapCancelButton(_:)), for: .touchUpInside)
+        view.backgroundColor = .clear
         view.addSubview(chartView)
+        view.addSubview(cancelButton)
+        
         chartView.activateConstraints()
+        layoutViews()
         createDataSets()
+        cancelButton.addTarget(self, action: #selector(didTapCancelButton(_:)), for: .touchUpInside)
     }
 }
 
 // MARK: - Internal
 private extension ChartViewController {
     func createDataSets() {
-        let dataSet = BarChartDataSet()
+        let dataSet = LineChartDataSet()
+        
         dataSet.colors = tableSize.statsColors
+        dataSet.setColor(tableSize.statsColors[0])
+        dataSet.highlightColor = .systemRed
+        dataSet.mode = .cubicBezier
+        dataSet.lineWidth = 3
+        dataSet.fill = ColorFill(color: tableSize.statsColors[0])
+        dataSet.fillAlpha = 0.7
+        dataSet.circleColors = [.black]
+        dataSet.drawFilledEnabled = true
+        dataSet.drawHorizontalHighlightIndicatorEnabled = false
+        dataSet.circleRadius = 3
+        
         dataSet.label = "\(tableSize.string), \(String(describing: gameType!).localized)"
         
-        for i in 0..<records.count {
-            let dataEntry = BarChartDataEntry(x: Double(i), y: records[i].time)
+        var averageResult: Double = 0
+        for i in 0 ..< records.count {
+            // Finding average result value
+            averageResult += records[i].time
+            
+            let dataEntry = ChartDataEntry(x: Double(i), y: records[i].time)
             dataSet.append(dataEntry)
         }
+        averageResult /= Double(records.count)
+        // Setting limitLine's limit that located in the ChartView
+        chartView.setLimitLine(limit: averageResult)
         
-        let chartData = BarChartData(dataSet: dataSet)
+        let chartData = LineChartData(dataSet: dataSet)
         chartView.data = chartData
     }
     
     func layoutViews() {
         NSLayoutConstraint.activate([
-            cancelButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            cancelButton.widthAnchor.constraint(equalToConstant: 100),
-            cancelButton.heightAnchor.constraint(equalToConstant: 50)
+            cancelButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            cancelButton.widthAnchor.constraint(equalToConstant: 90),
+            cancelButton.bottomAnchor.constraint(equalTo: chartView.topAnchor, constant: -10),
+            cancelButton.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
     

@@ -23,3 +23,4 @@
 "LETTER_TABLE_SIZE_TITLE" = "Sorry!";
 "LETTER_TABLE_SIZE_MESSAGE" = "You can't play Letter game type with 9x9 grid size(";
 "STATS" = "Statistics";
+"AVERAGE" = "Average result";

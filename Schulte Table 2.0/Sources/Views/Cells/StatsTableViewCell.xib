@@ -48,22 +48,28 @@
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0SM-uJ-5pT">
-                        <rect key="frame" x="233" y="7" width="2" height="36"/>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0SM-uJ-5pT">
+                        <rect key="frame" x="233" y="5" width="2" height="40"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="2" id="FES-Tk-m5r"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="Chv-mE-YFv" secondAttribute="bottom" id="5sK-Ws-rGH"/>
                     <constraint firstItem="Chv-mE-YFv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6aS-m1-kJw"/>
                     <constraint firstItem="EsP-v6-bao" firstAttribute="leading" secondItem="Chv-mE-YFv" secondAttribute="trailing" constant="5" id="I6W-aS-Ntm"/>
-                    <constraint firstAttribute="bottom" secondItem="0SM-uJ-5pT" secondAttribute="bottom" constant="7" id="IkV-Sw-AMy"/>
+                    <constraint firstAttribute="bottom" secondItem="0SM-uJ-5pT" secondAttribute="bottom" constant="5" id="IkV-Sw-AMy"/>
                     <constraint firstAttribute="bottom" secondItem="F0d-Bt-zAt" secondAttribute="bottom" id="QnF-sl-LMQ"/>
                     <constraint firstAttribute="trailing" secondItem="0SM-uJ-5pT" secondAttribute="trailing" constant="85" id="UvG-oo-I8w"/>
-                    <constraint firstItem="0SM-uJ-5pT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="YhS-Iu-41g"/>
+                    <constraint firstItem="0SM-uJ-5pT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="YhS-Iu-41g"/>
                     <constraint firstAttribute="trailing" secondItem="F0d-Bt-zAt" secondAttribute="trailing" constant="10" id="ibQ-CP-dLG"/>
                     <constraint firstItem="F0d-Bt-zAt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ifw-Wa-rtl"/>
                     <constraint firstItem="Chv-mE-YFv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="mVM-pz-RMG"/>
