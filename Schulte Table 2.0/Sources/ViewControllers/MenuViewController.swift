@@ -86,11 +86,11 @@ extension MenuViewController {
     
     override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
-        cell?.backgroundColor = UIColor.theme.highlitedMenuCellColor
+        cell?.backgroundColor = UIColor.theme.highlitedMenuCell
     }
     
     override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
-        cell?.backgroundColor = UIColor.theme.menuCellColor
+        cell?.backgroundColor = UIColor.theme.menuCell
     }
 }

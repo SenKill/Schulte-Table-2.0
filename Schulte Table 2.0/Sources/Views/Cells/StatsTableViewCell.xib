@@ -4,7 +4,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,37 +22,11 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.34s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0d-Bt-zAt">
                         <rect key="frame" x="240" y="0.0" width="70" height="50"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Chv-mE-YFv">
-                        <rect key="frame" x="0.0" y="0.0" width="40" height="50"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5x5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOR-ZI-Nw6">
-                                <rect key="frame" x="0.0" y="0.0" width="40" height="50"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="0.41960784313725491" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="KOR-ZI-Nw6" secondAttribute="trailing" id="3l4-i0-Znc"/>
-                            <constraint firstItem="KOR-ZI-Nw6" firstAttribute="top" secondItem="Chv-mE-YFv" secondAttribute="top" id="8Eb-nu-pkZ"/>
-                            <constraint firstItem="KOR-ZI-Nw6" firstAttribute="leading" secondItem="Chv-mE-YFv" secondAttribute="leading" id="Ixa-fs-aey"/>
-                            <constraint firstAttribute="bottom" secondItem="KOR-ZI-Nw6" secondAttribute="bottom" id="gqu-8y-fli"/>
-                            <constraint firstAttribute="width" constant="40" id="ziU-mP-RDY"/>
-                        </constraints>
-                    </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 May 2022, 16:34" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EsP-v6-bao">
-                        <rect key="frame" x="45" y="0.0" width="135" height="50"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0SM-uJ-5pT">
                         <rect key="frame" x="233" y="5" width="2" height="40"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="labelColor"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="2" id="FES-Tk-m5r"/>
                         </constraints>
@@ -61,32 +37,62 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5x5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KOR-ZI-Nw6">
+                        <rect key="frame" x="0.0" y="0.0" width="40" height="50"/>
+                        <color key="backgroundColor" name="StatsMediumColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="pD5-yA-TcE"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 May 2022, 16:34" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EsP-v6-bao">
+                        <rect key="frame" x="48" y="0.0" width="135" height="50"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="Chv-mE-YFv" secondAttribute="bottom" id="5sK-Ws-rGH"/>
-                    <constraint firstItem="Chv-mE-YFv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6aS-m1-kJw"/>
-                    <constraint firstItem="EsP-v6-bao" firstAttribute="leading" secondItem="Chv-mE-YFv" secondAttribute="trailing" constant="5" id="I6W-aS-Ntm"/>
+                    <constraint firstAttribute="bottom" secondItem="KOR-ZI-Nw6" secondAttribute="bottom" id="FRA-0r-Lhv"/>
                     <constraint firstAttribute="bottom" secondItem="0SM-uJ-5pT" secondAttribute="bottom" constant="5" id="IkV-Sw-AMy"/>
                     <constraint firstAttribute="bottom" secondItem="F0d-Bt-zAt" secondAttribute="bottom" id="QnF-sl-LMQ"/>
+                    <constraint firstAttribute="bottom" secondItem="KOR-ZI-Nw6" secondAttribute="bottom" id="RlS-52-hrr"/>
                     <constraint firstAttribute="trailing" secondItem="0SM-uJ-5pT" secondAttribute="trailing" constant="85" id="UvG-oo-I8w"/>
                     <constraint firstItem="0SM-uJ-5pT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="YhS-Iu-41g"/>
+                    <constraint firstItem="KOR-ZI-Nw6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ZSY-Nt-ElO"/>
+                    <constraint firstItem="KOR-ZI-Nw6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ZZS-Nn-Z9b"/>
+                    <constraint firstAttribute="bottom" secondItem="KOR-ZI-Nw6" secondAttribute="bottom" id="bWG-Zi-tzP"/>
+                    <constraint firstItem="EsP-v6-bao" firstAttribute="leading" secondItem="KOR-ZI-Nw6" secondAttribute="trailing" constant="8" symbolic="YES" id="c6m-ZJ-XcH"/>
+                    <constraint firstItem="KOR-ZI-Nw6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ebe-HG-0Sy"/>
                     <constraint firstAttribute="trailing" secondItem="F0d-Bt-zAt" secondAttribute="trailing" constant="10" id="ibQ-CP-dLG"/>
                     <constraint firstItem="F0d-Bt-zAt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ifw-Wa-rtl"/>
-                    <constraint firstItem="Chv-mE-YFv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="mVM-pz-RMG"/>
+                    <constraint firstItem="KOR-ZI-Nw6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="lBZ-Kg-qQK"/>
+                    <constraint firstItem="KOR-ZI-Nw6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="lPI-hf-yfc"/>
                     <constraint firstItem="F0d-Bt-zAt" firstAttribute="leading" secondItem="0SM-uJ-5pT" secondAttribute="trailing" constant="5" id="pAR-hc-0q6"/>
+                    <constraint firstItem="KOR-ZI-Nw6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="pQT-Aw-liv"/>
                     <constraint firstAttribute="bottom" secondItem="EsP-v6-bao" secondAttribute="bottom" id="r0H-aU-6k3"/>
                     <constraint firstItem="EsP-v6-bao" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="t2D-DB-QZc"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <color key="backgroundColor" red="0.9882352941176471" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" name="StatsTableCellColor"/>
             <connections>
                 <outlet property="dateLabel" destination="EsP-v6-bao" id="gmv-Ua-Ftm"/>
                 <outlet property="resultTimeLabel" destination="F0d-Bt-zAt" id="VsV-K6-gIf"/>
                 <outlet property="tableSizeLabel" destination="KOR-ZI-Nw6" id="lWe-ph-1XS"/>
-                <outlet property="tableSizeView" destination="Chv-mE-YFv" id="6oz-gV-BqQ"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="68.303571428571431"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <namedColor name="StatsMediumColor">
+            <color red="0.30588235294117649" green="0.56470588235294117" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="StatsTableCellColor">
+            <color red="0.9882352941176471" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

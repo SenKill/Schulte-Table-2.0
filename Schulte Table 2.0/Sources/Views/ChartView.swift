@@ -13,7 +13,9 @@ class ChartView: LineChartView {
     init() {
         super.init(frame: .zero)
         customizeChartView()
-        backgroundColor = .white
+        legend.verticalAlignment = .top
+        legend
+        backgroundColor = .systemBackground
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -29,7 +31,7 @@ class ChartView: LineChartView {
             leadingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.leadingAnchor),
             trailingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.trailingAnchor),
             bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor),
-            heightAnchor.constraint(equalTo: superview.heightAnchor, multiplier: 2/3)
+            topAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.topAnchor, constant: 150)
         ])
     }
     

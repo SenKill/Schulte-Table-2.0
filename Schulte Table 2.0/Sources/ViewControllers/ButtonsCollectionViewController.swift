@@ -36,10 +36,10 @@ extension ButtonsCollectionViewController {
         var buttonTitle: String = game.titles.isEmpty ? "" : game.titles[indexPath.row]
         let buttonColor = game.colors[indexPath.row]
         if currentGameType == .redBlack {
-            if buttonColor == UIColor.theme.redBlackSecondColor {
+            if buttonColor == UIColor.theme.redBlack[1] {
                 buttonTitle = String(game.blackTitles[game.blackCount])
                 game.blackCount += 1
-            } else if buttonColor == UIColor.theme.redBlackFirstColor {
+            } else if buttonColor == UIColor.theme.redBlack[0] {
                 buttonTitle = String(game.redTitles[game.redCount])
                 game.redCount += 1
             }
@@ -90,8 +90,8 @@ private extension ButtonsCollectionViewController {
     func checkRedBlackButton(_ button: UIButton) {
         // Decomposing if else logic, and storing it in the property below
         let isRightButton: Bool!
-        let backgroundColorIsBlack: Bool = button.backgroundColor == UIColor.theme.redBlackSecondColor
-        if game.targetColor == UIColor.theme.redBlackSecondColor {
+        let backgroundColorIsBlack: Bool = button.backgroundColor == UIColor.theme.redBlack[1]
+        if game.targetColor == UIColor.theme.redBlack[1] {
             isRightButton = button.currentTitle == String(game.nextTarget) && backgroundColorIsBlack
         } else {
             isRightButton = button.currentTitle == String(game.nextTargetRed) && !backgroundColorIsBlack
@@ -100,13 +100,13 @@ private extension ButtonsCollectionViewController {
         // If the button was right then it will send the new text to the master through delegate
         if isRightButton {
             handleCorrectButton(button)
-            if game.targetColor == UIColor.theme.redBlackSecondColor {
+            if game.targetColor == UIColor.theme.redBlack[1] {
                 game.nextTarget += 1
-                game.targetColor = UIColor.theme.redBlackFirstColor
+                game.targetColor = UIColor.theme.redBlack[0]
                 delegate?.buttonsCollection(changeTargetLabelWithText: String(game.nextTargetRed), color: game.targetColor)
             } else {
                 game.nextTargetRed -= 1
-                game.targetColor = UIColor.theme.redBlackSecondColor
+                game.targetColor = UIColor.theme.redBlack[1]
                 delegate?.buttonsCollection(changeTargetLabelWithText: String(game.nextTarget), color: .white)
             }
             handleCorrectButton(button)

@@ -86,7 +86,7 @@ private extension HomeViewController {
             range.forEach { number in
                 titles.append(String(number))
             }
-            colors = shuffleColors ? getDisorderedColors(first: UIColor.theme.classicFirstColor, second: UIColor.theme.classicSecondColor) : getOrderedColors(first: UIColor.theme.classicFirstColor, second: UIColor.theme.classicSecondColor)
+            colors = shuffleColors ? getDisorderedColors(first: UIColor.theme.classic[0], second: UIColor.theme.classic[1]) : getOrderedColors(first: UIColor.theme.classic[0], second: UIColor.theme.classic[1])
             
         case .letter:
             guard tableSize != .huge else {
@@ -107,13 +107,13 @@ private extension HomeViewController {
                 titles.append(letter)
             }
             
-            colors = shuffleColors ? getDisorderedColors(first: UIColor.theme.letterFirstColor, second: UIColor.theme.letterSecondColor) : getOrderedColors(first: UIColor.theme.letterFirstColor, second: UIColor.theme.letterSecondColor)
+            colors = shuffleColors ? getDisorderedColors(first: UIColor.theme.letter[0], second: UIColor.theme.letter[1]) : getOrderedColors(first: UIColor.theme.letter[0], second: UIColor.theme.letter[1])
             buttonsVC.game.nextTarget = 97
             buttonsVC.game.letterLastTarget = letterArray[tableSize.items-1] + 1
             nextTargetLabel.text = String(Unicode.Scalar(buttonsVC.game.nextTarget)!)
             
         case .redBlack:
-            colors = getDisorderedColors(first: UIColor.theme.redBlackFirstColor, second: UIColor.theme.redBlackSecondColor)
+            colors = getDisorderedColors(first: UIColor.theme.redBlack[0], second: UIColor.theme.redBlack[1])
         default:
             print("Undefined game type")
         }

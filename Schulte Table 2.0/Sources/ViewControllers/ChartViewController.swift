@@ -23,12 +23,13 @@ class ChartViewController: UIViewController {
         button.setTitleColor(.systemRed, for: .normal)
         button.titleLabel?.font = UIFont(name: "Gill Sans SemiBold", size: 20)
         
-        button.backgroundColor = .white
+        button.backgroundColor = .systemBackground
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.systemRed.cgColor
         button.layer.cornerRadius = 20
         button.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
         button.layer.masksToBounds = false
+        button.setTitleColor(UIColor.secondaryLabel, for: .highlighted)
         
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -71,7 +72,7 @@ private extension ChartViewController {
         dataSet.lineWidth = 3
         dataSet.fill = ColorFill(color: tableSize.statsColors[0])
         dataSet.fillAlpha = 0.7
-        dataSet.circleColors = [.black]
+        dataSet.circleColors = [.label]
         dataSet.drawFilledEnabled = true
         dataSet.drawHorizontalHighlightIndicatorEnabled = false
         dataSet.circleRadius = 3

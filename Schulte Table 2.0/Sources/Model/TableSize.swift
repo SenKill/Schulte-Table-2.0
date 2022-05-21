@@ -46,13 +46,13 @@ enum TableSize: Int {
     var statsColors: [UIColor] {
         switch self {
         case .small:
-            return [UIColor.theme.statsSmallColor]
+            return [UIColor.theme.statsSmallCell]
         case .medium:
-            return [UIColor.theme.statsMediumColor]
+            return [UIColor.theme.statsMediumCell]
         case .big:
-            return [UIColor.theme.statsBigColor]
+            return [UIColor.theme.statsBigCell]
         case .huge:
-            return [UIColor.theme.statsHugeColor]
+            return [UIColor.theme.statsHugeCell]
         }
     }
 }

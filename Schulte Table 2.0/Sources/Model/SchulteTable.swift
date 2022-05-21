@@ -20,7 +20,7 @@ class SchulteTable {
     var redBlackLastTarget: Int {
         tableSize.items/2 + 2
     }
-    lazy var targetColor: UIColor = UIColor.theme.redBlackSecondColor
+    lazy var targetColor: UIColor = UIColor.theme.redBlack[1]
     lazy var nextTargetRed: Int = tableSize.items / 2
     lazy var redTitles: [Int] = (1...tableSize.items/2).shuffled()
     lazy var blackTitles: [Int] = (1...tableSize.items/2 + 1).shuffled()

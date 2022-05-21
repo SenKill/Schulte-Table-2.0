@@ -9,7 +9,6 @@
 import UIKit
 
 class StatsTableViewCell: UITableViewCell {
-    @IBOutlet weak var tableSizeView: UIView!
     @IBOutlet weak var tableSizeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var resultTimeLabel: UILabel!
@@ -24,13 +23,13 @@ class StatsTableViewCell: UITableViewCell {
         
         switch TableSize(rawValue: Int(gameResult.tableSize)) {
         case .small:
-            tableSizeView.backgroundColor = UIColor.theme.statsSmallColor
+            tableSizeLabel.backgroundColor = UIColor.theme.statsSmallCell
         case .medium:
-            tableSizeView.backgroundColor = UIColor.theme.statsMediumColor
+            tableSizeLabel.backgroundColor = UIColor.theme.statsMediumCell
         case .big:
-            tableSizeView.backgroundColor = UIColor.theme.statsBigColor
+            tableSizeLabel.backgroundColor = UIColor.theme.statsBigCell
         case .huge:
-            tableSizeView.backgroundColor = UIColor.theme.statsHugeColor
+            tableSizeLabel.backgroundColor = UIColor.theme.statsHugeCell
         default:
             print("ERROR: Unexpected table size")
         }
