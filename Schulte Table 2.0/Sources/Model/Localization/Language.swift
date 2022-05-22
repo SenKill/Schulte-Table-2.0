@@ -17,7 +17,7 @@ enum Language: String, CaseIterable {
         case .en:
             return "English"
         case .ru:
-            return "Russian"
+            return "Русский"
         }
     }
 }

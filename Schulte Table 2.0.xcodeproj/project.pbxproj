@@ -131,8 +131,8 @@
 			children = (
 				F7E21F7528218B3C000A1B5E /* Settings */,
 				F7981D7C26A16A69003ECEFB /* HomeViewController.swift */,
-				F7175DA926BBF3530011FDD1 /* MenuViewController.swift */,
 				F7622233281BFE0800B85057 /* ButtonsCollectionViewController.swift */,
+				F7175DA926BBF3530011FDD1 /* MenuViewController.swift */,
 				F75F50162830CE3200A29CF8 /* StatsTableViewController.swift */,
 				F7C4DA39282F8CE300FAA455 /* ChartViewController.swift */,
 			);

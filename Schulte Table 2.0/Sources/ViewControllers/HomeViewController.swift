@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet var nextTargetLabel: UILabel!
     @IBOutlet var labelsView: UIView!
+    @IBOutlet weak var redDotView: UIView!
     @IBOutlet weak var buttonsCollectionView: UICollectionView!
     
     private let buttonsVC = ButtonsCollectionViewController()
@@ -36,12 +37,11 @@ class HomeViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.title = String(describing: currentGameType).lowercased().localized
         
-        tableSize = TableSize(rawValue: localService.defaultTableSize ?? 2)
+        loadDefaults()
         buttonsCollectionView.dataSource = buttonsVC
         buttonsCollectionView.delegate = buttonsVC
         buttonsVC.delegate = self
         stopwatch.delegate = self
-        shuffleColors = UserDefaults.standard.bool(forKey: UserDefaults.Key.shuffleColors)
         startGame(withType: .classic)
     }
 }
@@ -67,17 +67,26 @@ extension HomeViewController {
 
 // MARK: - Internal
 private extension HomeViewController {
+    func loadDefaults() {
+        let defaults = UserDefaults.standard
+        tableSize = TableSize(rawValue: localService.defaultTableSize ?? 2)
+        shuffleColors = defaults.bool(forKey: UserDefaults.Key.shuffleColors)
+        buttonsVC.hardMode = defaults.bool(forKey: UserDefaults.Key.hardMode)
+        buttonsVC.crazyMode = defaults.bool(forKey: UserDefaults.Key.crazyMode)
+    }
+    
     func startGame(withType gameType: GameType) {
         self.title = String(describing: gameType).localized
         
         var titles: [String] = []
-        var colors: [UIColor] = []
-        let range = 1...tableSize.items
+        var colors: [UIColor] = shuffleColors ? getDisorderedColors(first: UIColor.theme.defaultButtons[0], second: UIColor.theme.defaultButtons[1]) : getOrderedColors(first: UIColor.theme.defaultButtons[0], second: UIColor.theme.defaultButtons[1])
+        let range: ClosedRange<Int> = 1...tableSize.items
         
         buttonsVC.game = SchulteTable()
         buttonsVC.currentGameType = gameType
         buttonsVC.game.tableSize = tableSize
         buttonsVC.game.nextTarget = 1
+        buttonsVC.passedTitles = []
         nextTargetLabel.text = String(buttonsVC.game.nextTarget)
         nextTargetLabel.textColor = .white
         
@@ -86,8 +95,6 @@ private extension HomeViewController {
             range.forEach { number in
                 titles.append(String(number))
             }
-            colors = shuffleColors ? getDisorderedColors(first: UIColor.theme.classic[0], second: UIColor.theme.classic[1]) : getOrderedColors(first: UIColor.theme.classic[0], second: UIColor.theme.classic[1])
-            
         case .letter:
             guard tableSize != .huge else {
                 let alert = UIAlertController(title: "LETTER_TABLE_SIZE_TITLE".localized, message: "LETTER_TABLE_SIZE_MESSAGE".localized, preferredStyle: .alert)
@@ -106,8 +113,6 @@ private extension HomeViewController {
                 let letter = String(Unicode.Scalar(letterArray[i-1])!)
                 titles.append(letter)
             }
-            
-            colors = shuffleColors ? getDisorderedColors(first: UIColor.theme.letter[0], second: UIColor.theme.letter[1]) : getOrderedColors(first: UIColor.theme.letter[0], second: UIColor.theme.letter[1])
             buttonsVC.game.nextTarget = 97
             buttonsVC.game.letterLastTarget = letterArray[tableSize.items-1] + 1
             nextTargetLabel.text = String(Unicode.Scalar(buttonsVC.game.nextTarget)!)
@@ -194,6 +199,7 @@ private extension HomeViewController {
         endGameView.removeFromSuperview()
         navigationController?.isNavigationBarHidden = false
         labelsView.isHidden = false
+        redDotView.isHidden = false
         startGame(withType: currentGameType)
     }
 }
@@ -239,6 +245,10 @@ extension HomeViewController: MenuDelegate {
 
 // MARK: - ButtonsCollectionDelegate
 extension HomeViewController: ButtonsCollectionDelegate {
+    func buttonsCollectionReloadView() {
+        buttonsCollectionView.reloadSections(IndexSet(integer: 0))
+    }
+    
     func buttonsCollection(changeTargetLabelWithText text: String, color: UIColor?) {
         nextTargetLabel.textColor = color ?? .white
         nextTargetLabel.text = text
@@ -249,6 +259,7 @@ extension HomeViewController: ButtonsCollectionDelegate {
         
         stopwatch.stop()
         labelsView.isHidden = true
+        redDotView.isHidden = true
         endGameView = EndGameView(frame: view.bounds.self, previous: statTuple.0, current: statTuple.1, best: statTuple.2, game: currentGameType, table: tableSize)
         navigationController?.isNavigationBarHidden = true
         view.addSubview(endGameView)
@@ -270,6 +281,20 @@ extension HomeViewController: SettingsDelegate {
     func settings(didChangedShuffleColors shuffleColors: Bool) {
         if self.shuffleColors != shuffleColors {
             self.shuffleColors = shuffleColors
+            restartGame()
+        }
+    }
+    
+    func settings(didChangedHardMode hardMode: Bool) {
+        if buttonsVC.hardMode != hardMode {
+            buttonsVC.hardMode = hardMode
+            restartGame()
+        }
+    }
+    
+    func settings(didChangedCrazyMode crazyMode: Bool) {
+        if buttonsVC.crazyMode != crazyMode {
+            buttonsVC.crazyMode = crazyMode
             restartGame()
         }
     }

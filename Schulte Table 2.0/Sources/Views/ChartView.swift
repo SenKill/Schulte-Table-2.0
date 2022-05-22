@@ -14,7 +14,6 @@ class ChartView: LineChartView {
         super.init(frame: .zero)
         customizeChartView()
         legend.verticalAlignment = .top
-        legend
         backgroundColor = .systemBackground
     }
     
@@ -41,6 +40,7 @@ class ChartView: LineChartView {
         limitLine.lineDashLengths = [5, 5]
         limitLine.labelPosition = .rightTop
         limitLine.valueFont = .systemFont(ofSize: 10)
+        limitLine.lineColor = .systemOrange.withAlphaComponent(0.7)
         
         leftAxis.addLimitLine(limitLine)
         leftAxis.axisMinimum = 0
@@ -54,6 +54,5 @@ private extension ChartView {
         rightAxis.enabled = true
         leftAxis.enabled = true
         xAxis.enabled = true
-        gridBackgroundColor = .black
     }
 }

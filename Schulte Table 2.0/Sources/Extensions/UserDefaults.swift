@@ -13,6 +13,8 @@ extension UserDefaults {
         static let languageCode = "languageCode"
         static let regionCode = "regionCode"
         static let shuffleColors = "shuffleColors"
+        static let hardMode = "hardMode"
+        static let crazyMode = "crazyMode"
     }
     
     static var languageCode: String? {

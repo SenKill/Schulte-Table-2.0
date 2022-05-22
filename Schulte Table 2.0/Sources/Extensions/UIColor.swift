@@ -19,8 +19,9 @@ extension UIColor {
 }
 
 struct Theme {
-    let classic: [UIColor] = [UIColor(r: 48, g: 62, b: 48, a: 1), UIColor(r: 69, g: 80, b: 69, a: 1)]
-    let letter: [UIColor] = [UIColor(r: 48, g: 62, b: 48, a: 1), UIColor(r: 69, g: 80, b: 69, a: 1)]
+    let defaultButtons: [UIColor] = [UIColor(r: 48, g: 62, b: 48, a: 1), UIColor(r: 69, g: 80, b: 69, a: 1)]
+    let crazyModeTitles: [UIColor] = [.systemBlue,.systemBrown,.systemGreen,.systemIndigo,.systemOrange,.systemPink,.systemPurple,.systemRed,.systemTeal,.systemYellow,.systemGray]
+    
     let redBlack: [UIColor] = [UIColor(r: 132,g: 51,b: 58,a: 1), UIColor.black]
     
     let menuCell = UIColor(r: 245, g: 228, b: 195, a: 1)

@@ -12,12 +12,16 @@ import UIKit
 protocol ButtonsCollectionDelegate: AnyObject {
     func buttonsCollection(changeTargetLabelWithText text: String, color: UIColor?)
     func buttonsCollectionDidEndGame()
+    func buttonsCollectionReloadView()
 }
 
 class ButtonsCollectionViewController: UICollectionViewController {
     weak var delegate: ButtonsCollectionDelegate?
     var game: SchulteTable!
     var currentGameType: GameType = .classic
+    var hardMode: Bool = false
+    var crazyMode: Bool = false
+    var passedTitles: [String] = []
     
     private let soundPlayer = SoundPlayer()
 }
@@ -33,7 +37,18 @@ extension ButtonsCollectionViewController {
             return UICollectionViewCell()
         }
         
-        var buttonTitle: String = game.titles.isEmpty ? "" : game.titles[indexPath.row]
+        var buttonTitle: String = ""
+        if indexPath.row >= game.titles.startIndex && indexPath.row < game.titles.endIndex {
+            buttonTitle = game.titles.isEmpty ? "" : game.titles[indexPath.row]
+        }
+        
+        for title in passedTitles {
+            if title == buttonTitle {
+                cell.button.isHidden = true
+                return cell
+            }
+        }
+        
         let buttonColor = game.colors[indexPath.row]
         if currentGameType == .redBlack {
             if buttonColor == UIColor.theme.redBlack[1] {
@@ -44,7 +59,7 @@ extension ButtonsCollectionViewController {
                 game.redCount += 1
             }
         }
-        cell.configureCell(with: buttonTitle, color: buttonColor)
+        cell.configureCell(with: buttonTitle, color: buttonColor, crazyMode: crazyMode)
         cell.handleButtonAction = { button in
             if self.currentGameType == .redBlack {
                 self.checkRedBlackButton(button)
@@ -118,6 +133,12 @@ private extension ButtonsCollectionViewController {
     func handleCorrectButton(_ button: UIButton) {
         soundPlayer.playSound(soundPath: soundPlayer.correctSoundPath)
         button.isHidden = true
+        
+        if hardMode {
+            passedTitles.append(button.title(for: .normal) ?? "")
+            game.titles.shuffle()
+            delegate?.buttonsCollectionReloadView()
+        }
         
         // Checking if the button is the last
         if game.nextTarget == game.tableSize.items+1 || game.nextTarget == game.redBlackLastTarget && currentGameType != .classic || game.nextTarget == game.letterLastTarget {

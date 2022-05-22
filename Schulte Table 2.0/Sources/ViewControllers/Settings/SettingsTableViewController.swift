@@ -11,12 +11,16 @@ import UIKit
 protocol SettingsDelegate: AnyObject {
     func settings(didChangedTableSize grid: TableSize)
     func settings(didChangedShuffleColors shuffleColors: Bool)
+    func settings(didChangedHardMode hardMode: Bool)
+    func settings(didChangedCrazyMode crazyMode: Bool)
 }
 
 class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var selectedSizeLabel: UILabel!
     @IBOutlet weak var selectedLanguageLabel: UILabel!
     @IBOutlet weak var shuffleColorsSwitch: UISwitch!
+    @IBOutlet weak var hardModeSwitch: UISwitch!
+    @IBOutlet weak var crazyModeSwitch: UISwitch!
     
     weak var delegate: SettingsDelegate?
     
@@ -41,6 +45,16 @@ extension SettingsTableViewController {
         defaults.set(sender.isOn, forKey: UserDefaults.Key.shuffleColors)
         delegate?.settings(didChangedShuffleColors: sender.isOn)
     }
+    
+    @IBAction func didTapHardMode(_ sender: UISwitch) {
+        defaults.set(sender.isOn, forKey: UserDefaults.Key.hardMode)
+        delegate?.settings(didChangedHardMode: sender.isOn)
+    }
+    
+    @IBAction func didTapCrazyMode(_ sender: UISwitch) {
+        defaults.set(sender.isOn, forKey: UserDefaults.Key.crazyMode)
+        delegate?.settings(didChangedCrazyMode: sender.isOn)
+    }
 }
 
 // MARK: - Internal
@@ -49,6 +63,8 @@ private extension SettingsTableViewController {
         selectedSize = TableSize(rawValue: localService.defaultTableSize ?? 2)
         selectedLanguage = Language(rawValue: UserDefaults.languageCode ?? Locale.current.languageCode!)
         shuffleColorsSwitch.isOn = defaults.bool(forKey: UserDefaults.Key.shuffleColors)
+        hardModeSwitch.isOn = defaults.bool(forKey: UserDefaults.Key.hardMode)
+        crazyModeSwitch.isOn = defaults.bool(forKey: UserDefaults.Key.crazyMode)
     }
 }
 
