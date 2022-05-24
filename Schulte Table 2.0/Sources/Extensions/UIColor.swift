@@ -29,6 +29,6 @@ struct Theme {
     
     let statsSmallCell = UIColor(named: "StatsSmallColor")!
     let statsMediumCell = UIColor(named: "StatsMediumColor")!
-    let statsBigCell = UIColor(named: "StatsBigColor")!
+    let statsLargeCell = UIColor(named: "StatsLargeColor")!
     let statsHugeCell = UIColor(named: "StatsHugeColor")!
 }

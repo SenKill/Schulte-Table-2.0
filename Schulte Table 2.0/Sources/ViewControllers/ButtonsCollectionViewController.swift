@@ -18,10 +18,8 @@ protocol ButtonsCollectionDelegate: AnyObject {
 class ButtonsCollectionViewController: UICollectionViewController {
     weak var delegate: ButtonsCollectionDelegate?
     var game: SchulteTable!
-    var currentGameType: GameType = .classic
-    var hardMode: Bool = false
-    var crazyMode: Bool = false
-    var passedTitles: [String] = []
+    var hardMode: Bool!
+    var crazyMode: Bool!
     
     private let soundPlayer = SoundPlayer()
 }
@@ -42,15 +40,8 @@ extension ButtonsCollectionViewController {
             buttonTitle = game.titles.isEmpty ? "" : game.titles[indexPath.row]
         }
         
-        for title in passedTitles {
-            if title == buttonTitle {
-                cell.button.isHidden = true
-                return cell
-            }
-        }
-        
         let buttonColor = game.colors[indexPath.row]
-        if currentGameType == .redBlack {
+        if game.gameType == .redBlack {
             if buttonColor == UIColor.theme.redBlack[1] {
                 buttonTitle = String(game.blackTitles[game.blackCount])
                 game.blackCount += 1
@@ -59,9 +50,17 @@ extension ButtonsCollectionViewController {
                 game.redCount += 1
             }
         }
+        
+        for tableButton in game.passedButtons {
+            if (tableButton.title == buttonTitle) && (tableButton.isRedButton == (buttonColor == UIColor.theme.redBlack[0])) {
+                cell.button.isHidden = true
+                return cell
+            }
+        }
+        
         cell.configureCell(with: buttonTitle, color: buttonColor, crazyMode: crazyMode)
         cell.handleButtonAction = { button in
-            if self.currentGameType == .redBlack {
+            if self.game.gameType == .redBlack {
                 self.checkRedBlackButton(button)
             } else {
                 self.checkButton(button)
@@ -90,7 +89,7 @@ private extension ButtonsCollectionViewController {
                 game.nextTarget = 65
             }
             var textForTargetLabel: String = ""
-            if currentGameType == .letter {
+            if game.gameType == .letter {
                 textForTargetLabel = String(Unicode.Scalar(game.nextTarget)!)
             } else {
                 textForTargetLabel = String(game.nextTarget)
@@ -114,7 +113,6 @@ private extension ButtonsCollectionViewController {
         
         // If the button was right then it will send the new text to the master through delegate
         if isRightButton {
-            handleCorrectButton(button)
             if game.targetColor == UIColor.theme.redBlack[1] {
                 game.nextTarget += 1
                 game.targetColor = UIColor.theme.redBlack[0]
@@ -133,16 +131,34 @@ private extension ButtonsCollectionViewController {
     func handleCorrectButton(_ button: UIButton) {
         soundPlayer.playSound(soundPath: soundPlayer.correctSoundPath)
         button.isHidden = true
+        var tableButton = TableButton(title: button.title(for: .normal) ?? "")
+        tableButton.isRedButton = button.backgroundColor == UIColor.theme.redBlack[0]
         
+        // MARK: Hard Mode
         if hardMode {
-            passedTitles.append(button.title(for: .normal) ?? "")
-            game.titles.shuffle()
+            if game.gameType == .redBlack {
+                game.redCount = 0
+                game.blackCount = 0
+                game.redTitles.shuffle()
+                game.blackTitles.shuffle()
+            } else {
+                game.titles.shuffle()
+            }
+            game.passedButtons.append(tableButton)
             delegate?.buttonsCollectionReloadView()
         }
         
         // Checking if the button is the last
-        if game.nextTarget == game.tableSize.items+1 || game.nextTarget == game.redBlackLastTarget && currentGameType != .classic || game.nextTarget == game.letterLastTarget {
-            delegate?.buttonsCollectionDidEndGame()
+        if game.gameType == .redBlack {
+            // MARK: For the red-black
+            if (tableButton.isRedButton == (game.redBlackLastTarget == 1)) && (tableButton.title == String(game.redBlackLastTarget)) {
+                delegate?.buttonsCollectionDidEndGame()
+            }
+        } else {
+            // MARK: For the others
+            if game.nextTarget == game.tableSize.items+1 || game.nextTarget == game.letterLastTarget {
+                delegate?.buttonsCollectionDidEndGame()
+            }
         }
     }
 }

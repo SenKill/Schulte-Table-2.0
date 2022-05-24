@@ -9,49 +9,62 @@
 import Foundation
 import UIKit
 
-enum TableSize: Int {
-    case small = 1
-    case medium = 2
-    case big = 3
-    case huge = 4
-    
-    static let allCases: [TableSize] = [.small, .medium, .big, .huge]
+enum TableSize: Int, CaseIterable {
+    case extraSmall = 1
+    case small = 2
+    case medium = 3
+    case large = 4
+    case extraLarge = 5
+    case huge = 6
+    case extraHuge = 7
     
     var string: String {
         switch self {
-        case .small:
+        case .extraSmall:
             return "3x3"
+        case .small:
+            return "4x4"
         case .medium:
             return "5x5"
-        case .big:
+        case .large:
+            return "6x6"
+        case .extraLarge:
             return "7x7"
         case .huge:
+            return "8x8"
+        case .extraHuge:
             return "9x9"
         }
     }
     
     var items: Int {
         switch self {
-        case .small:
+        case .extraSmall:
             return 9
+        case .small:
+            return 16
         case .medium:
             return 25
-        case .big:
+        case .large:
+            return 36
+        case .extraLarge:
             return 49
         case .huge:
+            return 64
+        case .extraHuge:
             return 81
         }
     }
     
     var statsColors: [UIColor] {
         switch self {
-        case .small:
+        case .extraSmall, .small:
             return [UIColor.theme.statsSmallCell]
         case .medium:
             return [UIColor.theme.statsMediumCell]
-        case .big:
-            return [UIColor.theme.statsBigCell]
-        case .huge:
+        case .large, .extraLarge:
+            return [UIColor.theme.statsLargeCell]
+        case .huge, .extraHuge:
             return [UIColor.theme.statsHugeCell]
         }
     }

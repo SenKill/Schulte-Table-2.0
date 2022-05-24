@@ -15,6 +15,7 @@ extension UserDefaults {
         static let shuffleColors = "shuffleColors"
         static let hardMode = "hardMode"
         static let crazyMode = "crazyMode"
+        static let hideInterface = "hideInterface"
     }
     
     static var languageCode: String? {

@@ -20,7 +20,6 @@ class ButtonsCollectionViewCell: UICollectionViewCell {
     var handleButtonAction: ((UIButton) -> Void)?
     
     func configureCell(with name: String, color: UIColor, crazyMode: Bool = false) {
-        button.isHidden = false
         button.setTitle(name, for: .normal)
         button.backgroundColor = color
         button.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -29,5 +28,11 @@ class ButtonsCollectionViewCell: UICollectionViewCell {
         if crazyMode, let randomColor = UIColor.theme.crazyModeTitles.randomElement() {
             button.setTitleColor(randomColor, for: .normal)
         }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        button.isHidden = false
+        button.setTitleColor(.white, for: .normal)
     }
 }

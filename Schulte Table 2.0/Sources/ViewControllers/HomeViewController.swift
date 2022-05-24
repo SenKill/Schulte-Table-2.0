@@ -73,22 +73,24 @@ private extension HomeViewController {
         shuffleColors = defaults.bool(forKey: UserDefaults.Key.shuffleColors)
         buttonsVC.hardMode = defaults.bool(forKey: UserDefaults.Key.hardMode)
         buttonsVC.crazyMode = defaults.bool(forKey: UserDefaults.Key.crazyMode)
+        labelsView.isHidden = defaults.bool(forKey: UserDefaults.Key.hideInterface)
     }
     
     func startGame(withType gameType: GameType) {
         self.title = String(describing: gameType).localized
+        let game = SchulteTable()
+        game.gameType = gameType
+        game.tableSize = tableSize
+        game.nextTarget = 1
+        game.passedButtons = []
+        buttonsVC.game = game
+        
+        nextTargetLabel.text = String(buttonsVC.game.nextTarget)
+        nextTargetLabel.textColor = .white
         
         var titles: [String] = []
         var colors: [UIColor] = shuffleColors ? getDisorderedColors(first: UIColor.theme.defaultButtons[0], second: UIColor.theme.defaultButtons[1]) : getOrderedColors(first: UIColor.theme.defaultButtons[0], second: UIColor.theme.defaultButtons[1])
         let range: ClosedRange<Int> = 1...tableSize.items
-        
-        buttonsVC.game = SchulteTable()
-        buttonsVC.currentGameType = gameType
-        buttonsVC.game.tableSize = tableSize
-        buttonsVC.game.nextTarget = 1
-        buttonsVC.passedTitles = []
-        nextTargetLabel.text = String(buttonsVC.game.nextTarget)
-        nextTargetLabel.textColor = .white
         
         switch gameType {
         case .classic:
@@ -96,7 +98,7 @@ private extension HomeViewController {
                 titles.append(String(number))
             }
         case .letter:
-            guard tableSize != .huge else {
+            guard tableSize != .huge && tableSize != .extraHuge else {
                 let alert = UIAlertController(title: "LETTER_TABLE_SIZE_TITLE".localized, message: "LETTER_TABLE_SIZE_MESSAGE".localized, preferredStyle: .alert)
                 let action = UIAlertAction(title: "OK", style: .cancel)
                 alert.addAction(action)
@@ -107,21 +109,17 @@ private extension HomeViewController {
             
             let smallCharacters = 97...122
             let capitalCharacters = 65...90
-            
             let letterArray = Array(smallCharacters) + Array(capitalCharacters)
             for i in range {
                 let letter = String(Unicode.Scalar(letterArray[i-1])!)
                 titles.append(letter)
             }
-            buttonsVC.game.nextTarget = 97
-            buttonsVC.game.letterLastTarget = letterArray[tableSize.items-1] + 1
-            nextTargetLabel.text = String(Unicode.Scalar(buttonsVC.game.nextTarget)!)
-            
         case .redBlack:
             colors = getDisorderedColors(first: UIColor.theme.redBlack[0], second: UIColor.theme.redBlack[1])
         default:
             print("Undefined game type")
         }
+        
         titles.shuffle()
         buttonsVC.game.titles = titles
         buttonsVC.game.colors = colors
@@ -162,6 +160,21 @@ private extension HomeViewController {
     
     func getOrderedColors(first firstColor: UIColor, second secondColor: UIColor) -> [UIColor] {
         var colors: [UIColor] = []
+        var isRowEven: Bool = false
+        
+        if buttonsVC.game.isItemsEven {
+            for i in 1...tableSize.items {
+                if (!isRowEven && i%2 == 0) || (isRowEven && i%2 == 1) {
+                    colors.append(firstColor)
+                } else {
+                    colors.append(secondColor)
+                }
+                if i%Int(sqrt(Double(tableSize.items))) == 0 {
+                    isRowEven.toggle()
+                }
+            }
+            return colors
+        }
         
         for i in 1...tableSize.items {
             if i%2 == 0 {
@@ -279,23 +292,21 @@ extension HomeViewController: SettingsDelegate {
     }
     
     func settings(didChangedShuffleColors shuffleColors: Bool) {
-        if self.shuffleColors != shuffleColors {
-            self.shuffleColors = shuffleColors
-            restartGame()
-        }
+        self.shuffleColors = shuffleColors
+        restartGame()
     }
     
     func settings(didChangedHardMode hardMode: Bool) {
-        if buttonsVC.hardMode != hardMode {
-            buttonsVC.hardMode = hardMode
-            restartGame()
-        }
+        buttonsVC.hardMode = hardMode
+        restartGame()
     }
     
     func settings(didChangedCrazyMode crazyMode: Bool) {
-        if buttonsVC.crazyMode != crazyMode {
-            buttonsVC.crazyMode = crazyMode
-            restartGame()
-        }
+        buttonsVC.crazyMode = crazyMode
+        restartGame()
+    }
+    
+    func settings(didChangedInterface hideInterface: Bool) {
+        labelsView.isHidden.toggle()
     }
 }

@@ -21,6 +21,6 @@
 "SEC" = "s";
 "GRID" = "grid";
 "LETTER_TABLE_SIZE_TITLE" = "Sorry!";
-"LETTER_TABLE_SIZE_MESSAGE" = "You can't play Letter game type with 9x9 grid size(";
+"LETTER_TABLE_SIZE_MESSAGE" = "You can't play Letter game type with current grid size(";
 "STATS" = "Statistics";
 "AVERAGE" = "Average result";

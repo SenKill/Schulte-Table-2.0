@@ -13,6 +13,7 @@ protocol SettingsDelegate: AnyObject {
     func settings(didChangedShuffleColors shuffleColors: Bool)
     func settings(didChangedHardMode hardMode: Bool)
     func settings(didChangedCrazyMode crazyMode: Bool)
+    func settings(didChangedInterface hideInterface: Bool)
 }
 
 class SettingsTableViewController: UITableViewController {
@@ -21,6 +22,7 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var shuffleColorsSwitch: UISwitch!
     @IBOutlet weak var hardModeSwitch: UISwitch!
     @IBOutlet weak var crazyModeSwitch: UISwitch!
+    @IBOutlet weak var interfaceSwitch: UISwitch!
     
     weak var delegate: SettingsDelegate?
     
@@ -55,6 +57,10 @@ extension SettingsTableViewController {
         defaults.set(sender.isOn, forKey: UserDefaults.Key.crazyMode)
         delegate?.settings(didChangedCrazyMode: sender.isOn)
     }
+    @IBAction func didTapInterfaceSwitch(_ sender: UISwitch) {
+        defaults.set(sender.isOn, forKey: UserDefaults.Key.hideInterface)
+        delegate?.settings(didChangedInterface: sender.isOn)
+    }
 }
 
 // MARK: - Internal
@@ -65,15 +71,16 @@ private extension SettingsTableViewController {
         shuffleColorsSwitch.isOn = defaults.bool(forKey: UserDefaults.Key.shuffleColors)
         hardModeSwitch.isOn = defaults.bool(forKey: UserDefaults.Key.hardMode)
         crazyModeSwitch.isOn = defaults.bool(forKey: UserDefaults.Key.crazyMode)
+        interfaceSwitch.isOn = defaults.bool(forKey: UserDefaults.Key.hideInterface)
     }
 }
 
 // MARK: - TableViewDataSource
 extension SettingsTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.row {
-        // MARK: GridSize
-        case 0:
+        switch indexPath {
+        // MARK: - GridSize
+        case IndexPath(item: 0, section: 0):
             guard let sizeTableVC = storyboard?.instantiateViewController(withIdentifier: "SizeTableViewController") as? SelectorTableViewController else {
                 print("Can't instantiate SizeTableViewController")
                 return
@@ -93,8 +100,8 @@ extension SettingsTableViewController {
                 self.delegate?.settings(didChangedTableSize: tableSize)
             }
             navigationController?.pushViewController(sizeTableVC, animated: true)
-        // MARK: Language
-        case 1:
+        // MARK: - Language
+        case IndexPath(item: 1, section: 0):
             guard let languageTableVC = storyboard?.instantiateViewController(withIdentifier: "LangTableViewController") as? SelectorTableViewController else {
                 print("Can't instantiate LangTableViewController")
                 return
@@ -114,7 +121,7 @@ extension SettingsTableViewController {
             }
             navigationController?.pushViewController(languageTableVC, animated: true)
         default:
-            print("Undefined row")
+            break
         }
     }
 }

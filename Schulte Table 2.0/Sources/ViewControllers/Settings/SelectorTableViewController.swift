@@ -36,12 +36,12 @@ class SelectorTableViewController: UITableViewController {
         }
         
         if let cell = rawCell as? SelectorTableViewCell,
-           let selectedValue = rawSelectedValue as? TableSize {
-            cell.label.text = selectedValue.string
+           let selectedTableSize = rawSelectedValue as? TableSize {
+            cell.label.text = selectedTableSize.string
             return cell
         } else if let cell = rawCell as? LanguageTableViewCell,
-                  let selectedValue = rawSelectedValue as? Language {
-            cell.configureCell(selectedValue)
+                  let selectedLanguage = rawSelectedValue as? Language {
+            cell.configureCell(selectedLanguage)
             return cell
         }
         return UITableViewCell()
