@@ -16,6 +16,7 @@ extension UserDefaults {
         static let hardMode = "hardMode"
         static let crazyMode = "crazyMode"
         static let hideInterface = "hideInterface"
+        static let vibration = "vibration"
     }
     
     static var languageCode: String? {

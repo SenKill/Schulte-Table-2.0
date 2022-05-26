@@ -41,3 +41,7 @@ extension Date {
         return dateFormatter.string(from: self)
     }
 }
+
+extension Notification.Name {
+    static let vibration = NSNotification.Name(rawValue: "VIBRATION_NOTIFICATION")
+}

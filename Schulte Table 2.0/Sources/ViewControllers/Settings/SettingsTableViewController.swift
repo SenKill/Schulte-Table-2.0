@@ -23,6 +23,7 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var hardModeSwitch: UISwitch!
     @IBOutlet weak var crazyModeSwitch: UISwitch!
     @IBOutlet weak var interfaceSwitch: UISwitch!
+    @IBOutlet weak var vibrationSwitch: UISwitch!
     
     weak var delegate: SettingsDelegate?
     
@@ -43,23 +44,30 @@ class SettingsTableViewController: UITableViewController {
 
 // MARK: - Actions
 extension SettingsTableViewController {
-    @IBAction func didTapShuffleColors(_ sender: UISwitch) {
+    @IBAction func didSwitchShuffleColors(_ sender: UISwitch) {
         defaults.set(sender.isOn, forKey: UserDefaults.Key.shuffleColors)
         delegate?.settings(didChangedShuffleColors: sender.isOn)
     }
     
-    @IBAction func didTapHardMode(_ sender: UISwitch) {
+    @IBAction func didSwitchHardMode(_ sender: UISwitch) {
         defaults.set(sender.isOn, forKey: UserDefaults.Key.hardMode)
         delegate?.settings(didChangedHardMode: sender.isOn)
     }
     
-    @IBAction func didTapCrazyMode(_ sender: UISwitch) {
+    @IBAction func didSwitchCrazyMode(_ sender: UISwitch) {
         defaults.set(sender.isOn, forKey: UserDefaults.Key.crazyMode)
         delegate?.settings(didChangedCrazyMode: sender.isOn)
     }
-    @IBAction func didTapInterfaceSwitch(_ sender: UISwitch) {
+    
+    @IBAction func didSwitchInterfaceSwitch(_ sender: UISwitch) {
         defaults.set(sender.isOn, forKey: UserDefaults.Key.hideInterface)
         delegate?.settings(didChangedInterface: sender.isOn)
+    }
+    
+    @IBAction func didSwitchVibration(_ sender: UISwitch) {
+        defaults.set(sender.isOn, forKey: UserDefaults.Key.vibration)
+        let center = NotificationCenter.default
+        center.post(name: .vibration, object: sender.isOn)
     }
 }
 
@@ -72,6 +80,7 @@ private extension SettingsTableViewController {
         hardModeSwitch.isOn = defaults.bool(forKey: UserDefaults.Key.hardMode)
         crazyModeSwitch.isOn = defaults.bool(forKey: UserDefaults.Key.crazyMode)
         interfaceSwitch.isOn = defaults.bool(forKey: UserDefaults.Key.hideInterface)
+        vibrationSwitch.isOn = defaults.bool(forKey: UserDefaults.Key.vibration)
     }
 }
 

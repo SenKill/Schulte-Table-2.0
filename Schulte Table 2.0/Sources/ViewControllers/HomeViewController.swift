@@ -81,15 +81,13 @@ private extension HomeViewController {
         let game = SchulteTable()
         game.gameType = gameType
         game.tableSize = tableSize
-        game.nextTarget = 1
         game.passedButtons = []
-        buttonsVC.game = game
-        
-        nextTargetLabel.text = String(buttonsVC.game.nextTarget)
+        game.nextTarget = 1
+        nextTargetLabel.text = String(game.nextTarget)
         nextTargetLabel.textColor = .white
         
         var titles: [String] = []
-        var colors: [UIColor] = shuffleColors ? getDisorderedColors(first: UIColor.theme.defaultButtons[0], second: UIColor.theme.defaultButtons[1]) : getOrderedColors(first: UIColor.theme.defaultButtons[0], second: UIColor.theme.defaultButtons[1])
+        var colors: [UIColor] = shuffleColors ? getDisorderedColors(first: UIColor.theme.defaultButtons[0], second: UIColor.theme.defaultButtons[1]) : getOrderedColors(game, first: UIColor.theme.defaultButtons[0], second: UIColor.theme.defaultButtons[1])
         let range: ClosedRange<Int> = 1...tableSize.items
         
         switch gameType {
@@ -114,6 +112,9 @@ private extension HomeViewController {
                 let letter = String(Unicode.Scalar(letterArray[i-1])!)
                 titles.append(letter)
             }
+            game.nextTarget = smallCharacters.first ?? 97
+            game.letterLastTarget = game.nextTarget + range.count
+            nextTargetLabel.text = titles.first
         case .redBlack:
             colors = getDisorderedColors(first: UIColor.theme.redBlack[0], second: UIColor.theme.redBlack[1])
         default:
@@ -121,9 +122,9 @@ private extension HomeViewController {
         }
         
         titles.shuffle()
-        buttonsVC.game.titles = titles
-        buttonsVC.game.colors = colors
-        
+        game.titles = titles
+        game.colors = colors
+        buttonsVC.game = game
         buttonsCollectionView.reloadSections(IndexSet(integer: 0))
         stopwatch.start()
     }
@@ -158,11 +159,11 @@ private extension HomeViewController {
         }
     }
     
-    func getOrderedColors(first firstColor: UIColor, second secondColor: UIColor) -> [UIColor] {
+    func getOrderedColors(_ game: SchulteTable, first firstColor: UIColor, second secondColor: UIColor) -> [UIColor] {
         var colors: [UIColor] = []
         var isRowEven: Bool = false
         
-        if buttonsVC.game.isItemsEven {
+        if game.isItemsEven {
             for i in 1...tableSize.items {
                 if (!isRowEven && i%2 == 0) || (isRowEven && i%2 == 1) {
                     colors.append(firstColor)

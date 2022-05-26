@@ -63,7 +63,7 @@ class EndGameView: UIView {
 // MARK: Internal
 private extension EndGameView {
     static func getLabel(withColor color: UIColor, withFontSize fontSize: CGFloat) -> UILabel {
-        let fontName: String = "Gill Sans SemiBold"
+        let fontName: String = "Gill Sans"
         let label = UILabel()
         label.textAlignment = .center
         label.font = UIFont(name: fontName, size: fontSize)

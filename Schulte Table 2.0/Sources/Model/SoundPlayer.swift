@@ -8,6 +8,7 @@
 
 import Foundation
 import AVFoundation
+import UIKit
 
 class SoundPlayer {
     enum ResourceNames {
@@ -20,6 +21,15 @@ class SoundPlayer {
     var correctSoundPath: URL?
     var wrongSoundPath: URL?
     
+    let wrongVibGenerator = UIImpactFeedbackGenerator(style: .medium)
+    let correctVibGenerator = UIImpactFeedbackGenerator(style: .light)
+    
+    private var isVibrationOn: Bool {
+        print("Trigger")
+        return UserDefaults.standard.bool(forKey: UserDefaults.Key.vibration)
+    }
+    lazy var vibration = isVibrationOn
+    
     init() {
         if let pathToCorrectSound = Bundle.main.path(forResource: ResourceNames.correct, ofType: ResourceNames.type) {
             correctSoundPath = URL(fileURLWithPath: pathToCorrectSound)
@@ -27,6 +37,8 @@ class SoundPlayer {
         if let pathToWrongSound = Bundle.main.path(forResource: ResourceNames.wrong, ofType: ResourceNames.type) {
             wrongSoundPath = URL(fileURLWithPath: pathToWrongSound)
         }
+        let center = NotificationCenter.default
+        center.addObserver(self, selector: #selector(didChangedVibrationValue(_:)), name: .vibration, object: nil)
     }
     
     func playSound(soundPath: URL?) {
@@ -40,6 +52,22 @@ class SoundPlayer {
             audioPlayer?.play()
         } catch {
             print("Unexpected error: \(error.localizedDescription)")
+        }
+        
+        if vibration {
+            if soundPath == correctSoundPath {
+                correctVibGenerator.impactOccurred()
+            } else {
+                wrongVibGenerator.impactOccurred()
+            }
+        }
+    }
+}
+
+private extension SoundPlayer {
+    @objc func didChangedVibrationValue(_ notification: Notification) {
+        if let vibration = notification.object as? Bool {
+            self.vibration = vibration
         }
     }
 }
