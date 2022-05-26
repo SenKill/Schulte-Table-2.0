@@ -18,6 +18,7 @@ class StatsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.backgroundColor = UIColor(named: "SecondaryColor")!
         tableView.rowHeight = 50
         title = "STATS".localized
         registerCell()
@@ -81,7 +82,7 @@ extension StatsTableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: sectionHeaderHeigh))
-        view.backgroundColor = .secondarySystemBackground
+        view.backgroundColor = UIColor.theme.secondary
         let label = UILabel(frame: CGRect(x: 15, y: 0, width: tableView.bounds.width - 30, height: sectionHeaderHeigh))
         label.font = UIFont.boldSystemFont(ofSize: 15)
         label.textColor = .label

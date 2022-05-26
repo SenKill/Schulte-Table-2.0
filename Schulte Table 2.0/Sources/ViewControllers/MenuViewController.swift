@@ -38,8 +38,9 @@ class MenuViewController: UITableViewController {
 extension MenuViewController {
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         view.tintColor = .clear
+        // Menu headerView
         if let header = view as? UITableViewHeaderFooterView {
-            header.textLabel?.textColor = .gray
+            header.textLabel?.textColor = .secondaryLabel
         }
     }
     
@@ -86,11 +87,11 @@ extension MenuViewController {
     
     override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
-        cell?.backgroundColor = UIColor.theme.highlitedMenuCell
+        cell?.backgroundColor = UIColor.theme.highlightedCell
     }
     
     override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
-        cell?.backgroundColor = UIColor.theme.menuCell
+        cell?.backgroundColor = UIColor.theme.primary
     }
 }

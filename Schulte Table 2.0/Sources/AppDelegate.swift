@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         Locale.setupInitialLanguage()
         setupNotifications()
+        window?.tintColor = UIColor(r: 62, g: 172, b: 168, a: 1)
+        window?.tintColor = UIColor.theme.tint
         return true
     }
     

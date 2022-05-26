@@ -19,6 +19,9 @@ class LanguageTableViewCell: UITableViewCell, ReusableCell {
     func configureCell(_ lang: Language) {
         firstLabel.text = lang.string
         secondLabel.text = lang.rawValue.localized
+        let view = UIView()
+        view.backgroundColor = UIColor.theme.highlightedCell
+        selectedBackgroundView = view
     }
 }
 

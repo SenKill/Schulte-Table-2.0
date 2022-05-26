@@ -14,4 +14,12 @@ class SelectorTableViewCell: UITableViewCell, ReusableCell {
     func getReuseId() -> String {
         "SelectorTableViewCell"
     }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        let view = UIView()
+        view.backgroundColor = UIColor.theme.highlightedCell
+        selectedBackgroundView = view
+    }
 }

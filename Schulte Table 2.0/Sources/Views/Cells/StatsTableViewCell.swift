@@ -21,5 +21,8 @@ class StatsTableViewCell: UITableViewCell {
         dateLabel.text = gameResult.date?.format
         resultTimeLabel.text = gameResult.time.formatSeconds
         tableSizeLabel.backgroundColor = TableSize(rawValue: Int(gameResult.tableSize))?.statsColors.first
+        let view = UIView()
+        view.backgroundColor = UIColor.theme.highlightedCell
+        selectedBackgroundView = view
     }
 }

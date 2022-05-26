@@ -8,6 +8,7 @@
 
 import Foundation
 import Charts
+import UIKit
 
 class ChartView: LineChartView {
     init() {
@@ -40,7 +41,7 @@ class ChartView: LineChartView {
         limitLine.lineDashLengths = [5, 5]
         limitLine.labelPosition = .rightTop
         limitLine.valueFont = .systemFont(ofSize: 10)
-        limitLine.lineColor = .systemOrange.withAlphaComponent(0.7)
+        limitLine.lineColor = UIColor.theme.tint.withAlphaComponent(0.5)
         
         leftAxis.addLimitLine(limitLine)
         leftAxis.axisMinimum = 0

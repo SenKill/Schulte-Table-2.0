@@ -25,10 +25,14 @@ struct Theme {
     let redBlack: [UIColor] = [UIColor(r: 132,g: 51,b: 58,a: 1), UIColor.black]
     
     let menuCell = UIColor(r: 245, g: 228, b: 195, a: 1)
-    let highlitedMenuCell = UIColor(r: 215, g: 200, b: 165, a: 1)
     
     let statsSmallCell = UIColor(named: "StatsSmallColor")!
     let statsMediumCell = UIColor(named: "StatsMediumColor")!
     let statsLargeCell = UIColor(named: "StatsLargeColor")!
     let statsHugeCell = UIColor(named: "StatsHugeColor")!
+    
+    let highlightedCell = UIColor(named: "HighlightedCell")!
+    let primary = UIColor(named: "PrimaryColor")!
+    let secondary = UIColor(named: "SecondaryColor")!
+    let tint = UIColor(named: "TintColor")!
 }

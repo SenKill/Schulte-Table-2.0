@@ -23,7 +23,7 @@ class ButtonsCollectionViewCell: UICollectionViewCell {
         button.setTitle(name, for: .normal)
         button.backgroundColor = color
         button.titleLabel?.adjustsFontSizeToFitWidth = true
-        button.titleLabel?.minimumScaleFactor = 20
+        button.titleLabel?.minimumScaleFactor = 15
         
         if crazyMode, let randomColor = UIColor.theme.crazyModeTitles.randomElement() {
             button.setTitleColor(randomColor, for: .normal)

@@ -75,7 +75,7 @@ private extension SettingsTableViewController {
     }
 }
 
-// MARK: - TableViewDataSource
+// MARK: - TableViewDelegate
 extension SettingsTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath {
@@ -123,5 +123,15 @@ extension SettingsTableViewController {
         default:
             break
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.backgroundColor = UIColor.theme.highlightedCell
+    }
+    
+    override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.backgroundColor = UIColor.theme.primary
     }
 }
