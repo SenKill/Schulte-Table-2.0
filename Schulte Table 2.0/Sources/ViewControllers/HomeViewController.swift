@@ -11,25 +11,22 @@ import CoreMedia
 import AVFAudio
 
 class HomeViewController: UIViewController {
-    // MARK: - Properties
+    // MARK: - Outlets
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet var nextTargetLabel: UILabel!
     @IBOutlet var labelsView: UIView!
     @IBOutlet weak var redDotView: UIView!
     @IBOutlet weak var buttonsCollectionView: UICollectionView!
     
+    // MARK: - Properties
     private let buttonsVC = ButtonsCollectionViewController()
     private let localService = LocalService()
     private let transition = SlideInTransition()
     private let stopwatch = Stopwatch()
+    private var currentGameType: GameType = .classic
+    private var shuffleColors: Bool = false
     private var endGameView: EndGameView!
     private var tableSize: TableSize!
-    
-    private var currentGameType: GameType = .classic
-    private var gameResultPrevious: DefaultKeys = DefaultKeys.classicPrev
-    private var gameResultBest: DefaultKeys = DefaultKeys.classicBest
-    
-    private var shuffleColors: Bool = false
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -101,6 +98,7 @@ private extension HomeViewController {
                 let action = UIAlertAction(title: "OK", style: .cancel)
                 alert.addAction(action)
                 present(alert, animated: true)
+                currentGameType = .classic
                 startGame(withType: .classic)
                 return
             }
@@ -136,27 +134,8 @@ private extension HomeViewController {
     
     func transitionToNew(_ gameType: GameType) {
         stopwatch.stop()
-        switch gameType {
-        case .classic:
-            self.currentGameType = .classic
-            startGame(withType: .classic)
-            gameResultPrevious = DefaultKeys.classicPrev
-            gameResultBest = DefaultKeys.classicBest
-            
-        case .letter:
-            self.currentGameType = .letter
-            startGame(withType: .letter)
-            gameResultPrevious = DefaultKeys.lettersPrev
-            gameResultBest = DefaultKeys.lettersBest
-            
-        case .redBlack:
-            self.currentGameType = .redBlack
-            startGame(withType: .redBlack)
-            gameResultPrevious = DefaultKeys.lettersPrev
-            gameResultBest = DefaultKeys.lettersBest
-        default:
-            print("Undefined game type")
-        }
+        currentGameType = gameType
+        startGame(withType: gameType)
     }
     
     func getOrderedColors(_ game: SchulteTable, first firstColor: UIColor, second secondColor: UIColor) -> [UIColor] {

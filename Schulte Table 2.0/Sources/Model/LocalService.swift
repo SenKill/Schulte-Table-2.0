@@ -9,15 +9,6 @@
 import Foundation
 import CoreData
 
-enum DefaultKeys: String, CaseIterable {
-    case classicPrev = "classicPrevious"
-    case classicBest = "classicBest"
-    case lettersPrev = "lettersPrevious"
-    case lettersBest = "lettersBest"
-    case redBlackPrev = "redBlackPrevious"
-    case redBlackBest = "redBlackBest"
-}
-
 final class LocalService {
     private let defaults = UserDefaults.standard
     private let tableSizeKey = "tableSize"

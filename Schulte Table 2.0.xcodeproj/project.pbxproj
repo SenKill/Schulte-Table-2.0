@@ -34,6 +34,8 @@
 		F7981D8526A16A6F003ECEFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7981D8426A16A6F003ECEFB /* Assets.xcassets */; };
 		F7981D8826A16A6F003ECEFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7981D8626A16A6F003ECEFB /* LaunchScreen.storyboard */; };
 		F79FECDF28281C8700E1E09F /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79FECDE28281C8700E1E09F /* UserDefaults.swift */; };
+		F7ADB8B9283FE91300A4C641 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ADB8B8283FE91300A4C641 /* SettingsTableViewCell.swift */; };
+		F7ADB8BD283FF22800A4C641 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ADB8BC283FF22800A4C641 /* MenuTableViewCell.swift */; };
 		F7B4C7BB281FAA39005E4535 /* SchulteTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4C7BA281FAA39005E4535 /* SchulteTable.swift */; };
 		F7B929D528257282008D8117 /* ButtonsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B929D028257282008D8117 /* ButtonsCollectionViewCell.swift */; };
 		F7B929DE282572F4008D8117 /* SelectorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B929DA282572F3008D8117 /* SelectorTableViewCell.swift */; };
@@ -83,6 +85,8 @@
 		F7981D8726A16A6F003ECEFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F7981D8926A16A6F003ECEFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F79FECDE28281C8700E1E09F /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		F7ADB8B8283FE91300A4C641 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		F7ADB8BC283FF22800A4C641 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		F7B4C7BA281FAA39005E4535 /* SchulteTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchulteTable.swift; sourceTree = "<group>"; };
 		F7B929D028257282008D8117 /* ButtonsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonsCollectionViewCell.swift; sourceTree = "<group>"; };
 		F7B929DA282572F3008D8117 /* SelectorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorTableViewCell.swift; sourceTree = "<group>"; };
@@ -281,6 +285,8 @@
 				F7B929D028257282008D8117 /* ButtonsCollectionViewCell.swift */,
 				F75F50182830FC0600A29CF8 /* StatsTableViewCell.swift */,
 				F75F50192830FC0600A29CF8 /* StatsTableViewCell.xib */,
+				F7ADB8B8283FE91300A4C641 /* SettingsTableViewCell.swift */,
+				F7ADB8BC283FF22800A4C641 /* MenuTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -424,6 +430,7 @@
 				F7B4C7BB281FAA39005E4535 /* SchulteTable.swift in Sources */,
 				F7B929DF282572F4008D8117 /* LanguageTableViewCell.swift in Sources */,
 				F7981D7D26A16A69003ECEFB /* HomeViewController.swift in Sources */,
+				F7ADB8B9283FE91300A4C641 /* SettingsTableViewCell.swift in Sources */,
 				F7307FD92815A42E005C545B /* LocalService.swift in Sources */,
 				F7C9514E28240E0400922FDB /* SelectorTableViewController.swift in Sources */,
 				F708665928210CA500053459 /* SettingsTableViewController.swift in Sources */,
@@ -434,6 +441,7 @@
 				F7B929D528257282008D8117 /* ButtonsCollectionViewCell.swift in Sources */,
 				F7C4DA3A282F8CE300FAA455 /* ChartViewController.swift in Sources */,
 				F7B929DE282572F4008D8117 /* SelectorTableViewCell.swift in Sources */,
+				F7ADB8BD283FF22800A4C641 /* MenuTableViewCell.swift in Sources */,
 				F75F501A2830FC0600A29CF8 /* StatsTableViewCell.swift in Sources */,
 				F76D4660282D268A0054A683 /* SchulteTable.xcdatamodeld in Sources */,
 				F75162162815105700FCADAD /* SmallExtenions.swift in Sources */,

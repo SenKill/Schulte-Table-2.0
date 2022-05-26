@@ -48,12 +48,10 @@ class SelectorTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if selectedIndex != nil {
-            tableView.cellForRow(at: selectedIndex)?.accessoryType = .none
-        }
+        tableView.cellForRow(at: selectedIndex)?.accessoryType = .none
         selectedIndex = indexPath
-        tableView.cellForRow(at: selectedIndex)?.accessoryType = .checkmark
         tableView.deselectRow(at: selectedIndex, animated: true)
+        tableView.cellForRow(at: selectedIndex)?.accessoryType = .checkmark
         // Providing data through the closure
         didSelectRow?(selectableValues[selectedIndex.row])
     }
