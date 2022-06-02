@@ -14,6 +14,7 @@ protocol SettingsDelegate: AnyObject {
     func settings(didChangedHardMode hardMode: Bool)
     func settings(didChangedCrazyMode crazyMode: Bool)
     func settings(didChangedInterface hideInterface: Bool)
+    func settings(didChangedRedDot hideRedDot: Bool)
 }
 
 class SettingsTableViewController: UITableViewController {
@@ -24,6 +25,7 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var crazyModeSwitch: UISwitch!
     @IBOutlet weak var interfaceSwitch: UISwitch!
     @IBOutlet weak var vibrationSwitch: UISwitch!
+    @IBOutlet weak var redDotSwitch: UISwitch!
     
     weak var delegate: SettingsDelegate?
     
@@ -69,6 +71,11 @@ extension SettingsTableViewController {
         let center = NotificationCenter.default
         center.post(name: .vibration, object: sender.isOn)
     }
+    
+    @IBAction func didSwitchRedDot(_ sender: UISwitch) {
+        defaults.set(sender.isOn, forKey: UserDefaults.Key.hideRedDot)
+        delegate?.settings(didChangedRedDot: sender.isOn)
+    }
 }
 
 // MARK: - Internal
@@ -81,6 +88,7 @@ private extension SettingsTableViewController {
         crazyModeSwitch.isOn = defaults.bool(forKey: UserDefaults.Key.crazyMode)
         interfaceSwitch.isOn = defaults.bool(forKey: UserDefaults.Key.hideInterface)
         vibrationSwitch.isOn = defaults.bool(forKey: UserDefaults.Key.vibration)
+        redDotSwitch.isOn = defaults.bool(forKey: UserDefaults.Key.hideRedDot)
     }
 }
 

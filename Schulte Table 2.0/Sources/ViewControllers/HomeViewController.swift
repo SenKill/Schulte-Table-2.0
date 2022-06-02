@@ -71,6 +71,7 @@ private extension HomeViewController {
         buttonsVC.hardMode = defaults.bool(forKey: UserDefaults.Key.hardMode)
         buttonsVC.crazyMode = defaults.bool(forKey: UserDefaults.Key.crazyMode)
         labelsView.isHidden = defaults.bool(forKey: UserDefaults.Key.hideInterface)
+        redDotView.isHidden = defaults.bool(forKey: UserDefaults.Key.hideRedDot)
     }
     
     func startGame(withType gameType: GameType) {
@@ -191,8 +192,9 @@ private extension HomeViewController {
     @objc func didTapEndGameView(_ sender: UITapGestureRecognizer) {
         endGameView.removeFromSuperview()
         navigationController?.isNavigationBarHidden = false
-        labelsView.isHidden = false
-        redDotView.isHidden = false
+        let defaults = UserDefaults.standard
+        labelsView.isHidden = defaults.bool(forKey: UserDefaults.Key.hideInterface)
+        redDotView.isHidden = defaults.bool(forKey: UserDefaults.Key.hideRedDot)
         startGame(withType: currentGameType)
     }
 }
@@ -288,5 +290,9 @@ extension HomeViewController: SettingsDelegate {
     
     func settings(didChangedInterface hideInterface: Bool) {
         labelsView.isHidden.toggle()
+    }
+    
+    func settings(didChangedRedDot hideRedDot: Bool) {
+        redDotView.isHidden.toggle()
     }
 }

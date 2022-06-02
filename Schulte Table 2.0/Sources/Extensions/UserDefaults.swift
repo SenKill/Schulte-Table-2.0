@@ -16,6 +16,7 @@ extension UserDefaults {
         static let hardMode = "hardMode"
         static let crazyMode = "crazyMode"
         static let hideInterface = "hideInterface"
+        static let hideRedDot = "hideRedDot"
         static let vibration = "vibration"
     }
     

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mdq-bH-znb">
-    <device id="retina6_7" orientation="portrait" appearance="dark"/>
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="owl" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FjP-Du-Z0x" userLabel="backgroundImageView">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FjP-Du-Z0x" userLabel="backgroundImageView">
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JMP-YB-NAJ" userLabel="LabelsView">
@@ -184,7 +184,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" largeContentSizeImage="listIcon" style="done" id="8JF-dw-3ZJ">
                             <imageReference key="image" image="listIcon" symbolScale="large"/>
                             <imageReference key="landscapeImage" image="listIcon" symbolScale="large"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <connections>
                                 <action selector="didTapMenu:" destination="BYZ-38-t0r" id="UiH-GX-4Ca"/>
                             </connections>
@@ -192,7 +192,7 @@
                         <barButtonItem key="rightBarButtonItem" title="restartButton" largeContentSizeImage="restart" style="done" id="iSX-5c-Bci">
                             <imageReference key="image" image="restart" symbolScale="large" renderingMode="template"/>
                             <imageReference key="landscapeImage" image="restart" symbolScale="large"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" systemColor="labelColor"/>
                             <connections>
                                 <action selector="touchRestartButton:" destination="BYZ-38-t0r" id="WlP-f9-BeX"/>
                             </connections>
@@ -410,7 +410,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LDp-1X-7xe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2847.826086956522" y="136.60714285714286"/>
+            <point key="canvasLocation" x="2847.1962616822429" y="136.06911447084235"/>
         </scene>
         <!--Settings-->
         <scene sceneID="k4L-Jn-Cvg">
@@ -605,8 +605,40 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="PrimaryColor"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" focusStyle="custom" rowHeight="44" id="sft-IT-imo" customClass="SettingsTableViewCell" customModule="Schulte_Table_2_0" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" focusStyle="custom" rowHeight="44" id="GPN-8g-M35" customClass="SettingsTableViewCell" customModule="Schulte_Table_2_0" customModuleProvider="target">
                                         <rect key="frame" x="20" y="362.66666603088379" width="388" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GPN-8g-M35" id="XMS-ce-IY6">
+                                            <rect key="frame" x="0.0" y="0.0" width="388" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eKK-N4-QkQ">
+                                                    <rect key="frame" x="319" y="7" width="51" height="30"/>
+                                                    <connections>
+                                                        <action selector="didSwitchRedDot:" destination="dJV-Zu-xhE" eventType="valueChanged" id="s3Z-l4-thD"/>
+                                                    </connections>
+                                                </switch>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Hide red dot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdk-B5-aJ2">
+                                                    <rect key="frame" x="20" y="11" width="289" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="vdk-B5-aJ2" firstAttribute="leading" secondItem="XMS-ce-IY6" secondAttribute="leadingMargin" id="B2v-HC-tAG"/>
+                                                <constraint firstItem="vdk-B5-aJ2" firstAttribute="bottom" secondItem="XMS-ce-IY6" secondAttribute="bottomMargin" id="IeJ-a8-kIx"/>
+                                                <constraint firstItem="vdk-B5-aJ2" firstAttribute="top" secondItem="XMS-ce-IY6" secondAttribute="topMargin" id="XOV-bC-Efk"/>
+                                                <constraint firstAttribute="bottom" secondItem="eKK-N4-QkQ" secondAttribute="bottom" constant="7" id="oiu-UG-Mcr"/>
+                                                <constraint firstAttribute="trailing" secondItem="eKK-N4-QkQ" secondAttribute="trailing" constant="20" id="qXv-vY-apW"/>
+                                                <constraint firstItem="eKK-N4-QkQ" firstAttribute="leading" secondItem="vdk-B5-aJ2" secondAttribute="trailing" constant="10" id="sEF-va-qmg"/>
+                                                <constraint firstItem="eKK-N4-QkQ" firstAttribute="top" secondItem="XMS-ce-IY6" secondAttribute="top" constant="7" id="vnl-ku-Lfi"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" name="PrimaryColor"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" focusStyle="custom" rowHeight="44" id="sft-IT-imo" customClass="SettingsTableViewCell" customModule="Schulte_Table_2_0" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="406.66666603088379" width="388" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sft-IT-imo" id="tSz-Zy-o30">
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="44"/>
@@ -649,6 +681,7 @@
                         <outlet property="crazyModeSwitch" destination="voh-5L-J1d" id="fnv-uC-Xbj"/>
                         <outlet property="hardModeSwitch" destination="ECx-td-tJE" id="cQL-lh-V68"/>
                         <outlet property="interfaceSwitch" destination="vxx-d3-Je4" id="Fgu-Xi-pCQ"/>
+                        <outlet property="redDotSwitch" destination="eKK-N4-QkQ" id="UQj-dE-bQJ"/>
                         <outlet property="selectedLanguageLabel" destination="7UW-Kr-NzS" id="cj2-Nd-xwM"/>
                         <outlet property="selectedSizeLabel" destination="oKe-Id-z4u" id="2Q5-xj-pCS"/>
                         <outlet property="shuffleColorsSwitch" destination="IOO-Mv-Pyc" id="nbY-HP-Afz"/>
@@ -809,11 +842,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="background" width="2250" height="3000"/>
         <image name="chart.bar" catalog="system" width="128" height="90"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="gobackward.minus" catalog="system" width="121" height="128"/>
         <image name="listIcon" width="36" height="36"/>
-        <image name="owl" width="2250" height="3000"/>
         <image name="restart" width="37.5" height="37.5"/>
         <namedColor name="PrimaryColor">
             <color red="0.88235294117647056" green="0.88235294117647056" blue="0.76470588235294112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

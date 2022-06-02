@@ -45,3 +45,13 @@ extension Date {
 extension Notification.Name {
     static let vibration = NSNotification.Name(rawValue: "VIBRATION_NOTIFICATION")
 }
+
+extension UIImage {
+    static let background = Background()
+}
+
+struct Background {
+    let owl = UIImage(named: "owl")
+    let ape = UIImage(named: "ape")
+    let clock = UIImage(named: "clock")
+}

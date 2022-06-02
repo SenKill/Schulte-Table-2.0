@@ -25,8 +25,7 @@ class SoundPlayer {
     let correctVibGenerator = UIImpactFeedbackGenerator(style: .light)
     
     private var isVibrationOn: Bool {
-        print("Trigger")
-        return UserDefaults.standard.bool(forKey: UserDefaults.Key.vibration)
+        UserDefaults.standard.bool(forKey: UserDefaults.Key.vibration)
     }
     lazy var vibration = isVibrationOn
     

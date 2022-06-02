@@ -16,6 +16,7 @@ class ChartView: LineChartView {
         customizeChartView()
         legend.verticalAlignment = .top
         backgroundColor = .systemBackground
+        animate(xAxisDuration: 1)
     }
     
     required init?(coder aDecoder: NSCoder) {
