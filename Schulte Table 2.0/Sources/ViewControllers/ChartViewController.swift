@@ -19,7 +19,7 @@ class ChartViewController: UIViewController {
     private let cancelButton: UIButton = {
         let button = UIButton()
         
-        button.setTitle("Cancel", for: .normal)
+        button.setTitle("CLOSE".localized, for: .normal)
         button.setTitleColor(.systemRed, for: .normal)
         button.titleLabel?.font = UIFont(name: "Gill Sans SemiBold", size: 20)
         

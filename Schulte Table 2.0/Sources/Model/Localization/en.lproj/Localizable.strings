@@ -24,3 +24,4 @@
 "LETTER_TABLE_SIZE_MESSAGE" = "You can't play Letter game type with current grid size(";
 "STATS" = "Statistics";
 "AVERAGE" = "Average result";
+"CLOSE" = "Close";
