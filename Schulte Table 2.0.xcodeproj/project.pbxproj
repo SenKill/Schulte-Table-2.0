@@ -12,7 +12,7 @@
 		F708665B28210EC100053459 /* TableSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F708665A28210EC100053459 /* TableSize.swift */; };
 		F71289952827B1DE0030FAF6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F71289972827B1DE0030FAF6 /* Localizable.strings */; };
 		F71289A02827F0440030FAF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F71289A22827F0440030FAF6 /* Main.storyboard */; };
-		F7175DAA26BBF3530011FDD1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7175DA926BBF3530011FDD1 /* MenuViewController.swift */; };
+		F7175DAA26BBF3530011FDD1 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7175DA926BBF3530011FDD1 /* MenuTableViewController.swift */; };
 		F71F45D42824F82600577471 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71F45D32824F82600577471 /* Language.swift */; };
 		F72164A026BD0B3D003DC2FB /* SlideInTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F721649F26BD0B3D003DC2FB /* SlideInTransition.swift */; };
 		F7307FD62815A1E0005C545B /* EndGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7307FD52815A1E0005C545B /* EndGameView.swift */; };
@@ -61,7 +61,7 @@
 		F71289962827B1DE0030FAF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F71289A12827F0440030FAF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F71289A52827F0550030FAF6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		F7175DA926BBF3530011FDD1 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MenuViewController.swift; sourceTree = "<group>"; wrapsLines = 1; };
+		F7175DA926BBF3530011FDD1 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MenuTableViewController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		F71F45D32824F82600577471 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		F721649F26BD0B3D003DC2FB /* SlideInTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInTransition.swift; sourceTree = "<group>"; };
 		F7307FD52815A1E0005C545B /* EndGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameView.swift; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 				F7E21F7528218B3C000A1B5E /* Settings */,
 				F7981D7C26A16A69003ECEFB /* HomeViewController.swift */,
 				F7622233281BFE0800B85057 /* ButtonsCollectionViewController.swift */,
-				F7175DA926BBF3530011FDD1 /* MenuViewController.swift */,
+				F7175DA926BBF3530011FDD1 /* MenuTableViewController.swift */,
 				F75F50162830CE3200A29CF8 /* StatsTableViewController.swift */,
 				F7C4DA39282F8CE300FAA455 /* ChartViewController.swift */,
 			);
@@ -435,7 +435,7 @@
 				F7C9514E28240E0400922FDB /* SelectorTableViewController.swift in Sources */,
 				F708665928210CA500053459 /* SettingsTableViewController.swift in Sources */,
 				F736ADCF2828C7BF009912E9 /* AppLocale.swift in Sources */,
-				F7175DAA26BBF3530011FDD1 /* MenuViewController.swift in Sources */,
+				F7175DAA26BBF3530011FDD1 /* MenuTableViewController.swift in Sources */,
 				F7D22A792816AF88001E86AF /* UIColor.swift in Sources */,
 				F72164A026BD0B3D003DC2FB /* SlideInTransition.swift in Sources */,
 				F7B929D528257282008D8117 /* ButtonsCollectionViewCell.swift in Sources */,

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mdq-bH-znb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mdq-bH-znb">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -24,7 +24,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JMP-YB-NAJ" userLabel="LabelsView">
-                                <rect key="frame" x="0.0" y="188" width="386" height="84"/>
+                                <rect key="frame" x="0.0" y="191" width="386" height="84"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w5h-E1-XgE" userLabel="TimeView">
                                         <rect key="frame" x="0.0" y="0.0" width="386" height="42"/>
@@ -186,7 +186,7 @@
                             <imageReference key="landscapeImage" image="listIcon" symbolScale="large"/>
                             <color key="tintColor" systemColor="labelColor"/>
                             <connections>
-                                <action selector="didTapMenu:" destination="BYZ-38-t0r" id="UiH-GX-4Ca"/>
+                                <action selector="didTapMenu:" destination="BYZ-38-t0r" id="FAv-xx-afc"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="restartButton" largeContentSizeImage="restart" style="done" id="iSX-5c-Bci">
@@ -194,7 +194,7 @@
                             <imageReference key="landscapeImage" image="restart" symbolScale="large"/>
                             <color key="tintColor" systemColor="labelColor"/>
                             <connections>
-                                <action selector="touchRestartButton:" destination="BYZ-38-t0r" id="WlP-f9-BeX"/>
+                                <action selector="didTapRestart:" destination="BYZ-38-t0r" id="Leb-bw-y1E"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -211,10 +211,10 @@
             </objects>
             <point key="canvasLocation" x="2029" y="137"/>
         </scene>
-        <!--Menu View Controller-->
+        <!--Menu Table View Controller-->
         <scene sceneID="JkO-2n-Vc3">
             <objects>
-                <tableViewController storyboardIdentifier="MenuViewController" id="L7M-0Y-6Jd" customClass="MenuViewController" customModule="Schulte_Table_2_0" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MenuTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="L7M-0Y-6Jd" customClass="MenuTableViewController" customModule="Schulte_Table_2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="always" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Pnw-18-POw">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -224,7 +224,7 @@
                             <tableViewSection headerTitle="GAME MODE" id="nVw-kK-ebf">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="65" id="eiW-Rj-NLI" customClass="MenuTableViewCell" customModule="Schulte_Table_2_0" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="65"/>
+                                        <rect key="frame" x="0.0" y="50" width="428" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eiW-Rj-NLI" id="Btg-dc-8VB">
                                             <rect key="frame" x="0.0" y="0.0" width="428" height="65"/>
@@ -247,7 +247,7 @@
                                         <color key="backgroundColor" name="PrimaryColor"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="65" id="T02-Dk-6sz" customClass="MenuTableViewCell" customModule="Schulte_Table_2_0" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="109.66666603088379" width="428" height="65"/>
+                                        <rect key="frame" x="0.0" y="115" width="428" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T02-Dk-6sz" id="fh9-we-RDh">
                                             <rect key="frame" x="0.0" y="0.0" width="428" height="65"/>
@@ -270,7 +270,7 @@
                                         <color key="backgroundColor" name="PrimaryColor"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="65" id="sGw-gM-DVg" customClass="MenuTableViewCell" customModule="Schulte_Table_2_0" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="174.66666603088379" width="428" height="65"/>
+                                        <rect key="frame" x="0.0" y="180" width="428" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sGw-gM-DVg" id="fFb-Um-EHC">
                                             <rect key="frame" x="0.0" y="0.0" width="428" height="65"/>
@@ -297,7 +297,7 @@
                             <tableViewSection headerTitle="OTHER OPTIONS" id="GiN-Q9-DSE">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="65" id="A2y-OX-FSe" customClass="MenuTableViewCell" customModule="Schulte_Table_2_0" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="306.99999809265137" width="428" height="65"/>
+                                        <rect key="frame" x="0.0" y="323" width="428" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A2y-OX-FSe" id="vQH-EY-tl9">
                                             <rect key="frame" x="0.0" y="0.0" width="428" height="65"/>
@@ -330,7 +330,7 @@
                                         <color key="backgroundColor" name="PrimaryColor"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="65" id="ZEx-7u-qbl" customClass="MenuTableViewCell" customModule="Schulte_Table_2_0" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="371.99999809265137" width="428" height="65"/>
+                                        <rect key="frame" x="0.0" y="388" width="428" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZEx-7u-qbl" id="se7-Ee-Hqq">
                                             <rect key="frame" x="0.0" y="0.0" width="428" height="65"/>
@@ -363,7 +363,7 @@
                                         <color key="backgroundColor" name="PrimaryColor"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="65" id="e2u-bQ-dKO" customClass="MenuTableViewCell" customModule="Schulte_Table_2_0" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="436.99999809265137" width="428" height="65"/>
+                                        <rect key="frame" x="0.0" y="453" width="428" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e2u-bQ-dKO" id="6pJ-ve-FKx">
                                             <rect key="frame" x="0.0" y="0.0" width="428" height="65"/>
@@ -424,10 +424,10 @@
                             <tableViewSection headerTitle="GAME SETTINGS" id="eKv-bk-ed6">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" focusStyle="custom" textLabel="tLE-uT-lja" detailTextLabel="oKe-Id-z4u" rowHeight="44" style="IBUITableViewCellStyleValue1" id="dZT-mS-pt8" customClass="SettingsTableViewCell" customModule="Schulte_Table_2_0" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="49" width="388" height="44"/>
+                                        <rect key="frame" x="20" y="55.333332061767578" width="388" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dZT-mS-pt8" id="6US-qg-OY1">
-                                            <rect key="frame" x="0.0" y="0.0" width="359.33333333333331" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="357.66666666666669" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Grid size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tLE-uT-lja">
@@ -438,7 +438,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="5x5" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oKe-Id-z4u">
-                                                    <rect key="frame" x="324" y="12.999999999999998" width="27.333333333333332" height="19.333333333333332"/>
+                                                    <rect key="frame" x="322.33333333333337" y="12.999999999999998" width="27.333333333333332" height="19.333333333333332"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
@@ -449,10 +449,10 @@
                                         <color key="backgroundColor" name="PrimaryColor"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" focusStyle="custom" textLabel="2Sy-P9-nlT" detailTextLabel="7UW-Kr-NzS" rowHeight="44" style="IBUITableViewCellStyleValue1" id="EFR-lK-dn2" customClass="SettingsTableViewCell" customModule="Schulte_Table_2_0" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="93" width="388" height="44"/>
+                                        <rect key="frame" x="20" y="99.333332061767578" width="388" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EFR-lK-dn2" id="MkH-kz-Qu0">
-                                            <rect key="frame" x="0.0" y="0.0" width="359.33333333333331" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="357.66666666666669" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Sy-P9-nlT">
@@ -463,7 +463,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="English" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7UW-Kr-NzS">
-                                                    <rect key="frame" x="299" y="12.999999999999998" width="52.333333333333336" height="19.333333333333332"/>
+                                                    <rect key="frame" x="297.33333333333337" y="12.999999999999998" width="52.333333333333336" height="19.333333333333332"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
@@ -474,7 +474,7 @@
                                         <color key="backgroundColor" name="PrimaryColor"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" focusStyle="custom" rowHeight="44" id="fvT-zv-Iqk" customClass="SettingsTableViewCell" customModule="Schulte_Table_2_0" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="137" width="388" height="44"/>
+                                        <rect key="frame" x="20" y="143.33333206176758" width="388" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fvT-zv-Iqk" id="age-dK-q3f">
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="44"/>
@@ -506,7 +506,7 @@
                                         <color key="backgroundColor" name="PrimaryColor"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" focusStyle="custom" rowHeight="44" id="kjy-Zm-gHo" customClass="SettingsTableViewCell" customModule="Schulte_Table_2_0" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="181" width="388" height="44"/>
+                                        <rect key="frame" x="20" y="187.33333206176758" width="388" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kjy-Zm-gHo" id="vJ5-Pn-ypb">
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="44"/>
@@ -538,7 +538,7 @@
                                         <color key="backgroundColor" name="PrimaryColor"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" focusStyle="custom" rowHeight="44" id="mSy-EZ-voQ" customClass="SettingsTableViewCell" customModule="Schulte_Table_2_0" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="225" width="388" height="44"/>
+                                        <rect key="frame" x="20" y="231.33333206176758" width="388" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mSy-EZ-voQ" id="BKj-oE-V2D">
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="44"/>
@@ -574,7 +574,7 @@
                             <tableViewSection headerTitle="OTHER" id="wfH-O4-bNH">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" focusStyle="custom" rowHeight="44" id="GVA-GR-33w" customClass="SettingsTableViewCell" customModule="Schulte_Table_2_0" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="318.66666603088379" width="388" height="44"/>
+                                        <rect key="frame" x="20" y="331.33333015441895" width="388" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GVA-GR-33w" id="Xp6-OR-LXV">
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="44"/>
@@ -606,7 +606,7 @@
                                         <color key="backgroundColor" name="PrimaryColor"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" focusStyle="custom" rowHeight="44" id="GPN-8g-M35" customClass="SettingsTableViewCell" customModule="Schulte_Table_2_0" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="362.66666603088379" width="388" height="44"/>
+                                        <rect key="frame" x="20" y="375.33333015441895" width="388" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GPN-8g-M35" id="XMS-ce-IY6">
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="44"/>
@@ -638,7 +638,7 @@
                                         <color key="backgroundColor" name="PrimaryColor"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" focusStyle="custom" rowHeight="44" id="sft-IT-imo" customClass="SettingsTableViewCell" customModule="Schulte_Table_2_0" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="406.66666603088379" width="388" height="44"/>
+                                        <rect key="frame" x="20" y="419.33333015441895" width="388" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sft-IT-imo" id="tSz-Zy-o30">
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="44"/>
@@ -827,7 +827,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Mdq-bH-znb" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" alpha="0.0" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ZDs-wJ-ppT">
-                        <rect key="frame" x="0.0" y="44" width="428" height="96"/>
+                        <rect key="frame" x="0.0" y="47" width="428" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="SecondaryColor"/>
                     </navigationBar>
@@ -843,9 +843,9 @@
     </scenes>
     <resources>
         <image name="background" width="2250" height="3000"/>
-        <image name="chart.bar" catalog="system" width="128" height="90"/>
-        <image name="gear" catalog="system" width="128" height="119"/>
-        <image name="gobackward.minus" catalog="system" width="121" height="128"/>
+        <image name="chart.bar" catalog="system" width="128" height="89"/>
+        <image name="gear" catalog="system" width="128" height="122"/>
+        <image name="gobackward.minus" catalog="system" width="119" height="128"/>
         <image name="listIcon" width="36" height="36"/>
         <image name="restart" width="37.5" height="37.5"/>
         <namedColor name="PrimaryColor">
@@ -855,7 +855,7 @@
             <color red="0.90196078431372551" green="0.90196078431372551" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>

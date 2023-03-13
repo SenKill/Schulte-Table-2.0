@@ -10,13 +10,13 @@ import UIKit
 import CoreMedia
 import AVFAudio
 
-class HomeViewController: UIViewController {
-    // MARK: - Outlets
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet var nextTargetLabel: UILabel!
-    @IBOutlet var labelsView: UIView!
-    @IBOutlet weak var redDotView: UIView!
-    @IBOutlet weak var buttonsCollectionView: UICollectionView!
+final class HomeViewController: UIViewController {
+    // MARK: - IBOutlets
+    @IBOutlet private weak var timeLabel: UILabel!
+    @IBOutlet private var nextTargetLabel: UILabel!
+    @IBOutlet private var labelsView: UIView!
+    @IBOutlet private weak var redDotView: UIView!
+    @IBOutlet private weak var buttonsCollectionView: UICollectionView!
     
     // MARK: - Properties
     private let buttonsVC = ButtonsCollectionViewController()
@@ -40,18 +40,23 @@ class HomeViewController: UIViewController {
         buttonsVC.delegate = self
         stopwatch.delegate = self
         startGame(withType: .classic)
+        configureSwipeGesRec()
     }
-}
-
-// MARK: - Actions
-extension HomeViewController {
-    @IBAction func touchRestartButton(_ sender: UIBarButtonItem) {
+    
+    // MARK: - IBActions
+    @IBAction func didTapRestart(_ sender: UIBarButtonItem) {
         restartGame()
     }
     
-    // Set up other game types and include them into the side bar
     @IBAction func didTapMenu(_ sender: UIBarButtonItem) {
-        guard let menuViewController = storyboard?.instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController else { return }
+        startMenuTranstition()
+    }
+}
+
+// MARK: - Internal
+private extension HomeViewController {
+    func startMenuTranstition() {
+        guard let menuViewController = storyboard?.instantiateViewController(withIdentifier: "MenuTableViewController") as? MenuTableViewController else { return }
         
         menuViewController.delegate = self
         menuViewController.modalPresentationStyle = .overCurrentContext
@@ -60,10 +65,7 @@ extension HomeViewController {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(self.didTapOnDimmingView(_:)))
         transition.dimmingView.addGestureRecognizer(gesture)
     }
-}
-
-// MARK: - Internal
-private extension HomeViewController {
+    
     func loadDefaults() {
         let defaults = UserDefaults.standard
         tableSize = TableSize(rawValue: localService.defaultTableSize ?? 2)
@@ -76,6 +78,7 @@ private extension HomeViewController {
     
     func startGame(withType gameType: GameType) {
         self.title = String(describing: gameType).localized
+        // Инициализация модели отвечающей за пользовательские настройки игры
         let game = SchulteTable()
         game.gameType = gameType
         game.tableSize = tableSize
@@ -84,17 +87,22 @@ private extension HomeViewController {
         nextTargetLabel.text = String(game.nextTarget)
         nextTargetLabel.textColor = .white
         
+        /// Настройка названий кнопок и цветов плиток
+        /// в зависимости от настроек пользователя цвета плиток идут в перемешку или в шахматном порядке
         var titles: [String] = []
         var colors: [UIColor] = shuffleColors ? getDisorderedColors(first: UIColor.theme.defaultButtons[0], second: UIColor.theme.defaultButtons[1]) : getOrderedColors(game, first: UIColor.theme.defaultButtons[0], second: UIColor.theme.defaultButtons[1])
         let range: ClosedRange<Int> = 1...tableSize.items
         
         switch gameType {
         case .classic:
-            range.forEach { number in
-                titles.append(String(number))
-            }
+            /// Установка названий плиток числами от 1
+            /// до последнего числа выбранного размера таблицы
+            titles = range.map({String($0)})
         case .letter:
-            guard tableSize != .huge && tableSize != .extraHuge else {
+            /// Проверка на размер таблицы, если больше 7x7
+            /// и режим таблицы буквенный, тогда выводим сообщение о том что невозможно запустить
+            /// игру с такими настройками (количество заглавных и строчных букв в англ алфавите 52)
+            guard tableSize.rawValue < 6 else {
                 let alert = UIAlertController(title: "LETTER_TABLE_SIZE_TITLE".localized, message: "LETTER_TABLE_SIZE_MESSAGE".localized, preferredStyle: .alert)
                 let action = UIAlertAction(title: "OK", style: .cancel)
                 alert.addAction(action)
@@ -104,6 +112,8 @@ private extension HomeViewController {
                 return
             }
             
+            /// Инициализация юникод кодов строчных и заглавных букв
+            /// и перевод их в строковый тип
             let smallCharacters = 97...122
             let capitalCharacters = 65...90
             let letterArray = Array(smallCharacters) + Array(capitalCharacters)
@@ -115,16 +125,20 @@ private extension HomeViewController {
             game.letterLastTarget = game.nextTarget + range.count
             nextTargetLabel.text = titles.first
         case .redBlack:
+            // Перемешка плиток с красными и черными цветами
             colors = getDisorderedColors(first: UIColor.theme.redBlack[0], second: UIColor.theme.redBlack[1])
         default:
             print("Undefined game type")
         }
         
+        // Перемешка названий плиток
         titles.shuffle()
         game.titles = titles
         game.colors = colors
         buttonsVC.game = game
+        // Перезагрузка всех плиток
         buttonsCollectionView.reloadSections(IndexSet(integer: 0))
+        // Старт секундомера
         stopwatch.start()
     }
     
@@ -180,6 +194,16 @@ private extension HomeViewController {
             colors.append(secondColor)
         }
         return colors.shuffled()
+    }
+    
+    func configureSwipeGesRec() {
+        let swipeGesRec = UISwipeGestureRecognizer(target: self, action: #selector(didSwipeOnRight))
+        view.addGestureRecognizer(swipeGesRec)
+    }
+    
+    @objc func didSwipeOnRight(_ sender: UISwipeGestureRecognizer) {
+        guard sender.location(in: view).x < view.bounds.midX else { return }
+        startMenuTranstition()
     }
 }
 

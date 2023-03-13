@@ -8,9 +8,13 @@
 
 import UIKit
 
-class SlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
+final class SlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
+    // MARK: - Public vars
     var isPresenting = false
     let dimmingView = UIView()
+    
+    // MARK: - Private vars
+    private weak var targetViewController: UIViewController?
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.2
@@ -56,5 +60,22 @@ class SlideInTransition: NSObject, UIViewControllerAnimatedTransitioning {
         }) { (_) in
             transitionContext.completeTransition(!isCancelled)
         }
+        targetViewController = toViewController
+        configureSwipeGesRec(for: containerView)
+    }
+    
+}
+
+// MARK: - Internal
+private extension SlideInTransition {
+    func configureSwipeGesRec(for view: UIView) {
+        let swipeGesRec = UISwipeGestureRecognizer(target: self, action: #selector(testGesRec))
+        swipeGesRec.direction = .left
+        view.addGestureRecognizer(swipeGesRec)
+    }
+    
+    @objc func testGesRec(_ sender: UISwipeGestureRecognizer) {
+        guard sender.direction == .left else { return }
+        targetViewController?.dismiss(animated: true)
     }
 }

@@ -15,7 +15,7 @@ protocol ButtonsCollectionDelegate: AnyObject {
     func buttonsCollectionReloadView()
 }
 
-class ButtonsCollectionViewController: UICollectionViewController {
+final class ButtonsCollectionViewController: UICollectionViewController {
     weak var delegate: ButtonsCollectionDelegate?
     var game: SchulteTable!
     var hardMode: Bool!
@@ -82,23 +82,27 @@ extension ButtonsCollectionViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - Internal
 private extension ButtonsCollectionViewController {
     func checkButton(_ button: UIButton) {
+        // Если нажали на правильную плитку
         if button.currentTitle == String(game.nextTarget) || button.currentTitle == String(Unicode.Scalar(game.nextTarget)!) {
             game.nextTarget += 1
-            // Transition to capital letters in the Letter game type
+            // Переход на заглавные буквы если таблица буквенная
             if game.nextTarget == 123 {
                 game.nextTarget = 65
             }
             var textForTargetLabel: String = ""
+            // Если режим игры буквенный конвертируем юникод в строку
             if game.gameType == .letter {
                 textForTargetLabel = String(Unicode.Scalar(game.nextTarget)!)
             } else {
                 textForTargetLabel = String(game.nextTarget)
             }
+            // Меняем следующую цель на строку полученну выше
             delegate?.buttonsCollection(changeTargetLabelWithText: textForTargetLabel, color: nil)
             handleCorrectButton(button)
-            return
+        } else {
+            /// Если нажали на неправильную плитку запускаем соответствующий звук
+            soundPlayer.playSound(soundPath: soundPlayer.wrongSoundPath)
         }
-        soundPlayer.playSound(soundPath: soundPlayer.wrongSoundPath)
     }
     
     func checkRedBlackButton(_ button: UIButton) {

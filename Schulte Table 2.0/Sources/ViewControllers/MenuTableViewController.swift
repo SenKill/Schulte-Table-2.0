@@ -1,5 +1,5 @@
 //
-//  MenuViewController.swift
+//  MenuTableViewController.swift
 //  Schulte Table 2.0
 //
 //  Created by SenKill on 8/5/21.
@@ -22,20 +22,23 @@ protocol MenuDelegate: AnyObject {
     func menuDidResetResults()
 }
 
-class MenuViewController: UITableViewController {
-    @IBOutlet weak var resetResultsLabel: UILabel!
-    @IBOutlet weak var resetResultsCell: UITableViewCell!
+final class MenuTableViewController: UITableViewController {
+    // MARK: - Public vars
     weak var delegate: MenuDelegate?
     
-    private func handleResetting() {
-        LocalService().clearAllData()
-        delegate?.menuDidResetResults()
-        dismiss(animated: true)
+    // MARK: - IBOutlets
+    @IBOutlet private weak var resetResultsLabel: UILabel!
+    @IBOutlet private weak var resetResultsCell: UITableViewCell!
+    
+    // MARK: - View life cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
     }
 }
 
 // MARK: - TableViewDataSource
-extension MenuViewController {
+extension MenuTableViewController {
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         view.tintColor = .clear
         // Menu headerView
@@ -50,7 +53,7 @@ extension MenuViewController {
 }
 
 // MARK: - TableViewDelegate
-extension MenuViewController {
+extension MenuTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             guard let gameType = GameType(rawValue: indexPath.row) else { return }
@@ -83,5 +86,14 @@ extension MenuViewController {
                 print("Undefined row")
             }
         }
+    }
+}
+
+// MARK: - Internal
+private extension MenuTableViewController {
+    func handleResetting() {
+        LocalService().clearAllData()
+        delegate?.menuDidResetResults()
+        dismiss(animated: true)
     }
 }
