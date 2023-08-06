@@ -36,7 +36,7 @@
 		F79FECDF28281C8700E1E09F /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79FECDE28281C8700E1E09F /* UserDefaults.swift */; };
 		F7ADB8B9283FE91300A4C641 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ADB8B8283FE91300A4C641 /* SettingsTableViewCell.swift */; };
 		F7ADB8BD283FF22800A4C641 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ADB8BC283FF22800A4C641 /* MenuTableViewCell.swift */; };
-		F7B4C7BB281FAA39005E4535 /* SchulteTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4C7BA281FAA39005E4535 /* SchulteTable.swift */; };
+		F7B4C7BB281FAA39005E4535 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B4C7BA281FAA39005E4535 /* GameInfo.swift */; };
 		F7B929D528257282008D8117 /* ButtonsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B929D028257282008D8117 /* ButtonsCollectionViewCell.swift */; };
 		F7B929DE282572F4008D8117 /* SelectorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B929DA282572F3008D8117 /* SelectorTableViewCell.swift */; };
 		F7B929DF282572F4008D8117 /* LanguageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B929DB282572F4008D8117 /* LanguageTableViewCell.swift */; };
@@ -87,7 +87,7 @@
 		F79FECDE28281C8700E1E09F /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		F7ADB8B8283FE91300A4C641 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		F7ADB8BC283FF22800A4C641 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
-		F7B4C7BA281FAA39005E4535 /* SchulteTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchulteTable.swift; sourceTree = "<group>"; };
+		F7B4C7BA281FAA39005E4535 /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
 		F7B929D028257282008D8117 /* ButtonsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonsCollectionViewCell.swift; sourceTree = "<group>"; };
 		F7B929DA282572F3008D8117 /* SelectorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorTableViewCell.swift; sourceTree = "<group>"; };
 		F7B929DB282572F4008D8117 /* LanguageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageTableViewCell.swift; sourceTree = "<group>"; };
@@ -172,7 +172,7 @@
 				F7307FD82815A42E005C545B /* LocalService.swift */,
 				F7D22A762816A637001E86AF /* Stopwatch.swift */,
 				F7D22A7A28170275001E86AF /* SoundPlayer.swift */,
-				F7B4C7BA281FAA39005E4535 /* SchulteTable.swift */,
+				F7B4C7BA281FAA39005E4535 /* GameInfo.swift */,
 				F708665A28210EC100053459 /* TableSize.swift */,
 			);
 			path = Model;
@@ -427,7 +427,7 @@
 				F7307FD62815A1E0005C545B /* EndGameView.swift in Sources */,
 				F7622234281BFE0800B85057 /* ButtonsCollectionViewController.swift in Sources */,
 				F71F45D42824F82600577471 /* Language.swift in Sources */,
-				F7B4C7BB281FAA39005E4535 /* SchulteTable.swift in Sources */,
+				F7B4C7BB281FAA39005E4535 /* GameInfo.swift in Sources */,
 				F7B929DF282572F4008D8117 /* LanguageTableViewCell.swift in Sources */,
 				F7981D7D26A16A69003ECEFB /* HomeViewController.swift in Sources */,
 				F7ADB8B9283FE91300A4C641 /* SettingsTableViewCell.swift in Sources */,

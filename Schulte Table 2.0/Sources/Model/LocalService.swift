@@ -9,6 +9,12 @@
 import Foundation
 import CoreData
 
+struct GameStat {
+    let previous: Double
+    let current: Double
+    let best: Double
+}
+
 final class LocalService {
     private let defaults = UserDefaults.standard
     private let tableSizeKey = "tableSize"
@@ -30,7 +36,7 @@ final class LocalService {
 }
 
 extension LocalService {
-    func handleEndGame(gameType: GameType, table size: TableSize, timeInfo: (Int, Int)) -> (Double, Double, Double) {
+    func handleEndGame(gameType: GameType, table size: TableSize, timeInfo: (Int, Int)) -> GameStat {
         let currentTime: Double = Double(timeInfo.0) + Double(timeInfo.1) / 100
         let fetchRequest: NSFetchRequest<GameResult> = GameResult.fetchRequest()
         
@@ -61,11 +67,10 @@ extension LocalService {
             // Saving changed data in store
             stack.saveContext()
             
-            return (previousTime, currentTime, bestTime)
+            return GameStat(previous: previousTime, current: currentTime, best: bestTime)
         } catch let error as NSError {
             print("Fetch error \(error), \(error.userInfo)")
         }
-        
         return (0.0, currentTime, 0.0)
     }
 }

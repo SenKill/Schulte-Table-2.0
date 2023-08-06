@@ -9,11 +9,10 @@
 // Side bar menu
 import UIKit
 
-enum GameType: Int {
+enum GameType: Int, CaseIterable {
     case classic
     case letter
     case redBlack
-    case last
 }
 
 protocol MenuDelegate: AnyObject {

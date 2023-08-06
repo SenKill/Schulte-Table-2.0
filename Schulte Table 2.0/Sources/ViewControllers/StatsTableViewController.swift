@@ -10,12 +10,13 @@ import Foundation
 import UIKit
 import CoreData
 
-class StatsTableViewController: UITableViewController {
+final class StatsTableViewController: UITableViewController {
+    // MARK: - Properties
     private var records: [GameType: [GameResult]] = [:]
     private let coreDataStack = CoreDataStack.shared
-    
     private let sectionHeaderHeigh: CGFloat = 25
     
+    // MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = UIColor(named: "SecondaryColor")!
@@ -49,18 +50,21 @@ private extension StatsTableViewController {
         return []
     }
     
-    // Sorting data from the rawRecords to the more readable 'records' dictionary, to easily set sections for table
+    // Sorting data from the rawRecords to the more readable 'records' dictionary
     func sortRecords(rawRecords: [GameResult]) {
-        records[.classic] = rawRecords.filter({ $0.gameType == GameType.classic.rawValue })
-        records[.letter] = rawRecords.filter({ $0.gameType == GameType.letter.rawValue })
-        records[.redBlack] = rawRecords.filter({ $0.gameType == GameType.redBlack.rawValue })
+        records[.classic] = []
+        records[.letter] = []
+        records[.redBlack] = []
+        for record in rawRecords {
+            records[GameType(rawValue: Int(record.gameType))!]?.append(record)
+        }
     }
 }
 
-// MARK: TableDataSource
+// MARK: - UITableViewDataSource
 extension StatsTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-        GameType.last.rawValue
+        return GameType.allCases.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -94,8 +98,6 @@ extension StatsTableViewController {
                 label.text = String(describing: GameType.letter).localized
             case .redBlack:
                 label.text = String(describing: GameType.redBlack).localized
-            default:
-                print("Undefined gameType")
             }
         }
         view.addSubview(label)
@@ -110,7 +112,7 @@ extension StatsTableViewController {
     }
 }
 
-// MARK: - TableViewDelegate
+// MARK: - UITableViewDelegate
 extension StatsTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let gameTypeRecords: [GameResult] = records[GameType(rawValue: indexPath.section)!] ?? []

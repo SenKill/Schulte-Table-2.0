@@ -10,22 +10,19 @@ import Foundation
 import Charts
 import UIKit
 
-class ChartView: LineChartView {
+final class ChartView: LineChartView {
     init() {
         super.init(frame: .zero)
         customizeChartView()
-        legend.verticalAlignment = .top
-        backgroundColor = .systemBackground
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        customizeChartView()
     }
     
     func activateConstraints() {
-        guard let superview = superview else {
-            return
-        }
+        guard let superview = superview else { return }
         translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             leadingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.leadingAnchor),
@@ -55,5 +52,7 @@ private extension ChartView {
         rightAxis.enabled = true
         leftAxis.enabled = true
         xAxis.enabled = true
+        legend.verticalAlignment = .top
+        backgroundColor = .systemBackground
     }
 }

@@ -9,49 +9,27 @@
 import Foundation
 import UIKit
 
-class EndGameView: UIView {
-    private let currentValue: Double
-    private let bestValue: Double
-    private let previousValue: Double
-    private var gameType: GameType
-    private var tableSize: TableSize!
+final class EndGameView: UIView {
+    private let statistics: GameStat
+    private let gameType: GameType
+    private let tableSize: TableSize
+    private let gameInfoLabel: UILabel = getLabel(withColor: .lightGray, withFontSize: 25)
+    private let bestLabel: UILabel = getLabel(withColor: UIColor(r: 255, g: 215, b: 0, a: 0.8), withFontSize: 30)
+    private let currentLabel: UILabel = getLabel(withColor: UIColor(r: 156, g: 192, b: 231, a: 0.8), withFontSize: 40)
+    private let previousLabel: UILabel = getLabel(withColor: UIColor(r: 255, g: 160, b: 122, a: 0.8), withFontSize: 30)
     
-    private let gameInfoLabel: UILabel = {
-        getLabel(withColor: .lightGray, withFontSize: 25)
-    }()
-    
-    private let bestLabel: UILabel = {
-        getLabel(withColor: UIColor(r: 255, g: 215, b: 0, a: 0.8), withFontSize: 30)
-    }()
-    
-    private let currentLabel: UILabel = {
-        getLabel(withColor: UIColor(r: 156, g: 192, b: 231, a: 0.8), withFontSize: 40)
-        
-    }()
-    
-    private let previousLabel: UILabel = {
-        getLabel(withColor: UIColor(r: 255, g: 160, b: 122, a: 0.8), withFontSize: 30)
-    }()
-    
-    init(frame: CGRect, previous: Double, current: Double, best: Double, game: GameType, table: TableSize) {
-        previousValue = previous
-        currentValue = current
-        bestValue = best
-        gameType = game
-        tableSize = table
+    init(frame: CGRect, statistics: GameStat, game: GameType, table: TableSize) {
+        self.statistics = statistics
+        self.gameType = game
+        self.tableSize = table
         super.init(frame: frame)
-        
         backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5)
         setViews()
         layoutViews()
     }
     
     required init?(coder: NSCoder) {
-        currentValue = 0.0
-        bestValue = 0.0
-        previousValue = 0.0
-        gameType = .classic
-        super.init(coder: coder)
+        fatalError("Init with coder isn't supported")
     }
     
     override func layoutSubviews() {
@@ -74,14 +52,10 @@ private extension EndGameView {
     }
     
     func setViews() {
-        let gameInfoText = "\(String(describing: gameType).localized), \(tableSize.string) \("GRID".localized)"
-        gameInfoLabel.text = gameInfoText
-        let bestText = "BEST_RESULT".localized + bestValue.formatSeconds
-        bestLabel.text = bestText
-        let currentText: String = "YOUR_RESULT".localized + String(format: "%.2f", currentValue) + "SEC".localized
-        currentLabel.text = currentText
-        let previousText = "PREVIOUS_RESULT".localized + String(format: "%.2f", previousValue) + "SEC".localized
-        previousLabel.text = previousText
+        gameInfoLabel.text = "\(String(describing: gameType).localized), \(tableSize.string) \("GRID".localized)"
+        bestLabel.text = "BEST_RESULT".localized + statistics.best.formatSeconds
+        currentLabel.text = "YOUR_RESULT".localized + statistics.current.formatSeconds
+        previousLabel.text = "PREVIOUS_RESULT".localized + statistics.previous.formatSeconds
         addSubview(gameInfoLabel)
         addSubview(bestLabel)
         addSubview(currentLabel)

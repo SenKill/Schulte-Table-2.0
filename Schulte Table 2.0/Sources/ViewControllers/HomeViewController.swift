@@ -13,13 +13,13 @@ import AVFAudio
 final class HomeViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet private weak var timeLabel: UILabel!
-    @IBOutlet private var nextTargetLabel: UILabel!
-    @IBOutlet private var labelsView: UIView!
+    @IBOutlet private weak var nextTargetLabel: UILabel!
+    @IBOutlet private weak var labelsView: UIView!
     @IBOutlet private weak var redDotView: UIView!
     @IBOutlet private weak var buttonsCollectionView: UICollectionView!
     
     // MARK: - Properties
-    private let buttonsVC = ButtonsCollectionViewController()
+    private let buttonsViewController = ButtonsCollectionViewController()
     private let localService = LocalService()
     private let transition = SlideInTransition()
     private let stopwatch = Stopwatch()
@@ -31,14 +31,9 @@ final class HomeViewController: UIViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.largeTitleDisplayMode = .never
-        navigationItem.title = String(describing: currentGameType).lowercased().localized
-        
+        configureNavigationBar()
         loadDefaults()
-        buttonsCollectionView.dataSource = buttonsVC
-        buttonsCollectionView.delegate = buttonsVC
-        buttonsVC.delegate = self
-        stopwatch.delegate = self
+        setDelegates()
         startGame(withType: .classic)
         configureSwipeGesRec()
     }
@@ -55,9 +50,19 @@ final class HomeViewController: UIViewController {
 
 // MARK: - Internal
 private extension HomeViewController {
+    func configureNavigationBar() {
+        navigationItem.largeTitleDisplayMode = .never
+        navigationItem.title = String(describing: currentGameType).lowercased().localized
+    }
+    
+    func setDelegates() {
+        buttonsCollectionView.dataSource = buttonsViewController
+        buttonsCollectionView.delegate = buttonsViewController
+        stopwatch.delegate = self
+    }
+    
     func startMenuTranstition() {
         guard let menuViewController = storyboard?.instantiateViewController(withIdentifier: "MenuTableViewController") as? MenuTableViewController else { return }
-        
         menuViewController.delegate = self
         menuViewController.modalPresentationStyle = .overCurrentContext
         menuViewController.transitioningDelegate = self
@@ -70,75 +75,32 @@ private extension HomeViewController {
         let defaults = UserDefaults.standard
         tableSize = TableSize(rawValue: localService.defaultTableSize ?? 2)
         shuffleColors = defaults.bool(forKey: UserDefaults.Key.shuffleColors)
-        buttonsVC.hardMode = defaults.bool(forKey: UserDefaults.Key.hardMode)
-        buttonsVC.crazyMode = defaults.bool(forKey: UserDefaults.Key.crazyMode)
+        buttonsViewController.hardMode = defaults.bool(forKey: UserDefaults.Key.hardMode)
+        buttonsViewController.crazyMode = defaults.bool(forKey: UserDefaults.Key.crazyMode)
         labelsView.isHidden = defaults.bool(forKey: UserDefaults.Key.hideInterface)
         redDotView.isHidden = defaults.bool(forKey: UserDefaults.Key.hideRedDot)
     }
     
     func startGame(withType gameType: GameType) {
+        self.currentGameType = gameType
         self.title = String(describing: gameType).localized
-        // Инициализация модели отвечающей за пользовательские настройки игры
-        let game = SchulteTable()
-        game.gameType = gameType
-        game.tableSize = tableSize
-        game.passedButtons = []
-        game.nextTarget = 1
-        nextTargetLabel.text = String(game.nextTarget)
-        nextTargetLabel.textColor = .white
+        let game = GameInfo(gameType: gameType, tableSize: tableSize, shuffleColors: shuffleColors) {
+            let alert = UIAlertController(title: "LETTER_TABLE_SIZE_TITLE".localized, message: "LETTER_TABLE_SIZE_MESSAGE".localized, preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .cancel)
+            alert.addAction(action)
+            self.present(alert, animated: true)
+        }
+        game.delegate = self
         
-        /// Настройка названий кнопок и цветов плиток
-        /// в зависимости от настроек пользователя цвета плиток идут в перемешку или в шахматном порядке
-        var titles: [String] = []
-        var colors: [UIColor] = shuffleColors ? getDisorderedColors(first: UIColor.theme.defaultButtons[0], second: UIColor.theme.defaultButtons[1]) : getOrderedColors(game, first: UIColor.theme.defaultButtons[0], second: UIColor.theme.defaultButtons[1])
-        let range: ClosedRange<Int> = 1...tableSize.items
-        
-        switch gameType {
-        case .classic:
-            /// Установка названий плиток числами от 1
-            /// до последнего числа выбранного размера таблицы
-            titles = range.map({String($0)})
-        case .letter:
-            /// Проверка на размер таблицы, если больше 7x7
-            /// и режим таблицы буквенный, тогда выводим сообщение о том что невозможно запустить
-            /// игру с такими настройками (количество заглавных и строчных букв в англ алфавите 52)
-            guard tableSize.rawValue < 6 else {
-                let alert = UIAlertController(title: "LETTER_TABLE_SIZE_TITLE".localized, message: "LETTER_TABLE_SIZE_MESSAGE".localized, preferredStyle: .alert)
-                let action = UIAlertAction(title: "OK", style: .cancel)
-                alert.addAction(action)
-                present(alert, animated: true)
-                currentGameType = .classic
-                startGame(withType: .classic)
-                return
-            }
-            
-            /// Инициализация юникод кодов строчных и заглавных букв
-            /// и перевод их в строковый тип
-            let smallCharacters = 97...122
-            let capitalCharacters = 65...90
-            let letterArray = Array(smallCharacters) + Array(capitalCharacters)
-            for i in range {
-                let letter = String(Unicode.Scalar(letterArray[i-1])!)
-                titles.append(letter)
-            }
-            game.nextTarget = smallCharacters.first ?? 97
-            game.letterLastTarget = game.nextTarget + range.count
-            nextTargetLabel.text = titles.first
-        case .redBlack:
-            // Перемешка плиток с красными и черными цветами
-            colors = getDisorderedColors(first: UIColor.theme.redBlack[0], second: UIColor.theme.redBlack[1])
-        default:
-            print("Undefined game type")
+        if game.titles.isEmpty {
+            self.startGame(withType: .classic)
+            return
         }
         
-        // Перемешка названий плиток
-        titles.shuffle()
-        game.titles = titles
-        game.colors = colors
-        buttonsVC.game = game
-        // Перезагрузка всех плиток
+        nextTargetLabel.text = game.firstTarget
+        nextTargetLabel.textColor = .white
+        buttonsViewController.game = game
         buttonsCollectionView.reloadSections(IndexSet(integer: 0))
-        // Старт секундомера
         stopwatch.start()
     }
     
@@ -149,61 +111,12 @@ private extension HomeViewController {
     
     func transitionToNew(_ gameType: GameType) {
         stopwatch.stop()
-        currentGameType = gameType
         startGame(withType: gameType)
-    }
-    
-    func getOrderedColors(_ game: SchulteTable, first firstColor: UIColor, second secondColor: UIColor) -> [UIColor] {
-        var colors: [UIColor] = []
-        var isRowEven: Bool = false
-        
-        if game.isItemsEven {
-            for i in 1...tableSize.items {
-                if (!isRowEven && i%2 == 0) || (isRowEven && i%2 == 1) {
-                    colors.append(firstColor)
-                } else {
-                    colors.append(secondColor)
-                }
-                if i%Int(sqrt(Double(tableSize.items))) == 0 {
-                    isRowEven.toggle()
-                }
-            }
-            return colors
-        }
-        
-        for i in 1...tableSize.items {
-            if i%2 == 0 {
-                colors.append(firstColor)
-            } else {
-                colors.append(secondColor)
-            }
-        }
-        return colors
-    }
-    
-    func getDisorderedColors(first firstColor: UIColor, second secondColor: UIColor) -> [UIColor] {
-        var colors: [UIColor] = []
-        let isNumberEven: Bool = tableSize.items % 2 == 0
-        let firstRange = 1...(tableSize.items / 2)
-        let secondRange = 1...(isNumberEven ? tableSize.items / 2 : tableSize.items / 2 + 1)
-        
-        for _ in firstRange {
-            colors.append(firstColor)
-        }
-        for _ in secondRange {
-            colors.append(secondColor)
-        }
-        return colors.shuffled()
     }
     
     func configureSwipeGesRec() {
         let swipeGesRec = UISwipeGestureRecognizer(target: self, action: #selector(didSwipeOnRight))
         view.addGestureRecognizer(swipeGesRec)
-    }
-    
-    @objc func didSwipeOnRight(_ sender: UISwipeGestureRecognizer) {
-        guard sender.location(in: view).x < view.bounds.midX else { return }
-        startMenuTranstition()
     }
 }
 
@@ -215,11 +128,19 @@ private extension HomeViewController {
     
     @objc func didTapEndGameView(_ sender: UITapGestureRecognizer) {
         endGameView.removeFromSuperview()
+        endGameView = nil
         navigationController?.isNavigationBarHidden = false
+        
         let defaults = UserDefaults.standard
         labelsView.isHidden = defaults.bool(forKey: UserDefaults.Key.hideInterface)
         redDotView.isHidden = defaults.bool(forKey: UserDefaults.Key.hideRedDot)
         startGame(withType: currentGameType)
+    }
+    
+    @objc func didSwipeOnRight(_ sender: UISwipeGestureRecognizer) {
+        if sender.location(in: view).x < view.bounds.midX {
+            startMenuTranstition()
+        }
     }
 }
 
@@ -262,25 +183,24 @@ extension HomeViewController: MenuDelegate {
     }
 }
 
-// MARK: - ButtonsCollectionDelegate
-extension HomeViewController: ButtonsCollectionDelegate {
-    func buttonsCollectionReloadView() {
+// MARK: - GameInfoDelegate
+extension HomeViewController: GameInfoDelegate {
+    func gameInfoReloadView() {
         buttonsCollectionView.reloadSections(IndexSet(integer: 0))
     }
     
-    func buttonsCollection(changeTargetLabelWithText text: String, color: UIColor?) {
+    func gameInfo(changeTargetLabelWithText text: String, color: UIColor?) {
         nextTargetLabel.textColor = color ?? .white
         nextTargetLabel.text = text
     }
     
-    func buttonsCollectionDidEndGame() {
-        let statTuple = localService.handleEndGame(gameType: currentGameType, table: tableSize, timeInfo: stopwatch.getTimeInfo())
-        
+    func gameInfoDidEndGame() {
+        let statistics = localService.handleEndGame(gameType: currentGameType, table: tableSize, timeInfo: stopwatch.getTimeInfo())
         stopwatch.stop()
         labelsView.isHidden = true
         redDotView.isHidden = true
-        endGameView = EndGameView(frame: view.bounds.self, previous: statTuple.0, current: statTuple.1, best: statTuple.2, game: currentGameType, table: tableSize)
         navigationController?.isNavigationBarHidden = true
+        endGameView = EndGameView(frame: view.bounds.self, statistics: statistics, game: currentGameType, table: tableSize)
         view.addSubview(endGameView)
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapEndGameView(_:)))
@@ -303,12 +223,12 @@ extension HomeViewController: SettingsDelegate {
     }
     
     func settings(didChangedHardMode hardMode: Bool) {
-        buttonsVC.hardMode = hardMode
+        buttonsViewController.hardMode = hardMode
         restartGame()
     }
     
     func settings(didChangedCrazyMode crazyMode: Bool) {
-        buttonsVC.crazyMode = crazyMode
+        buttonsViewController.crazyMode = crazyMode
         restartGame()
     }
     

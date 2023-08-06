@@ -9,25 +9,13 @@
 import Foundation
 import UIKit
 
-protocol ButtonsCollectionDelegate: AnyObject {
-    func buttonsCollection(changeTargetLabelWithText text: String, color: UIColor?)
-    func buttonsCollectionDidEndGame()
-    func buttonsCollectionReloadView()
-}
-
 final class ButtonsCollectionViewController: UICollectionViewController {
-    weak var delegate: ButtonsCollectionDelegate?
-    var game: SchulteTable!
+    var game: GameInfo!
     var hardMode: Bool!
     var crazyMode: Bool!
     
-    private let soundPlayer = SoundPlayer()
-}
-
-// MARK: - Data source
-extension ButtonsCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        game.tableSize.items
+        return game.tableSize.items
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -51,7 +39,7 @@ extension ButtonsCollectionViewController {
             }
         }
         
-        for tableButton in game.passedButtons {
+        for tableButton in game.pressedButtons {
             if (tableButton.title == buttonTitle) && (tableButton.isRedButton == (buttonColor == UIColor.theme.redBlack[0])) {
                 cell.button.isHidden = true
                 return cell
@@ -61,9 +49,9 @@ extension ButtonsCollectionViewController {
         cell.configureCell(with: buttonTitle, color: buttonColor, crazyMode: crazyMode)
         cell.handleButtonAction = { button in
             if self.game.gameType == .redBlack {
-                self.checkRedBlackButton(button)
+                self.game.checkRedBlackButton(button, isHardMode: self.hardMode)
             } else {
-                self.checkButton(button)
+                self.game.checkButton(button, isHardMode: self.hardMode)
             }
         }
         return cell
@@ -76,93 +64,5 @@ extension ButtonsCollectionViewController: UICollectionViewDelegateFlowLayout {
         let bounds = UIScreen.main.bounds
         let cellWidth = (bounds.width / sqrt(CGFloat(game.tableSize.items))) - 1
         return CGSize(width: cellWidth, height: cellWidth)
-    }
-}
-
-// MARK: - Internal
-private extension ButtonsCollectionViewController {
-    func checkButton(_ button: UIButton) {
-        // Если нажали на правильную плитку
-        if button.currentTitle == String(game.nextTarget) || button.currentTitle == String(Unicode.Scalar(game.nextTarget)!) {
-            game.nextTarget += 1
-            // Переход на заглавные буквы если таблица буквенная
-            if game.nextTarget == 123 {
-                game.nextTarget = 65
-            }
-            var textForTargetLabel: String = ""
-            // Если режим игры буквенный конвертируем юникод в строку
-            if game.gameType == .letter {
-                textForTargetLabel = String(Unicode.Scalar(game.nextTarget)!)
-            } else {
-                textForTargetLabel = String(game.nextTarget)
-            }
-            // Меняем следующую цель на строку полученну выше
-            delegate?.buttonsCollection(changeTargetLabelWithText: textForTargetLabel, color: nil)
-            handleCorrectButton(button)
-        } else {
-            /// Если нажали на неправильную плитку запускаем соответствующий звук
-            soundPlayer.playSound(soundPath: soundPlayer.wrongSoundPath)
-        }
-    }
-    
-    func checkRedBlackButton(_ button: UIButton) {
-        // Decomposing if else logic, and storing it in the property below
-        let isRightButton: Bool!
-        let backgroundColorIsBlack: Bool = button.backgroundColor == UIColor.theme.redBlack[1]
-        if game.targetColor == UIColor.theme.redBlack[1] {
-            isRightButton = button.currentTitle == String(game.nextTarget) && backgroundColorIsBlack
-        } else {
-            isRightButton = button.currentTitle == String(game.nextTargetRed) && !backgroundColorIsBlack
-        }
-        
-        // If the button was right then it will send the new text to the master through delegate
-        if isRightButton {
-            if game.targetColor == UIColor.theme.redBlack[1] {
-                game.nextTarget += 1
-                game.targetColor = UIColor.theme.redBlack[0]
-                delegate?.buttonsCollection(changeTargetLabelWithText: String(game.nextTargetRed), color: game.targetColor)
-            } else {
-                game.nextTargetRed -= 1
-                game.targetColor = UIColor.theme.redBlack[1]
-                delegate?.buttonsCollection(changeTargetLabelWithText: String(game.nextTarget), color: .white)
-            }
-            handleCorrectButton(button)
-            return
-        }
-        soundPlayer.playSound(soundPath: soundPlayer.wrongSoundPath)
-    }
-    
-    func handleCorrectButton(_ button: UIButton) {
-        soundPlayer.playSound(soundPath: soundPlayer.correctSoundPath)
-        button.isHidden = true
-        var tableButton = TableButton(title: button.title(for: .normal) ?? "")
-        tableButton.isRedButton = button.backgroundColor == UIColor.theme.redBlack[0]
-        
-        // MARK: Hard Mode
-        if hardMode {
-            if game.gameType == .redBlack {
-                game.redCount = 0
-                game.blackCount = 0
-                game.redTitles.shuffle()
-                game.blackTitles.shuffle()
-            } else {
-                game.titles.shuffle()
-            }
-            game.passedButtons.append(tableButton)
-            delegate?.buttonsCollectionReloadView()
-        }
-        
-        // Checking if the button is the last
-        if game.gameType == .redBlack {
-            // MARK: For the red-black
-            if (tableButton.isRedButton == (game.redBlackLastTarget == 1)) && (tableButton.title == String(game.redBlackLastTarget)) {
-                delegate?.buttonsCollectionDidEndGame()
-            }
-        } else {
-            // MARK: For the others
-            if game.nextTarget == game.tableSize.items+1 || game.nextTarget == game.letterLastTarget {
-                delegate?.buttonsCollectionDidEndGame()
-            }
-        }
     }
 }
